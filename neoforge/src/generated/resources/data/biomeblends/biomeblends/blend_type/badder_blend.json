@@ -1,0 +1,20 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:jungle"
+  },
+  "biome_blacklist": {
+    "values": [
+      "minecraft:plains"
+    ]
+  },
+  "color": 9358161,
+  "dimension_blacklist": {
+    "negate": true,
+    "values": [
+      "minecraft:overworld",
+      "minecraft:the_nether",
+      "minecraft:the_end"
+    ]
+  }
+}

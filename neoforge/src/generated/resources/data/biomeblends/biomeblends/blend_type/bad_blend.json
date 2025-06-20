@@ -1,0 +1,15 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:badlands"
+  },
+  "color": 10583664,
+  "dimension_blacklist": {
+    "negate": true,
+    "values": [
+      "minecraft:overworld",
+      "minecraft:the_nether",
+      "minecraft:the_end"
+    ]
+  }
+}
