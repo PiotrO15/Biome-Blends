@@ -28,6 +28,9 @@
     "architectury": ">=13.0.8",
     "fabric-api": "*"
   },
+  "mixins": [
+    "biomeblends.mixins.json"
+  ],
   "suggests": {
     "another-mod": "*"
   }

@@ -33,8 +33,8 @@ public class DataGenerators {
                         output,
                         lookupProvider,
                         new RegistrySetBuilder()
-                                .add(BiomeBlendsRegistries.BLEND_TYPE, BlendTypeProvider::RegisterBlendTypes),
-                        Set.of(BiomeBlends.MOD_ID)
+                                .add(BiomeBlendsRegistries.BLEND_TYPE, BlendTypeProvider::registerBlendTypes),
+                        Set.of(BiomeBlends.MOD_ID, "minecraft")
                 )
         );
     }

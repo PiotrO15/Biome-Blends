@@ -27,7 +27,6 @@ public class NeoForgeClient {
     public static void registerModels(ModelEvent.RegisterAdditional event) {
         for (Map.Entry<ResourceLocation, Resource> entry : FileToIdConverter.json("models/blend_type").listMatchingResources(Minecraft.getInstance().getResourceManager()).entrySet()) {
             ResourceLocation blendType = ResourceLocation.parse(entry.getKey().toString().replace("models/blend_type", "blend_type").replace(".json", ""));
-            System.out.println("Registering blend type model: " + blendType);
             event.register(ModelResourceLocation.standalone(blendType));
         }
     }

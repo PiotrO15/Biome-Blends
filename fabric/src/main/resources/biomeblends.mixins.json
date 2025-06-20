@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "piotro15.biomeblends.fabric.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [],
+  "client": [
+    "BlendRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

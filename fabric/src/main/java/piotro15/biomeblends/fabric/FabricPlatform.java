@@ -7,7 +7,6 @@ import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.ItemLike;
 import piotro15.biomeblends.util.Platform;
 
 import java.util.function.Supplier;

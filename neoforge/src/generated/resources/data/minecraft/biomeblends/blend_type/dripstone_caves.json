@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:dripstone_caves"
+  },
+  "color": 10583664
+}

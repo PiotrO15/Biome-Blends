@@ -1,4 +1,5 @@
-// 1.21.1	2025-06-20T11:07:39.6010538	Registries
-09007a8ef96e6cb02c0bb8223f04cb97cb97ac4a data/biomeblends/biomeblends/blend_type/badder_blend.json
-6c9d9238f4d9ae9b437c283fd88629292289a496 data/biomeblends/biomeblends/blend_type/bad_blend.json
-3be49b65dd73665bddf220ae2c171d7ca3be15a7 data/biomeblends/biomeblends/blend_type/default_blend.json
+// 1.21.1	2025-06-20T16:56:53.3939914	Registries
+49fa2bdfef234e18c6cbcfd8bd2ff6a1edeb07c7 data/minecraft/biomeblends/blend_type/deep_dark.json
+1851e0add73def91c605126939e0601ac659d358 data/minecraft/biomeblends/blend_type/dripstone_caves.json
+df801db7bacd8dc80fe2fa3cefe5a5fe3dab2a36 data/minecraft/biomeblends/blend_type/forest.json
+119c356241d020d1ef4e1ac8b46db1d560a670e0 data/minecraft/biomeblends/blend_type/lush_caves.json

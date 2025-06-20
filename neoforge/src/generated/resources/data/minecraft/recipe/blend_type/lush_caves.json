@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:moss_block"
+    },
+    {
+      "item": "biomeblends:biome_blend"
+    },
+    {
+      "item": "minecraft:glow_berries"
+    },
+    {
+      "item": "minecraft:glow_berries"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "minecraft:lush_caves"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}
