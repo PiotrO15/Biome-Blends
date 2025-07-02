@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:soul_sand_valley"
+  },
+  "color": 8610379
+}

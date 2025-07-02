@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:eroded_badlands"
+  },
+  "color": 11749916
+}

@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:old_growth_spruce_taiga"
+  },
+  "color": 5007933
+}

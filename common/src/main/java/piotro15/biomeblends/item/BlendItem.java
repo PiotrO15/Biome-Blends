@@ -56,7 +56,6 @@ public class BlendItem extends Item {
             }
 
             player.displayClientMessage(Component.literal("Purifying biome with blend: " + blendId), true);
-//            BlendBiomeResolver.purifyBiome((ServerLevel) level, blockPos, 8);
 
             blendType.action().apply(level, blockPos, player, blendType);
 

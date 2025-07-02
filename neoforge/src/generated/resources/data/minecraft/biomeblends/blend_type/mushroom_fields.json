@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:mushroom_fields"
+  },
+  "color": 11047600
+}

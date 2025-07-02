@@ -6,9 +6,7 @@ import com.mojang.serialization.Codec;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.registries.DataPackRegistryEvent;
 import piotro15.biomeblends.util.Platform;
 

@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:basalt_deltas"
+  },
+  "color": 4868682
+}

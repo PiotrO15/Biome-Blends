@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:sunflower_plains"
+  },
+  "color": 10672207
+}

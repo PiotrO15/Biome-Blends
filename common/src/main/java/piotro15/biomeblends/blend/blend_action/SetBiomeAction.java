@@ -35,7 +35,7 @@ public record SetBiomeAction(ResourceLocation targetBiome) implements BlendActio
 
     @Override
     public void apply(Level level, BlockPos blockPos, Player player, BlendType blendType) {
-        if (level.isClientSide()) {
+        if (!canApply(level, blockPos, player, blendType)) {
             return;
         }
 

@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:deep_cold_ocean"
+  },
+  "color": 1915994
+}

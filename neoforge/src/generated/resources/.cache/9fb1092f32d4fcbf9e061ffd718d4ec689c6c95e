@@ -1,5 +1,5 @@
-// 1.21.1	2025-06-20T15:59:42.9604244	Recipes
+// 1.21.1	2025-07-02T12:12:32.1733934	Recipes
 dcebd61eb8fc608e9d31c84fc4a88d24b7177d7e data/biomeblends/advancement/recipes/misc/biome_blend.json
 fe8b16fcd18a34d677588ad0f037a38fa3724c67 data/biomeblends/recipe/biome_blend.json
 efa849b4e7dfb3ebc4c99b39ab5bf0419a623129 data/minecraft/advancement/recipes/misc/blend_type/lush_caves.json
-3785f9a62afbf3060f7213e903d272f45d72fa72 data/minecraft/recipe/blend_type/lush_caves.json
+d920410220b825b4b56288aa16bf19d727585a79 data/minecraft/recipe/blend_type/lush_caves.json

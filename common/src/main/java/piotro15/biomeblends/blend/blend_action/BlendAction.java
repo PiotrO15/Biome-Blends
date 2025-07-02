@@ -10,4 +10,12 @@ public interface BlendAction {
     ResourceLocation id();
 
     void apply(Level level, BlockPos blockPos, Player player, BlendType blendType);
+
+    default boolean canApply(Level level, BlockPos blockPos, Player player, BlendType blendType) {
+        if (level.isClientSide()) {
+            return false;
+        }
+
+        return blendType.dimensionBlacklist().values().contains(level.dimension().location());
+    }
 }

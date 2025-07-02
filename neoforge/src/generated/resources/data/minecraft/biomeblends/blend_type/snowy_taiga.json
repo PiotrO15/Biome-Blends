@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:snowy_taiga"
+  },
+  "color": 11456464
+}

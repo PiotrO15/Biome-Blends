@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:jagged_peaks"
+  },
+  "color": 12571872
+}

@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:windswept_savanna"
+  },
+  "color": 10592611
+}

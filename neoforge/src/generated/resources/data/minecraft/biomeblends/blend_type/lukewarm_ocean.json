@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:lukewarm_ocean"
+  },
+  "color": 6472355
+}

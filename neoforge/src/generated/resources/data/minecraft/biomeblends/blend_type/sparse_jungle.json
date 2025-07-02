@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:sparse_jungle"
+  },
+  "color": 6989662
+}

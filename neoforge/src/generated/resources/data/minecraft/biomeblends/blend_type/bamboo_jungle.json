@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:bamboo_jungle"
+  },
+  "color": 4170568
+}

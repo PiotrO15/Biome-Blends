@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:mangrove_swamp"
+  },
+  "color": 5597999
+}

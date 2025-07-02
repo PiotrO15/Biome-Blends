@@ -13,7 +13,7 @@ public class ItemModelDatagen extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        BlendData.blends.forEach(blend -> this.registerBlendTypeModel(blend.id(), blend.texture()));
+        BlendData.blends.forEach(blend -> this.registerBlendTypeModel(blend.id(), blend.model()));
     }
 
     public void registerBlendTypeModel(String blendType, String texture) {
