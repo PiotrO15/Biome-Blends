@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "biomeblends:biome_blend"
+    },
+    {
+      "item": "minecraft:spruce_sapling"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "minecraft:taiga"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

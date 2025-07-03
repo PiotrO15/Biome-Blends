@@ -16,6 +16,7 @@ public interface BlendAction {
             return false;
         }
 
-        return blendType.dimensionBlacklist().values().contains(level.dimension().location());
+        boolean containsDimension = blendType.dimensionBlacklist().values().contains(level.dimension().location());
+        return blendType.dimensionBlacklist().negate() == containsDimension;
     }
 }

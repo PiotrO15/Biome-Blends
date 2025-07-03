@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:powder_snow_bucket"
+    },
+    {
+      "item": "biomeblends:biome_blend"
+    },
+    {
+      "item": "minecraft:spruce_sapling"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "minecraft:grove"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

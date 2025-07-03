@@ -1,4 +1,4 @@
-package piotro15.biomeblends.neoforge;
+package piotro15.biomeblends.client;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -11,6 +11,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import piotro15.biomeblends.BiomeBlends;
+import piotro15.biomeblends.neoforge.NeoForgePlatform;
 
 import java.util.Map;
 

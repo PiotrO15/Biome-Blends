@@ -29,6 +29,5 @@ public record SetNamespaceAction(String targetNamespace, Optional<ResourceLocati
 
     @Override
     public void apply(Level level, BlockPos blockPos, Player player, BlendType blendType) {
-
     }
 }

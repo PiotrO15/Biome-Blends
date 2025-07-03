@@ -1,4 +1,4 @@
-package piotro15.biomeblends.neoforge;
+package piotro15.biomeblends.client;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;

@@ -15,5 +15,7 @@ public class LanguageDatagen extends LanguageProvider {
 
         BlendData.blends.forEach(blendData ->
                 add("blend_type.minecraft." + blendData.id(), blendData.name()));
+
+        add("itemGroup.biomeblends.blends", "Biome Blends");
     }
 }

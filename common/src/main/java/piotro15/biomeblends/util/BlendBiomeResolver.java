@@ -48,10 +48,12 @@ public class BlendBiomeResolver {
         return new BlockPos(quantize(blockPos.getX()), quantize(blockPos.getY()), quantize(blockPos.getZ()));
     }
 
-    public static void applyBiome(ServerLevel level, BlockPos pos, int range, ResourceLocation targetBiome, Predicate<Holder<Biome>> predicate) {
+    public static void applyBiome(ServerLevel level, BlockPos pos, int horizontalRange, int verticalRange, ResourceLocation targetBiome, Predicate<Holder<Biome>> predicate) {
         // Prepare the bounding box
-        BlockPos corner1 = quantize(new BlockPos(pos.getX() - range, level.getMinBuildHeight(), pos.getZ() - range));
-        BlockPos corner2 = quantize(new BlockPos(pos.getX() + range, level.getMaxBuildHeight(), pos.getZ() + range));
+//        BlockPos corner1 = quantize(new BlockPos(pos.getX() - horizontalRange, level.getMinBuildHeight(), pos.getZ() - horizontalRange));
+//        BlockPos corner2 = quantize(new BlockPos(pos.getX() + horizontalRange, level.getMaxBuildHeight(), pos.getZ() + horizontalRange));
+        BlockPos corner1 = quantize(new BlockPos(pos.getX() - horizontalRange, pos.getY() - verticalRange, pos.getZ() - horizontalRange));
+        BlockPos corner2 = quantize(new BlockPos(pos.getX() + horizontalRange, pos.getY() + verticalRange, pos.getZ() + horizontalRange));
         BoundingBox boundingBox = BoundingBox.fromCorners(corner1, corner2);
 
         // Select all chunks inside the bounding box

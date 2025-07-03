@@ -15,6 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import piotro15.biomeblends.registry.BiomeBlendsDataComponents;
 import piotro15.biomeblends.registry.BiomeBlendsItems;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -33,11 +34,12 @@ public class RecipeDatagen extends RecipeProvider {
                 .unlockedBy("has_clay_ball", has(Items.CLAY_BALL))
                 .save(output);
 
-        shapelessBlendRecipe(output, "lush_caves", Map.of(
-                BiomeBlendsItems.BIOME_BLEND.get(), 1,
-                Items.GLOW_BERRIES, 2,
-                Items.MOSS_BLOCK, 1
-        ));
+        BlendData.blends.forEach(blend -> {
+            Map<Item, Integer> items = new HashMap<>();
+            items.put(BiomeBlendsItems.BIOME_BLEND.get(), 1);
+            items.putAll(blend.ingredients());
+            shapelessBlendRecipe(output, blend.id(), items);
+        });
     }
 
     private static void shapelessBlendRecipe(RecipeOutput output, String path, Map<Item, Integer> ingredients) {

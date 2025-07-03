@@ -11,6 +11,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
@@ -43,8 +44,7 @@ public class BlendItem extends Item {
             ResourceLocation blendId = stack.get(BiomeBlendsDataComponents.BLEND_TYPE.get());
 
             if (blendId == null) {
-                player.displayClientMessage(Component.literal("Missing blend type."), true);
-                return InteractionResult.FAIL;
+                return InteractionResult.PASS;
             }
 
             Registry<BlendType> registry = level.registryAccess().registryOrThrow(BiomeBlendsRegistries.BLEND_TYPE);
@@ -55,9 +55,15 @@ public class BlendItem extends Item {
                 return InteractionResult.FAIL;
             }
 
-            player.displayClientMessage(Component.literal("Purifying biome with blend: " + blendId), true);
+            if (blendType.action().canApply(level, blockPos, player, blendType)) {
+                blendType.action().apply(level, blockPos, player, blendType);
 
-            blendType.action().apply(level, blockPos, player, blendType);
+                if (!blendType.useRemainder().isEmpty()) {
+                    ItemUtils.createFilledResult(useOnContext.getItemInHand(), player, blendType.useRemainder());
+                } else if (!player.isCreative()) {
+                    useOnContext.getItemInHand().shrink(1);
+                }
+            }
 
             return InteractionResult.SUCCESS;
         }

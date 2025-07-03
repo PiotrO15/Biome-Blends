@@ -35,10 +35,6 @@ public record SetBiomeAction(ResourceLocation targetBiome) implements BlendActio
 
     @Override
     public void apply(Level level, BlockPos blockPos, Player player, BlendType blendType) {
-        if (!canApply(level, blockPos, player, blendType)) {
-            return;
-        }
-
         List<ResourceLocation> biomeBlacklist = blendType.biomeBlacklist().values();
         List<String> namespaceBlacklist = blendType.namespaceBlacklist().values();
 
@@ -56,6 +52,6 @@ public record SetBiomeAction(ResourceLocation targetBiome) implements BlendActio
             return true;
         };
 
-        BlendBiomeResolver.applyBiome((ServerLevel) level, blockPos, 8, targetBiome, predicate);
+        BlendBiomeResolver.applyBiome((ServerLevel) level, blockPos, blendType.horizontalRadius(), blendType.verticalRadius(), targetBiome, predicate);
     }
 }

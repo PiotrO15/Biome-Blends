@@ -84,7 +84,7 @@ public record BlendType(
 
         public BlendType build() {
             if (action == null) {
-                throw new IllegalStateException("BlendAction must be set");
+                throw new IllegalStateException("Blend type definition requires a blend action to work.");
             }
             return new BlendType(action, horizontalRadius, verticalRadius,
                     dimensionBlacklist, biomeBlacklist, namespaceBlacklist, color, useRemainder);
