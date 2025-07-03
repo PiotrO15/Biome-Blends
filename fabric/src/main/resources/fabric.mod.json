@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "id": "biomeblends",
   "version": "${version}",
-  "name": "BiomeBlends",
-  "description": "",
+  "name": "Biome Blends",
+  "description": "Biome Blends are a new way to change the biome in a specified location. Great for players and modpack creators!",
   "authors": [
-    ""
+    "PiotrO15"
   ],
   "contact": {
     "homepage": ""
@@ -30,8 +30,5 @@
   },
   "mixins": [
     "biomeblends.mixins.json"
-  ],
-  "suggests": {
-    "another-mod": "*"
-  }
+  ]
 }

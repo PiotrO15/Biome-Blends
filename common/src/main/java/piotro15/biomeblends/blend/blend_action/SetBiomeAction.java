@@ -41,11 +41,13 @@ public record SetBiomeAction(ResourceLocation targetBiome) implements BlendActio
         Predicate<Holder<Biome>> predicate = biomeHolder -> {
             Registry<Biome> registry = level.registryAccess().registryOrThrow(Registries.BIOME);
 
-            if (biomeBlacklist.stream().anyMatch(b -> registry.containsKey(b) && Objects.equals(registry.get(b), biomeHolder.value()))) {
+            boolean containsBiome = biomeBlacklist.stream().anyMatch(b -> registry.containsKey(b) && Objects.equals(registry.get(b), biomeHolder.value()));
+            if (containsBiome != blendType.biomeBlacklist().negate()) {
                 return false;
             }
 
-            if (namespaceBlacklist.stream().anyMatch(ns -> biomeHolder.unwrapKey().isEmpty() && biomeHolder.unwrapKey().get().location().getNamespace().equals(ns))) {
+            boolean containsNamespace = namespaceBlacklist.stream().anyMatch(ns -> biomeHolder.unwrapKey().isEmpty() && biomeHolder.unwrapKey().get().location().getNamespace().equals(ns));
+            if (containsNamespace != blendType.namespaceBlacklist().negate()) {
                 return false;
             }
 
