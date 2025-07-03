@@ -25,8 +25,6 @@ public final class BiomeBlendsNeoForge {
 
         modEventBus.addListener(this::registerDatapackRegistries);
         modEventBus.addListener(this::registerBlendsInCreativeTab);
-
-        BiomeBlends.initClient();
     }
 
     @SubscribeEvent

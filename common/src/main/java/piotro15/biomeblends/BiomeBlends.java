@@ -21,7 +21,7 @@ public final class BiomeBlends {
     }
 
     public static void initClient() {
-        Platform.getInstance().registerItemTint(BlendItem.TINT_HANDLER, BiomeBlendsItems.BIOME_BLEND);
+        Platform.getInstance().registerItemTint(BiomeBlendsClient.TINT_HANDLER, BiomeBlendsItems.BIOME_BLEND);
     }
 
     public static ResourceLocation id(String path) {
