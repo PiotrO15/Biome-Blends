@@ -1,0 +1,26 @@
+# Custom Blend Resource Pack
+
+## Blend Model
+
+By default each blend uses bland blend model. To change that, a model needs to be created in 
+```
+assets/<namespace>/models/blend_type/<blend_name>.json
+```
+
+The simplest option is to create a 2D item model. Biome Blends provides a few blend textures that can be used, eg. `bumpy_blend`:
+
+```json
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "biomeblends:item/bumpy_blend"
+  }
+}
+```
+
+## Blend Translation
+
+Each blend type requires a translation. 
+```json
+"blend_type.<namespace>.<blend_name>": "Blend Name"
+```

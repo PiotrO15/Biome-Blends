@@ -1,0 +1,102 @@
+# Custom Blend Data Pack
+
+Custom blends can be added via datapacks. Each custom blend is defined as a JSON file located at:
+```
+data/<namespace>/blend_type/<blend_name>.json
+```
+If the blend is used to apply a specific biome, it is generally recommended to set the namespace and blend name to match the biome name for consistency.
+
+A blend **must** contain an `action` to be registered.
+
+## Blend Actions
+
+The `action` field defines what happens when a blend is applied. Only one action may be defined per blend.
+
+### Set Biome Action
+
+Sets a specific biome in the blend area.
+
+```json
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:plains"
+  }
+}
+```
+
+- `target_biome`: ID of the biome to apply.
+
+### Set Namespace Action
+
+Replaces the namespace of each biome in the blend area, attempting to find a matching biome in the new namespace. If there is no matching biome, it will be changed into the fallback biome (if specified).
+
+While this action type doesn't normally have a use, it can be extremely useful for modpack creators. The blend created in the example below will attempt to change any biome, eg. `wasteland:forest` to `minecraft:forest`. Additionally, if there is no matching `minecraft` biome, it will be changed into `minecraft:plains`.
+
+```json
+{
+  "action": {
+    "type": "biomeblends:set_namespace",
+    "target_namespace": "minecraft",
+    "fallback_biome": "minecraft:plains"
+  }
+}
+```
+
+- `target_namespace`: New namespace to apply to biome IDs.
+- `fallback_biome`: If specified, this biome will be created if there is no matching biome in the target namespace (optional).
+
+## Radius
+
+The `horizontal_radius` and `vertical_radius` control the region that is affected by the blend. The area is always centered on the block where the blend is used, but since Minecraft stores biomes in 4x4x4 cubes, it may not always be exact.
+
+By default the `horizontal_radius` and `vertical_radius` is set to 4.
+
+## Conditions
+
+Conditions can be used to stop your blends from interacting with certain mods, dimensions or biomes.
+
+### Dimension Blacklist
+
+Prevents this blend from being applied in specified dimensions. If `negate` is set to true, it will act as a whitelist.
+
+```json
+  "dimension_blacklist": {
+    "values": ["minecraft:the_nether", "custom:another_dimension"],
+    "negate": false
+  }
+```
+
+### Biome Blacklist
+
+Prevents this blend from being applied inside specified biomes. If `negate` is set to true, it will act as a whitelist. Keep in mind that a blend will still be applied if there is any region that meets this condition.
+
+```json
+  "biome_blacklist": {
+    "values": ["minecraft:desert", "minecraft:swamp"],
+    "negate": false
+  }
+```
+
+### Namespace Blacklist
+
+Excludes blends from applying to biomes within certain namespaces. If `negate` is set to true, it will act as a whitelist. Keep in mind that a blend will still be applied if there is any region that meets this condition.
+
+```json
+  "namespace_blacklist": {
+    "values": ["minecraft", "wasteland"],
+    "negate": false
+  }
+```
+
+A practical tool for keeping your blend from interfering with biomes from a specific mod or datapack.
+
+## Blend Color
+
+The `color` field is used to apply a color overlay to the blend's texture. If not set, there is no color applied.
+
+Keep in mind that it only accepts colors in **decimal** format, which means you will need to convert a number from hexadecimal to decimal, eg. `#FF0000` to `16711680`.
+
+## Use Remainder
+
+Use remainder is an item given to the player once the blend gets consumed.
