@@ -1,5 +1,7 @@
 {
     "id": "biome-blends",
-    "platform": "curseforge",
-    "slug": "biome-blends"
+    "platforms": {
+        "curseforge": "biome-blends",
+        "modrinth": "biome-blends"
+    }
 }

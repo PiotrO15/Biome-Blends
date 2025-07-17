@@ -1,4 +1,4 @@
 {
-    "datapack-format": "Custom Blend Datapack",
-    "resourcepack-format": "Custom Blend Resource Pack"
+    "datapack-format.mdx": "Custom Blend Data Pack",
+    "resourcepack-format.mdx": "Custom Blend Resource Pack"
 }
