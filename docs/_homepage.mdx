@@ -1,0 +1,43 @@
+<p align="center">
+  <Asset location="biomeblends:title_square_with_blends" width={300} height={300} />
+</p>
+
+<p align="center">
+    <a href="https://discord.gg/7Kc2NEFh8e" style={{margin: "5px"}} >
+        <img src="https://img.shields.io/discord/1344936732759560236?style=for-the-badge&logo=discord&logoColor=ffffff&color=5865F2&label=Verdant Lobby" alt="Biome Blends Discord" />
+    </a>
+    <a href="https://ko-fi.com/piotro15" style={{margin: "5px"}} >
+        <img src="https://img.shields.io/badge/Support Me-grey?style=for-the-badge&logo=ko-fi&logoColor=ffffff&labelColor=228B22" alt="Biome Blends Ko-Fi" />
+    </a>
+</p>
+
+## 📖 Introduction
+
+**Biome Blends** is a mod that lets you apply a specific biome to a targeted location using **blends**. By default, it provides blends for all the vanilla biomes, but you can also define your own blends using data packs.
+
+## 🎨 Custom Blend Capabilities
+
+While the default blends are basic, the data pack format supports extensive customization, which includes:
+- Restricting usage by biome, dimension, or namespace
+- Defining vertical and horizontal range of effect
+- Specifying a remainder item after use
+- Custom sounds and particles when applying the blend
+- Assigning a biome namespace instead of a specific biome
+
+If the existing system doesn’t support your use case, make sure to open an issue on Github or to join the Discord and share your suggestions!
+
+## ✨ Creating a Custom Blend
+
+### Prerequisites
+
+Creating custom blends requires both data and resource packs. Before you begin, make sure you have:
+- Text editor with JSON highlighting, such as Visual Studio Code
+- Basic understanding of the JSON syntax
+- Basic knowledge of [data pack](https://minecraft.wiki/w/Data_pack) and [resource pack](https://minecraft.wiki/w/Resource_pack) formats
+
+### Getting Started
+
+Creating a custom blend includes the following three elements:
+1. [Blend definition](./custom-blends/datapack-format.mdx) (data pack), which specifies your blend's behavior.
+2. [Blend assets](./custom-blends/resourcepack-format.mdx) (resource pack): the model and the translated name of the blend.
+3. Recipe (data pack), which will be used to obtain the blend. 
