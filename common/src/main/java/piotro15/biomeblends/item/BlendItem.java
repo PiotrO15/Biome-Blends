@@ -1,17 +1,15 @@
 package piotro15.biomeblends.item;
 
 import net.minecraft.Util;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
@@ -58,12 +56,26 @@ public class BlendItem extends Item {
             if (blendType.action().canApply(level, blockPos, player, blendType)) {
                 blendType.action().apply(level, blockPos, player, blendType);
 
-                if (!blendType.useRemainder().isEmpty()) {
-                    ItemUtils.createFilledResult(useOnContext.getItemInHand(), player, blendType.useRemainder());
+                ItemStack useRemainder = blendType.useRemainder();
+
+                if (!useRemainder.isEmpty()) {
+                    if (player.isCreative()) {
+                        if (!player.getInventory().contains(useRemainder)) {
+                            player.getInventory().add(useRemainder.copy());
+                        }
+                    } else {
+                        useOnContext.getItemInHand().shrink(1);
+
+                        if (!player.getInventory().add(useRemainder.copy())) {
+                            player.drop(useRemainder.copy(), false);
+                        }
+                    }
                 } else if (!player.isCreative()) {
                     useOnContext.getItemInHand().shrink(1);
                 }
             }
+
+            level.playSound(null, blockPos, blendType.sound(), SoundSource.PLAYERS, 1.0F, 1.0F);
 
             return InteractionResult.SUCCESS;
         }

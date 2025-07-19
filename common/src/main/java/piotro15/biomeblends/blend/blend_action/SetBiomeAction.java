@@ -4,8 +4,6 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
@@ -15,8 +13,6 @@ import piotro15.biomeblends.BiomeBlends;
 import piotro15.biomeblends.blend.BlendType;
 import piotro15.biomeblends.util.BlendBiomeResolver;
 
-import java.util.List;
-import java.util.Objects;
 import java.util.function.Predicate;
 
 public record SetBiomeAction(ResourceLocation targetBiome) implements BlendAction {
@@ -35,25 +31,20 @@ public record SetBiomeAction(ResourceLocation targetBiome) implements BlendActio
 
     @Override
     public void apply(Level level, BlockPos blockPos, Player player, BlendType blendType) {
-        List<ResourceLocation> biomeBlacklist = blendType.biomeBlacklist().values();
-        List<String> namespaceBlacklist = blendType.namespaceBlacklist().values();
+        if (!(level instanceof ServerLevel serverLevel)) {
+            return;
+        }
 
-        Predicate<Holder<Biome>> predicate = biomeHolder -> {
-            Registry<Biome> registry = level.registryAccess().registryOrThrow(Registries.BIOME);
+        Predicate<Holder<Biome>> predicate = predicate(level, blendType);
 
-            boolean containsBiome = biomeBlacklist.stream().anyMatch(b -> registry.containsKey(b) && Objects.equals(registry.get(b), biomeHolder.value()));
-            if (containsBiome != blendType.biomeBlacklist().negate()) {
-                return false;
-            }
-
-            boolean containsNamespace = namespaceBlacklist.stream().anyMatch(ns -> biomeHolder.unwrapKey().isEmpty() && biomeHolder.unwrapKey().get().location().getNamespace().equals(ns));
-            if (containsNamespace != blendType.namespaceBlacklist().negate()) {
-                return false;
-            }
-
-            return true;
-        };
-
-        BlendBiomeResolver.applyBiome((ServerLevel) level, blockPos, blendType.horizontalRadius(), blendType.verticalRadius(), targetBiome, predicate);
+        BlendBiomeResolver.applyResolver(
+                serverLevel,
+                blockPos,
+                blendType.horizontalRadius(),
+                blendType.verticalRadius(),
+                predicate,
+                blendType.particleOptions(),
+                (chunk, box) -> BlendBiomeResolver.makeResolver(chunk, box, serverLevel, targetBiome, predicate, blendType.particleOptions())
+        );
     }
 }
