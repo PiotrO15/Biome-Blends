@@ -2,11 +2,11 @@
 
 Custom blends can be added via datapacks. Each custom blend is defined as a JSON file located at:
 ```
-data/<namespace>/blend_type/<blend_name>.json
+data/<namespace>/biomeblends/blend_type/<blend_name>.json
 ```
-If the blend is used to apply a specific biome, it is generally recommended to set the namespace and blend name to match the biome name for consistency.
+If the blend is used to apply a specific biome, it is generally recommended to set the namespace and the name to match the biome name for consistency.
 
-A blend **must** contain an `action` to be registered.
+Each blend **must** contain an `action` to be registered.
 
 ## Blend Actions
 
@@ -48,7 +48,7 @@ While this action type doesn't normally have a use, it can be extremely useful f
 
 ## Radius
 
-The `horizontal_radius` and `vertical_radius` control the region that is affected by the blend. The area is always centered on the block where the blend is used, but since Minecraft stores biomes in 4x4x4 cubes, it may not always be exact.
+The `horizontal_radius` and `vertical_radius` control the region that is affected by the blend. The area is always centered on the block where the blend is used, but since Minecraft stores biomes in 4x4x4 cubes, it may not always be exact. `vertical_radius` can be set to `-1`, which will cause it to affect the entire vertical column.
 
 By default the `horizontal_radius` and `vertical_radius` is set to 4.
 
@@ -99,4 +99,31 @@ Keep in mind that it only accepts colors in **decimal** format, which means you 
 
 ## Use Remainder
 
-Use remainder is an item given to the player once the blend gets consumed.
+`use_remainder` is an item that can be given to the player when the blend gets consumed.
+
+```json
+  "use_remainder": {
+    "id": "minecraft:glass_bottle"
+  }
+```
+
+## Sound
+
+The default use sound can be changed using the `sound` option.
+
+```json
+  "sound": {
+    "sound_id": "minecraft:block.anvil.land"
+  }
+```
+
+## Particles
+
+The default type of particles that is applied on use can be changed with `particle_type`.
+
+```json
+  "particle_type": {
+    "type": "minecraft:block",
+    "block_state": "minecraft:anvil"
+  }
+```
