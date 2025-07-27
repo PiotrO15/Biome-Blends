@@ -15,6 +15,7 @@ import net.minecraft.world.level.biome.BiomeResolver;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.status.ChunkStatus;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import piotro15.biomeblends.CommonConfig;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,7 +90,7 @@ public class BlendBiomeResolver {
             ParticleOptions particleOptions,
             BiFunction<ChunkAccess, BoundingBox, BiomeResolver> resolverFactory
     ) {
-        BoundingBox boundingBox = prepareBoundingBox(pos, level, horizontalRange, verticalRange);
+        BoundingBox boundingBox = prepareBoundingBox(pos, level, (int) (horizontalRange * CommonConfig.INSTANCE.horizontalScale.getAsDouble()), (int) (verticalRange * CommonConfig.INSTANCE.verticalScale.getAsDouble()));
 
         List<ChunkAccess> chunks = new ArrayList<>();
         for (int z = SectionPos.blockToSectionCoord(boundingBox.minZ()); z <= SectionPos.blockToSectionCoord(boundingBox.maxZ()); z++) {
@@ -112,10 +113,10 @@ public class BlendBiomeResolver {
 
     private static BoundingBox prepareBoundingBox(BlockPos pos, Level level, int horizontalRange, int verticalRange) {
         BlockPos corner1 = quantize(
-                new BlockPos(pos.getX() - horizontalRange, verticalRange == -1 ? level.getMinBuildHeight() : pos.getY() - verticalRange, pos.getZ() - horizontalRange)
+                new BlockPos(pos.getX() - horizontalRange, (CommonConfig.INSTANCE.ignoreVerticalRadius.getAsBoolean() || verticalRange == -1) ? level.getMinBuildHeight() : pos.getY() - verticalRange, pos.getZ() - horizontalRange)
         );
         BlockPos corner2 = quantize(
-                new BlockPos(pos.getX() + horizontalRange, verticalRange == -1 ? level.getMaxBuildHeight() : pos.getY() + verticalRange, pos.getZ() + horizontalRange)
+                new BlockPos(pos.getX() + horizontalRange, (CommonConfig.INSTANCE.ignoreVerticalRadius.getAsBoolean() || verticalRange == -1) ? level.getMaxBuildHeight() : pos.getY() + verticalRange, pos.getZ() + horizontalRange)
         );
 
         return BoundingBox.fromCorners(corner1, corner2);

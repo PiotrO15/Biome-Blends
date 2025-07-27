@@ -11,7 +11,7 @@ authors = "PiotrO15"
 description = '''
 Biome Blends are a new way to change the biome in a specified location. Great for players and modpack creators!
 '''
-#logoFile = ""
+logoFile = "icon.png"
 
 [[dependencies.biomeblends]]
 modId = "neoforge"
