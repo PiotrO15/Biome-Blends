@@ -136,3 +136,28 @@ The default type of particles that is applied on use can be changed with `partic
     "block_state": "minecraft:anvil"
   }
 ```
+
+## Full Example
+
+The following example creates a blend that sets the biome to bamboo jungle, uses anvil sounds and particles and spawns a glass bottle when used. It has a horizontal distance of 10 and an infinite vertical radius, meaning it will affect the entire column.
+```json
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:bamboo_jungle"
+  },
+  "color": 11705,
+  "use_remainder": {
+    "id": "minecraft:glass_bottle"
+  },
+  "sound": {
+    "sound_id": "minecraft:block.anvil.land"
+  },
+  "particle_type": {
+    "type": "minecraft:block",
+    "block_state": "minecraft:anvil"
+  },
+  "vertical_radius": -1,
+  "horizontal_radius": 10
+}
+```
