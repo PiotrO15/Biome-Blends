@@ -1,10 +1,15 @@
 # Custom Blend Resource Pack
 
+The model and the name of the blend can be customized using a resource pack.
+
 ## Blend Model
 
-By default each blend uses the bland blend model. To change that, define a custom model at `assets/<namespace>/models/blend_type/<blend_name>.json`.
+By default, all blends use the bland blend model. To change that, define a custom model at `assets/<namespace>/models/blend_type/<blend_name>.json`.
 
-The simplest option is to create a 2D item model. Biome Blends provides a few blend textures that can be used, eg. `bumpy_blend`:
+The simplest option is to create a 2D item model. Biome Blends provides a few blend textures that can be used:
+- `bumpy_blend`
+- `fluffy_blend`
+- `rocky_blend`
 
 ```json
 {
@@ -17,11 +22,12 @@ The simplest option is to create a 2D item model. Biome Blends provides a few bl
 
 ## Blend Color
 
-You can apply a color tint to a blend's texture using a [datapack](./datapack-format#blend-color).
+You can apply a color tint to the blend's texture using a [datapack](./datapack-format#blend-color).
 
 ## Blend Translation
 
 Each blend type requires a translation for its name, which has to be specified in `assets/<namespace>/lang/en_us.json`:
+
 ```json
 "blend_type.<namespace>.<blend_name>": "Blend Name"
 ```

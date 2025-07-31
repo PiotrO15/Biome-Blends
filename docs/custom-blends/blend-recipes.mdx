@@ -1,0 +1,34 @@
+# Blend Recipes
+
+The blends you add aren't actually new items. Instead, blend type is stored in a data component.
+
+<Callout variant="warning">
+    Recipes for inexistent blends will still work and display in recipe viewers. By default, these will use a bland blend texture.
+</Callout>
+
+## Simple Shapeless Blend Recipe
+
+Blend recipes use a `components` object to set `biomeblends:blend_type` to the right blend type.
+
+The following recipe uses a bland blend and a dirt block and creates a plains blend as a result.
+```json
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:dirt"
+    },
+    {
+      "item": "biomeblends:biome_blend"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "minecraft:plains"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}
+```

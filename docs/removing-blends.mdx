@@ -1,0 +1,64 @@
+# Removing Default Blends
+
+The default biome blends may not suit your modpack. Luckily, any blend can be removed using a data pack. Additionally, a mod like KubeJS can be used to simplify data pack loading.
+
+## Using `pack.mcmeta` Filters 
+You can disable any blends using the `filter` block in your `pack.mcmeta` file.
+
+### Removing Specific Blends
+To remove individual blends (e.g. *the_end* and *the_void*), add the following to your `pack.mcmeta`:
+```json
+  "filter": {
+    "block": [
+      {
+        "path": ".*blend_type/the_void"
+      },
+      {
+        "path": ".*blend_type/the_end"
+      }
+    ]
+  }
+```
+This will block the specified biome blends from loading.
+
+<Callout variant="warning">
+    Blend recipes must be removed separately. If not, they’ll still appear in recipe viewers, which will confuse the players. Using `.*` at the start of the path helps exclude both the blend type and its associated recipe. 
+</Callout>
+
+### Removing All Existing Biome Blends
+
+To block all blends under the `minecraft` namespace you can use additional pattern matching:
+```json
+  "filter": {
+    "block": [
+      {
+        "namespace": "minecraft",
+        "path": ".*blend_type/.*"
+      }
+    ]
+  }
+```
+
+This removes all vanilla biome blends and their recipes.
+
+## Using KubeJS
+
+With KubeJS, you can zip a data pack that only contains the `pack.mcmeta` file and place it inside `kubejs/data` folder. It will load automatically with the rest of your KubeJS scripts. Because of that, your changes will be applied to all existing and new worlds.
+
+## Full example `pack.mcmeta`
+```json
+{
+  "pack": {
+    "pack_format": 15,
+    "description": "Data pack that removes all default blends and their recipes"
+  },
+  "filter": {
+    "block": [
+      {
+        "namespace": "minecraft",
+        "path": ".*blend_type/.*"
+      }
+    ]
+  }
+}
+```

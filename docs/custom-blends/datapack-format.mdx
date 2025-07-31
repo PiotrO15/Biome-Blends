@@ -4,13 +4,22 @@ Custom blends can be added via datapacks. Each custom blend is defined as a JSON
 ```
 data/<namespace>/biomeblends/blend_type/<blend_name>.json
 ```
-If the blend is used to apply a specific biome, it is generally recommended to set the namespace and the name to match the biome name for consistency.
 
-Each blend **must** contain an `action` to be registered.
+<Callout variant="info">
+  If the blend is used to apply a specific biome, it is generally recommended to set the namespace and the name to match the biome name for consistency.
+</Callout>
+
+<Callout variant="warning">
+  Changes to blend types will only be visible after restarting the world. The command `/reload` cannot reload the blend types.
+</Callout>
 
 ## Blend Actions
 
 The `action` field defines what happens when a blend is applied. Only one action may be defined per blend.
+
+<Callout variant="info">
+  Each blend **must** contain an `action` to be registered.
+</Callout>
 
 ### Set Biome Action
 
