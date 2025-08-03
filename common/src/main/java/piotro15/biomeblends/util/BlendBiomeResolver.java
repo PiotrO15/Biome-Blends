@@ -13,7 +13,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeResolver;
 import net.minecraft.world.level.chunk.ChunkAccess;
-import net.minecraft.world.level.chunk.status.ChunkStatus;
+import net.minecraft.world.level.chunk.ChunkStatus;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import piotro15.biomeblends.CommonConfig;
 
@@ -59,7 +59,7 @@ public class BlendBiomeResolver {
                     if (predicate.test(oldBiomeHolder)) {
                         level.sendParticles(particleOptions, quartX + 2,  quartY + 2, quartZ + 2, 8, 2, 2, 2, 1);
 
-                        Optional<Holder.Reference<Biome>> newBiome = level.registryAccess().registryOrThrow(Registries.BIOME).getHolder(ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(targetNamespace, oldBiome.getPath())));
+                        Optional<Holder.Reference<Biome>> newBiome = level.registryAccess().registryOrThrow(Registries.BIOME).getHolder(ResourceKey.create(Registries.BIOME, new ResourceLocation(targetNamespace, oldBiome.getPath())));
                         Optional<Holder.Reference<Biome>> fallbackBiomeHolder = fallbackBiome.flatMap(resourceLocation -> level.registryAccess().registryOrThrow(Registries.BIOME).getHolder(ResourceKey.create(Registries.BIOME, resourceLocation)));
 
                         return newBiome.isPresent() ? newBiome.get() : fallbackBiomeHolder.isPresent() ? fallbackBiomeHolder.get() : oldBiomeHolder;
@@ -90,7 +90,7 @@ public class BlendBiomeResolver {
             ParticleOptions particleOptions,
             BiFunction<ChunkAccess, BoundingBox, BiomeResolver> resolverFactory
     ) {
-        BoundingBox boundingBox = prepareBoundingBox(pos, level, (int) (horizontalRange * CommonConfig.INSTANCE.horizontalScale.getAsDouble()), (int) (verticalRange * CommonConfig.INSTANCE.verticalScale.getAsDouble()));
+        BoundingBox boundingBox = prepareBoundingBox(pos, level, (int) (horizontalRange * CommonConfig.INSTANCE.horizontalScale.get()), (int) (verticalRange * CommonConfig.INSTANCE.verticalScale.get()));
 
         List<ChunkAccess> chunks = new ArrayList<>();
         for (int z = SectionPos.blockToSectionCoord(boundingBox.minZ()); z <= SectionPos.blockToSectionCoord(boundingBox.maxZ()); z++) {
@@ -113,10 +113,10 @@ public class BlendBiomeResolver {
 
     private static BoundingBox prepareBoundingBox(BlockPos pos, Level level, int horizontalRange, int verticalRange) {
         BlockPos corner1 = quantize(
-                new BlockPos(pos.getX() - horizontalRange, (CommonConfig.INSTANCE.ignoreVerticalRadius.getAsBoolean() || verticalRange == -1) ? level.getMinBuildHeight() : pos.getY() - verticalRange, pos.getZ() - horizontalRange)
+                new BlockPos(pos.getX() - horizontalRange, (CommonConfig.INSTANCE.ignoreVerticalRadius.get() || verticalRange == -1) ? level.getMinBuildHeight() : pos.getY() - verticalRange, pos.getZ() - horizontalRange)
         );
         BlockPos corner2 = quantize(
-                new BlockPos(pos.getX() + horizontalRange, (CommonConfig.INSTANCE.ignoreVerticalRadius.getAsBoolean() || verticalRange == -1) ? level.getMaxBuildHeight() : pos.getY() + verticalRange, pos.getZ() + horizontalRange)
+                new BlockPos(pos.getX() + horizontalRange, (CommonConfig.INSTANCE.ignoreVerticalRadius.get() || verticalRange == -1) ? level.getMaxBuildHeight() : pos.getY() + verticalRange, pos.getZ() + horizontalRange)
         );
 
         return BoundingBox.fromCorners(corner1, corner2);

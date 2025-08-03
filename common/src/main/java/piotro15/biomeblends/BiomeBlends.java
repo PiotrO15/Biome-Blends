@@ -2,9 +2,7 @@ package piotro15.biomeblends;
 
 import net.minecraft.resources.ResourceLocation;
 import piotro15.biomeblends.blend.BlendActionRegistry;
-import piotro15.biomeblends.item.BlendItem;
 import piotro15.biomeblends.registry.BiomeBlendsCreativeModeTabs;
-import piotro15.biomeblends.registry.BiomeBlendsDataComponents;
 import piotro15.biomeblends.registry.BiomeBlendsItems;
 import piotro15.biomeblends.registry.BiomeBlendsRegistries;
 import piotro15.biomeblends.util.Platform;
@@ -14,7 +12,6 @@ public final class BiomeBlends {
 
     public static void init() {
         BiomeBlendsItems.ITEMS.register();
-        BiomeBlendsDataComponents.REGISTRAR.register();
         BlendActionRegistry.registerActions();
         BiomeBlendsRegistries.init();
         BiomeBlendsCreativeModeTabs.load();
@@ -25,6 +22,6 @@ public final class BiomeBlends {
     }
 
     public static ResourceLocation id(String path) {
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+        return new ResourceLocation(MOD_ID, path);
     }
 }

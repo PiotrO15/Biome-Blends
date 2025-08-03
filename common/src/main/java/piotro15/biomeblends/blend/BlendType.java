@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -33,7 +34,7 @@ public record BlendType(
                     BlendFilter.RESOURCE_LOCATION_CODEC.optionalFieldOf("biome_blacklist", new BlendFilter<>(new ArrayList<>(), false)).forGetter(BlendType::biomeBlacklist),
                     BlendFilter.STRING_CODEC.optionalFieldOf("namespace_blacklist", new BlendFilter<>(new ArrayList<>(), false)).forGetter(BlendType::namespaceBlacklist),
                     Codec.INT.optionalFieldOf("color", 0xFFFFFF).forGetter(BlendType::color),
-                    ItemStack.SINGLE_ITEM_CODEC.optionalFieldOf("use_remainder", ItemStack.EMPTY).forGetter(BlendType::useRemainder),
+                    ItemStack.CODEC.optionalFieldOf("use_remainder", ItemStack.EMPTY).forGetter(BlendType::useRemainder),
                     SoundEvent.DIRECT_CODEC.optionalFieldOf("sound", SoundEvents.GLOW_INK_SAC_USE).forGetter(BlendType::sound),
                     ParticleTypes.CODEC.optionalFieldOf("particle_type", ParticleTypes.HAPPY_VILLAGER).forGetter(BlendType::particleOptions)
             ).apply(instance, BlendType::new)
@@ -109,6 +110,17 @@ public record BlendType(
             return new BlendType(action, horizontalRadius, verticalRadius,
                     dimensionBlacklist, biomeBlacklist, namespaceBlacklist, color, useRemainder, sound, particleOptions);
         }
+    }
+
+    public static ResourceLocation fromItem(ItemStack itemStack) {
+        CompoundTag tag = itemStack.getTag();
+        if (tag != null && tag.contains("blend_type"))
+            return ResourceLocation.tryParse(tag.getString("blend_type"));
+        return null;
+    }
+
+    public static void save(ItemStack itemStack, ResourceLocation value) {
+        itemStack.getOrCreateTag().putString("blend_type", value.toString());
     }
 }
 

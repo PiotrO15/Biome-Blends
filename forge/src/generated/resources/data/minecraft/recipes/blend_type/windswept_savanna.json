@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "biomeblends:biome_blend"
+    },
+    {
+      "item": "minecraft:coarse_dirt"
+    },
+    {
+      "item": "minecraft:coarse_dirt"
+    },
+    {
+      "item": "minecraft:acacia_sapling"
+    }
+  ],
+  "result": {
+    "item": "biomeblends:biome_blend",
+    "nbt": "{blend_type:\"minecraft:windswept_savanna\"}"
+  }
+}

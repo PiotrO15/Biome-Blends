@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "biomeblends:biome_blend"
+    },
+    {
+      "item": "minecraft:acacia_sapling"
+    },
+    {
+      "item": "minecraft:grass"
+    },
+    {
+      "item": "minecraft:grass"
+    }
+  ],
+  "result": {
+    "item": "biomeblends:biome_blend",
+    "nbt": "{blend_type:\"minecraft:savanna\"}"
+  }
+}

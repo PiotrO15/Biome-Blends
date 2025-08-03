@@ -1,0 +1,35 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+#issueTrackerURL = ""
+license = "MIT"
+
+[[mods]]
+modId = "biomeblends"
+version = "${version}"
+displayName = "Biome Blends"
+authors = "PiotrO15"
+description = '''
+Biome Blends are a new way to change the biome in a specified location. Great for players and modpack creators!
+'''
+logoFile = "icon.png"
+
+[[dependencies.biomeblends]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.biomeblends]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.biomeblends]]
+modId = "architectury"
+mandatory = true
+versionRange = "[9.2.14,)"
+ordering = "AFTER"
+side = "BOTH"

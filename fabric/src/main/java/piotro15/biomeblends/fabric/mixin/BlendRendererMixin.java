@@ -9,13 +9,14 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import piotro15.biomeblends.registry.BiomeBlendsDataComponents;
+import piotro15.biomeblends.blend.BlendType;
 import piotro15.biomeblends.registry.BiomeBlendsItems;
 
 @Mixin(ItemRenderer.class)
@@ -39,12 +40,10 @@ public abstract class BlendRendererMixin {
             CallbackInfo ci
     ) {
         if (!itemStack.isEmpty() && itemStack.getItem() == BiomeBlendsItems.BIOME_BLEND.get()) {
-            ResourceLocation blendType = itemStack.has(BiomeBlendsDataComponents.BLEND_TYPE.get())
-                    ? itemStack.get(BiomeBlendsDataComponents.BLEND_TYPE.get())
-                    : null;
+            ResourceLocation blendType = BlendType.fromItem(itemStack);
 
             if (blendType != null) {
-                ResourceLocation overrideModelLocation = ResourceLocation.fromNamespaceAndPath(blendType.getNamespace(), "blend_type/" + blendType.getPath());
+                ResourceLocation overrideModelLocation = new ResourceLocation(blendType.getNamespace(), "blend_type/" + blendType.getPath());
                 BakedModel overrideModel = Minecraft.getInstance().getModelManager().getModel(overrideModelLocation);
 
                 if (overrideModel != null && !overrideModel.equals(Minecraft.getInstance().getModelManager().getMissingModel())) {

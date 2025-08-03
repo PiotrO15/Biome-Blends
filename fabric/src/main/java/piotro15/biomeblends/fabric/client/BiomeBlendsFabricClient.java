@@ -13,7 +13,6 @@ import net.minecraft.world.item.ItemStack;
 import piotro15.biomeblends.BiomeBlends;
 import piotro15.biomeblends.blend.BlendType;
 import piotro15.biomeblends.registry.BiomeBlendsCreativeModeTabs;
-import piotro15.biomeblends.registry.BiomeBlendsDataComponents;
 import piotro15.biomeblends.registry.BiomeBlendsItems;
 import piotro15.biomeblends.registry.BiomeBlendsRegistries;
 
@@ -26,7 +25,7 @@ public final class BiomeBlendsFabricClient implements ClientModInitializer {
 
         ModelLoadingPlugin.register(plugin -> {
             for (Map.Entry<ResourceLocation, Resource> entry : FileToIdConverter.json("models/blend_type").listMatchingResources(Minecraft.getInstance().getResourceManager()).entrySet()) {
-                ResourceLocation blendType = ResourceLocation.parse(entry.getKey().toString().replace("models/blend_type", "blend_type").replace(".json", ""));
+                ResourceLocation blendType = ResourceLocation.tryParse(entry.getKey().toString().replace("models/blend_type", "blend_type").replace(".json", ""));
                 plugin.addModels(blendType);
             }
         });
@@ -37,7 +36,7 @@ public final class BiomeBlendsFabricClient implements ClientModInitializer {
 
                 for (ResourceKey<BlendType> blendKey : blendTypeRegistry.registryKeySet()) {
                     ItemStack stack = new ItemStack(BiomeBlendsItems.BIOME_BLEND.get());
-                    stack.set(BiomeBlendsDataComponents.BLEND_TYPE.get(), blendKey.location());
+                    BlendType.save(stack, blendKey.location());
                     entries.accept(stack);
                 }
             }

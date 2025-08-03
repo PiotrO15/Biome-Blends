@@ -10,7 +10,7 @@ architectury {
 sourceSets {
     main {
         resources {
-            srcDirs += project(":neoforge").file("src/generated/resources").absolutePath
+            srcDirs += project(":forge").file("src/generated/resources").absolutePath
             exclude '.cache'
         }
     }

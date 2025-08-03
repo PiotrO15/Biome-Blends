@@ -9,7 +9,7 @@ import piotro15.biomeblends.util.Platform;
 
 public class BiomeBlendsRegistries {
     public static final ResourceKey<Registry<BlendType>> BLEND_TYPE =
-            ResourceKey.createRegistryKey(ResourceLocation.fromNamespaceAndPath(BiomeBlends.MOD_ID, "blend_type"));
+            ResourceKey.createRegistryKey(new ResourceLocation(BiomeBlends.MOD_ID, "blend_type"));
 
     public static void init() {
         Platform.getInstance().registerDataRegistry(BLEND_TYPE, BlendType.CODEC);

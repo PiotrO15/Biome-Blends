@@ -14,17 +14,16 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import piotro15.biomeblends.blend.BlendType;
-import piotro15.biomeblends.registry.BiomeBlendsDataComponents;
 import piotro15.biomeblends.registry.BiomeBlendsRegistries;
 
 public class BlendItem extends Item {
     public BlendItem() {
-        super(new Item.Properties());
+        super(new Properties());
     }
 
     @Override
     public @NotNull Component getName(ItemStack stack) {
-        ResourceLocation blendId = stack.get(BiomeBlendsDataComponents.BLEND_TYPE.get());
+        ResourceLocation blendId = BlendType.fromItem(stack);
         if (blendId != null) {
             return Component.translatable(Util.makeDescriptionId("blend_type", blendId));
         }
@@ -39,7 +38,7 @@ public class BlendItem extends Item {
 
         if (player != null && !level.isClientSide) {
             ItemStack stack = useOnContext.getItemInHand();
-            ResourceLocation blendId = stack.get(BiomeBlendsDataComponents.BLEND_TYPE.get());
+            ResourceLocation blendId = BlendType.fromItem(stack);
 
             if (blendId == null) {
                 return InteractionResult.PASS;

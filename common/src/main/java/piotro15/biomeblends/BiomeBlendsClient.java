@@ -5,12 +5,11 @@ import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import piotro15.biomeblends.blend.BlendType;
-import piotro15.biomeblends.registry.BiomeBlendsDataComponents;
 import piotro15.biomeblends.registry.BiomeBlendsRegistries;
 
 public class BiomeBlendsClient {
     public static final ItemColor TINT_HANDLER = (stack, tintIndex) -> {
-        ResourceLocation blendId = stack.getComponents().get(BiomeBlendsDataComponents.BLEND_TYPE.get());
+        ResourceLocation blendId = BlendType.fromItem(stack);
         if (blendId == null)
             return -1;
 
