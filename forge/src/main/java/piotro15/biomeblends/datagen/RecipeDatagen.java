@@ -60,6 +60,6 @@ public class RecipeDatagen extends RecipeProvider {
     }
 
     private static ResourceLocation minecraft(String path) {
-        return ResourceLocation.fromNamespaceAndPath("minecraft", path);
+        return new ResourceLocation("minecraft", path);
     }
 }

@@ -19,6 +19,6 @@ public class ItemModelDatagen extends ItemModelProvider {
     public void registerBlendTypeModel(String blendType, String texture) {
         getBuilder("minecraft:blend_type/" + blendType)
                 .parent(new ModelFile.UncheckedModelFile("item/generated"))
-                .texture("layer0", ResourceLocation.fromNamespaceAndPath("biomeblends", "item/" + texture));
+                .texture("layer0", new ResourceLocation("biomeblends", "item/" + texture));
     }
 }

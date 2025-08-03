@@ -84,7 +84,7 @@ public record BlendData(String name, String id, BlendType blendType, String mode
 
     private static BlendType defaultBlendType(String biomeId, int color) {
         return new BlendType.BlendTypeBuilder()
-                .action(new SetBiomeAction(ResourceLocation.fromNamespaceAndPath("minecraft", biomeId)))
+                .action(new SetBiomeAction(new ResourceLocation("minecraft", biomeId)))
                 .color(color)
                 .build();
     }

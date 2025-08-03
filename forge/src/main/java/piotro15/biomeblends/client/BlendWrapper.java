@@ -26,7 +26,7 @@ public class BlendWrapper extends BakedModelWrapper<BakedModel> {
                 ResourceLocation blendType = BlendType.fromItem(stack);
 
                 if (blendType != null) {
-                    ResourceLocation overrideModelLocation = ResourceLocation.fromNamespaceAndPath(blendType.getNamespace(), "blend_type/" + blendType.getPath());
+                    ResourceLocation overrideModelLocation = new ResourceLocation(blendType.getNamespace(), "blend_type/" + blendType.getPath());
                     BakedModel overrideModel = Minecraft.getInstance().getModelManager().getModel(overrideModelLocation);
 
                     if (!overrideModel.equals(Minecraft.getInstance().getModelManager().getMissingModel())) {

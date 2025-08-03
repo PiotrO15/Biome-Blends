@@ -12,7 +12,7 @@ public class BlendTypeProvider {
                 bootstrapContext.register(
                         ResourceKey.create(
                                 BiomeBlendsRegistries.BLEND_TYPE,
-                                ResourceLocation.fromNamespaceAndPath("minecraft", blend.id())
+                                new ResourceLocation("minecraft", blend.id())
                         ),
                         blend.blendType()
                 )

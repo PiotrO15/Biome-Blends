@@ -28,15 +28,16 @@ public class ForgeClient {
     @SubscribeEvent
     public static void registerModels(ModelEvent.RegisterAdditional event) {
         for (Map.Entry<ResourceLocation, Resource> entry : FileToIdConverter.json("models/blend_type").listMatchingResources(Minecraft.getInstance().getResourceManager()).entrySet()) {
-            ResourceLocation blendType = ResourceLocation.parse(entry.getKey().toString().replace("models/blend_type", "blend_type").replace(".json", ""));
-            event.register(blendType);
+            ResourceLocation blendType = ResourceLocation.tryParse(entry.getKey().toString().replace("models/blend_type", "blend_type").replace(".json", ""));
+            if (blendType != null)
+                event.register(blendType);
         }
     }
 
     @SubscribeEvent
     public static void modifyBakingResults(ModelEvent.ModifyBakingResult event) {
         event.getModels().computeIfPresent(
-                new ModelResourceLocation(ResourceLocation.fromNamespaceAndPath("biomeblends", "biome_blend"), "inventory"),
+                new ModelResourceLocation(new ResourceLocation("biomeblends", "biome_blend"), "inventory"),
                 (location, model) -> new BlendWrapper(model)
         );
     }
