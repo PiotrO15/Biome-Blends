@@ -1,20 +1,21 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
   "ingredients": [
     {
       "item": "biomeblends:biome_blend"
     },
     {
-      "item": "minecraft:packed_ice"
-    },
-    {
-      "item": "minecraft:packed_ice"
-    },
-    {
       "item": "minecraft:ice"
     },
     {
       "item": "minecraft:ice"
+    },
+    {
+      "item": "minecraft:packed_ice"
+    },
+    {
+      "item": "minecraft:packed_ice"
     }
   ],
   "result": {

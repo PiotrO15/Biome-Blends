@@ -1,20 +1,21 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
   "ingredients": [
     {
       "item": "biomeblends:biome_blend"
     },
     {
-      "item": "minecraft:salmon"
-    },
-    {
-      "item": "minecraft:salmon"
-    },
-    {
       "item": "minecraft:kelp"
     },
     {
       "item": "minecraft:kelp"
+    },
+    {
+      "item": "minecraft:salmon"
+    },
+    {
+      "item": "minecraft:salmon"
     }
   ],
   "result": {

@@ -1,20 +1,21 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
   "ingredients": [
     {
       "item": "biomeblends:biome_blend"
     },
     {
-      "item": "minecraft:end_stone"
-    },
-    {
-      "item": "minecraft:end_stone"
-    },
-    {
       "item": "minecraft:chorus_flower"
     },
     {
       "item": "minecraft:chorus_flower"
+    },
+    {
+      "item": "minecraft:end_stone"
+    },
+    {
+      "item": "minecraft:end_stone"
     }
   ],
   "result": {

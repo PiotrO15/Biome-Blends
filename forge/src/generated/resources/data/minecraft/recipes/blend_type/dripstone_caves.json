@@ -1,20 +1,21 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
   "ingredients": [
     {
       "item": "biomeblends:biome_blend"
     },
     {
-      "item": "minecraft:copper_ingot"
-    },
-    {
-      "item": "minecraft:copper_ingot"
-    },
-    {
       "item": "minecraft:pointed_dripstone"
     },
     {
       "item": "minecraft:pointed_dripstone"
+    },
+    {
+      "item": "minecraft:copper_ingot"
+    },
+    {
+      "item": "minecraft:copper_ingot"
     }
   ],
   "result": {

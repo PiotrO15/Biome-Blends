@@ -1,20 +1,21 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
   "ingredients": [
     {
       "item": "biomeblends:biome_blend"
     },
     {
-      "item": "minecraft:soul_soil"
-    },
-    {
-      "item": "minecraft:soul_soil"
-    },
-    {
       "item": "minecraft:bone_block"
     },
     {
       "item": "minecraft:bone_block"
+    },
+    {
+      "item": "minecraft:soul_soil"
+    },
+    {
+      "item": "minecraft:soul_soil"
     }
   ],
   "result": {

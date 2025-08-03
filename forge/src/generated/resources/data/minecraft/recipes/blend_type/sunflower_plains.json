@@ -1,20 +1,21 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
   "ingredients": [
     {
       "item": "biomeblends:biome_blend"
     },
     {
-      "item": "minecraft:sunflower"
-    },
-    {
-      "item": "minecraft:sunflower"
-    },
-    {
       "item": "minecraft:grass"
     },
     {
       "item": "minecraft:grass"
+    },
+    {
+      "item": "minecraft:sunflower"
+    },
+    {
+      "item": "minecraft:sunflower"
     }
   ],
   "result": {

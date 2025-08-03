@@ -1,20 +1,21 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
   "ingredients": [
     {
       "item": "biomeblends:biome_blend"
     },
     {
-      "item": "minecraft:fern"
-    },
-    {
-      "item": "minecraft:fern"
-    },
-    {
       "item": "minecraft:mossy_cobblestone"
     },
     {
       "item": "minecraft:mossy_cobblestone"
+    },
+    {
+      "item": "minecraft:fern"
+    },
+    {
+      "item": "minecraft:fern"
     }
   ],
   "result": {

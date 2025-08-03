@@ -1,17 +1,18 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
   "ingredients": [
     {
       "item": "biomeblends:biome_blend"
     },
     {
+      "item": "minecraft:mossy_cobblestone"
+    },
+    {
+      "item": "minecraft:mossy_cobblestone"
+    },
+    {
       "item": "minecraft:spruce_sapling"
-    },
-    {
-      "item": "minecraft:mossy_cobblestone"
-    },
-    {
-      "item": "minecraft:mossy_cobblestone"
     }
   ],
   "result": {

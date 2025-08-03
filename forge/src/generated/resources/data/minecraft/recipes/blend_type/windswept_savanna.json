@@ -1,17 +1,18 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
   "ingredients": [
     {
       "item": "biomeblends:biome_blend"
     },
     {
-      "item": "minecraft:coarse_dirt"
-    },
-    {
-      "item": "minecraft:coarse_dirt"
-    },
-    {
       "item": "minecraft:acacia_sapling"
+    },
+    {
+      "item": "minecraft:coarse_dirt"
+    },
+    {
+      "item": "minecraft:coarse_dirt"
     }
   ],
   "result": {

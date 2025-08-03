@@ -57,6 +57,7 @@ public class NBTShapelessRecipe implements FinishedRecipe {
 
         json.add("result", resultObject);
         json.addProperty("type", "minecraft:crafting_shapeless");
+        json.addProperty("category", category.getFolderName());
     }
 
     @Override
