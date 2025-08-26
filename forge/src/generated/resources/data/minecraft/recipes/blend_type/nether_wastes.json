@@ -3,19 +3,19 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "biomeblends:biome_blend"
-    },
-    {
-      "item": "minecraft:netherrack"
-    },
-    {
-      "item": "minecraft:netherrack"
-    },
-    {
-      "item": "minecraft:netherrack"
+      "item": "biomeblends:bland_blend"
     },
     {
       "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:netherrack"
+    },
+    {
+      "item": "minecraft:netherrack"
+    },
+    {
+      "item": "minecraft:netherrack"
     }
   ],
   "result": {

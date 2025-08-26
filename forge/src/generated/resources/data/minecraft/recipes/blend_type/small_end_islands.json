@@ -3,16 +3,16 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "biomeblends:biome_blend"
-    },
-    {
-      "item": "minecraft:ender_pearl"
-    },
-    {
-      "item": "minecraft:ender_pearl"
+      "item": "biomeblends:bland_blend"
     },
     {
       "item": "minecraft:end_stone"
+    },
+    {
+      "item": "minecraft:ender_pearl"
+    },
+    {
+      "item": "minecraft:ender_pearl"
     }
   ],
   "result": {

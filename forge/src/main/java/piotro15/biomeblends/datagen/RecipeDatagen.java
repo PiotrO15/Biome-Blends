@@ -25,7 +25,7 @@ public class RecipeDatagen extends RecipeProvider {
 
     @Override
     protected void buildRecipes(@NotNull Consumer<FinishedRecipe> output) {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BiomeBlendsItems.BIOME_BLEND.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BiomeBlendsItems.BLAND_BLEND.get())
                 .requires(Items.CLAY_BALL, 3)
                 .requires(Items.WHITE_DYE, 2)
                 .requires(Items.PAPER)
@@ -34,7 +34,7 @@ public class RecipeDatagen extends RecipeProvider {
 
         BlendData.blends.forEach(blend -> {
             Map<Item, Integer> items = new LinkedHashMap<>();
-            items.put(BiomeBlendsItems.BIOME_BLEND.get(), 1);
+            items.put(BiomeBlendsItems.BLAND_BLEND.get(), 1);
             items.putAll(blend.ingredients());
             shapelessBlendRecipe(output, blend.id(), items);
         });

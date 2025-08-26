@@ -3,13 +3,13 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "biomeblends:biome_blend"
-    },
-    {
-      "item": "minecraft:jungle_sapling"
+      "item": "biomeblends:bland_blend"
     },
     {
       "item": "minecraft:cocoa_beans"
+    },
+    {
+      "item": "minecraft:jungle_sapling"
     },
     {
       "item": "minecraft:melon_slice"

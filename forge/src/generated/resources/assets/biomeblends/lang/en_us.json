@@ -63,6 +63,7 @@
   "blend_type.minecraft.windswept_hills": "Windswept Hills Blend",
   "blend_type.minecraft.windswept_savanna": "Windswept Savanna Blend",
   "blend_type.minecraft.wooded_badlands": "Wooded Badlands Blend",
-  "item.biomeblends.biome_blend": "Bland Blend",
+  "item.biomeblends.biome_blend": "Unknown Blend",
+  "item.biomeblends.bland_blend": "Bland Blend",
   "itemGroup.biomeblends.blends": "Biome Blends"
 }

@@ -11,7 +11,8 @@ public class LanguageDatagen extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        addItem(BiomeBlendsItems.BIOME_BLEND, "Bland Blend");
+        addItem(BiomeBlendsItems.BLAND_BLEND, "Bland Blend");
+        addItem(BiomeBlendsItems.BIOME_BLEND, "Unknown Blend");
 
         BlendData.blends.forEach(blendData ->
                 add("blend_type.minecraft." + blendData.id(), blendData.name()));
