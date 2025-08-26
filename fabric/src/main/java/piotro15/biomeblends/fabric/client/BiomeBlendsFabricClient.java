@@ -35,7 +35,7 @@ public final class BiomeBlendsFabricClient implements ClientModInitializer {
                 Registry<BlendType> blendTypeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(BiomeBlendsRegistries.BLEND_TYPE);
 
                 for (ResourceKey<BlendType> blendKey : blendTypeRegistry.registryKeySet()) {
-                    ItemStack stack = new ItemStack(BiomeBlendsItems.BLAND_BLEND.get());
+                    ItemStack stack = new ItemStack(BiomeBlendsItems.BIOME_BLEND.get());
                     BlendType.save(stack, blendKey.location());
                     entries.accept(stack);
                 }
