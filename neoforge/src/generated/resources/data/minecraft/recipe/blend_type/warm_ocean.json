@@ -9,13 +9,13 @@
       "item": "minecraft:tropical_fish"
     },
     {
-      "item": "minecraft:sand"
+      "item": "biomeblends:bland_blend"
     },
     {
       "item": "minecraft:sand"
     },
     {
-      "item": "biomeblends:biome_blend"
+      "item": "minecraft:sand"
     }
   ],
   "result": {

@@ -9,13 +9,13 @@
       "item": "minecraft:wheat_seeds"
     },
     {
-      "item": "minecraft:snow_block"
+      "item": "biomeblends:bland_blend"
     },
     {
       "item": "minecraft:snow_block"
     },
     {
-      "item": "biomeblends:biome_blend"
+      "item": "minecraft:snow_block"
     }
   ],
   "result": {

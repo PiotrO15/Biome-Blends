@@ -6,13 +6,13 @@
       "item": "minecraft:water_bucket"
     },
     {
-      "item": "minecraft:clay_ball"
+      "item": "biomeblends:bland_blend"
     },
     {
       "item": "minecraft:clay_ball"
     },
     {
-      "item": "biomeblends:biome_blend"
+      "item": "minecraft:clay_ball"
     }
   ],
   "result": {

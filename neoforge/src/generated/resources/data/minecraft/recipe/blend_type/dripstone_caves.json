@@ -3,6 +3,9 @@
   "category": "misc",
   "ingredients": [
     {
+      "item": "biomeblends:bland_blend"
+    },
+    {
       "item": "minecraft:pointed_dripstone"
     },
     {
@@ -13,9 +16,6 @@
     },
     {
       "item": "minecraft:copper_ingot"
-    },
-    {
-      "item": "biomeblends:biome_blend"
     }
   ],
   "result": {

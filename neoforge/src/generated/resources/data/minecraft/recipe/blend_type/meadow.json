@@ -3,6 +3,9 @@
   "category": "misc",
   "ingredients": [
     {
+      "item": "biomeblends:bland_blend"
+    },
+    {
       "item": "minecraft:oxeye_daisy"
     },
     {
@@ -13,9 +16,6 @@
     },
     {
       "item": "minecraft:cornflower"
-    },
-    {
-      "item": "biomeblends:biome_blend"
     }
   ],
   "result": {

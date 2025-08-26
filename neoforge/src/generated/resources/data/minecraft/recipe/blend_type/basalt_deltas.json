@@ -3,7 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "biomeblends:biome_blend"
+      "item": "minecraft:magma_block"
+    },
+    {
+      "item": "minecraft:magma_block"
     },
     {
       "item": "minecraft:basalt"
@@ -12,10 +15,7 @@
       "item": "minecraft:basalt"
     },
     {
-      "item": "minecraft:magma_block"
-    },
-    {
-      "item": "minecraft:magma_block"
+      "item": "biomeblends:bland_blend"
     }
   ],
   "result": {

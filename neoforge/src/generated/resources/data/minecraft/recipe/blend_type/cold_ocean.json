@@ -3,10 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:seagrass"
-    },
-    {
-      "item": "minecraft:seagrass"
+      "item": "biomeblends:bland_blend"
     },
     {
       "item": "minecraft:salmon"
@@ -15,7 +12,10 @@
       "item": "minecraft:salmon"
     },
     {
-      "item": "biomeblends:biome_blend"
+      "item": "minecraft:seagrass"
+    },
+    {
+      "item": "minecraft:seagrass"
     }
   ],
   "result": {

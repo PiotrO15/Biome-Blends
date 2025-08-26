@@ -18,10 +18,10 @@ public class BiomeBlendsCreativeModeTabs {
         BLENDS_TAB = CREATIVE_TABS.register("blends",
                 () -> CreativeTabRegistry.create(
                         Component.translatable("itemGroup." + BiomeBlends.MOD_ID + ".blends"),
-                        () -> new ItemStack(BiomeBlendsItems.BIOME_BLEND)
+                        () -> new ItemStack(BiomeBlendsItems.BLAND_BLEND)
                 ));
 
-        CreativeTabRegistry.appendStack(BLENDS_TAB, () -> BiomeBlendsItems.BIOME_BLEND.get().getDefaultInstance());
+        CreativeTabRegistry.appendStack(BLENDS_TAB, () -> BiomeBlendsItems.BLAND_BLEND.get().getDefaultInstance());
 
         CREATIVE_TABS.register();
     }

@@ -3,10 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:birch_sapling"
-    },
-    {
-      "item": "minecraft:birch_sapling"
+      "item": "biomeblends:bland_blend"
     },
     {
       "item": "minecraft:short_grass"
@@ -15,7 +12,10 @@
       "item": "minecraft:short_grass"
     },
     {
-      "item": "biomeblends:biome_blend"
+      "item": "minecraft:birch_sapling"
+    },
+    {
+      "item": "minecraft:birch_sapling"
     }
   ],
   "result": {

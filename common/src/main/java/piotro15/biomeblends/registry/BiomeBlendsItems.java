@@ -11,4 +11,5 @@ public class BiomeBlendsItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(BiomeBlends.MOD_ID, Registries.ITEM);
 
     public static final RegistrySupplier<Item> BIOME_BLEND = ITEMS.register("biome_blend", BlendItem::new);
+    public static final RegistrySupplier<Item> BLAND_BLEND = ITEMS.register("bland_blend", () -> new Item(new Item.Properties()));
 }

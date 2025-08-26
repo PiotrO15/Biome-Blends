@@ -9,13 +9,13 @@
       "item": "minecraft:wheat_seeds"
     },
     {
-      "item": "minecraft:short_grass"
+      "item": "biomeblends:bland_blend"
     },
     {
       "item": "minecraft:short_grass"
     },
     {
-      "item": "biomeblends:biome_blend"
+      "item": "minecraft:short_grass"
     }
   ],
   "result": {

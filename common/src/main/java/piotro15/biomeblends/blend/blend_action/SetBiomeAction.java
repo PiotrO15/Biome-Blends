@@ -10,7 +10,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import piotro15.biomeblends.BiomeBlends;
+import piotro15.biomeblends.CommonConfig;
 import piotro15.biomeblends.blend.BlendType;
+import piotro15.biomeblends.registry.BiomeBlendsItems;
 import piotro15.biomeblends.util.BlendBiomeResolver;
 
 import java.util.function.Predicate;
@@ -36,6 +38,11 @@ public record SetBiomeAction(ResourceLocation targetBiome) implements BlendActio
         }
 
         Predicate<Holder<Biome>> predicate = predicate(level, blendType);
+
+        int blendCooldown = CommonConfig.INSTANCE.blendUseCooldown.get();
+        if (blendCooldown > 0) {
+            player.getCooldowns().addCooldown(BiomeBlendsItems.BIOME_BLEND.get(), blendCooldown);
+        }
 
         BlendBiomeResolver.applyResolver(
                 serverLevel,

@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:soul_soil"
+            "items": "biomeblends:bland_blend"
           }
         ]
       },

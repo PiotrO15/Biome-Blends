@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:moss_block"
+            "items": "biomeblends:bland_blend"
           }
         ]
       },

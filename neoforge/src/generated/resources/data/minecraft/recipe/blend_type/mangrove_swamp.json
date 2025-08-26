@@ -9,10 +9,10 @@
       "item": "minecraft:mud"
     },
     {
-      "item": "minecraft:mangrove_propagule"
+      "item": "biomeblends:bland_blend"
     },
     {
-      "item": "biomeblends:biome_blend"
+      "item": "minecraft:mangrove_propagule"
     }
   ],
   "result": {

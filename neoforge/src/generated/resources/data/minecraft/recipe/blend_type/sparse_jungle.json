@@ -6,13 +6,13 @@
       "item": "minecraft:jungle_sapling"
     },
     {
-      "item": "minecraft:cocoa_beans"
+      "item": "biomeblends:bland_blend"
     },
     {
       "item": "minecraft:cocoa_beans"
     },
     {
-      "item": "biomeblends:biome_blend"
+      "item": "minecraft:cocoa_beans"
     }
   ],
   "result": {

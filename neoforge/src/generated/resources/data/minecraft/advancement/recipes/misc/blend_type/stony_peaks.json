@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:calcite"
+            "items": "biomeblends:bland_blend"
           }
         ]
       },

@@ -9,13 +9,13 @@
       "item": "minecraft:brown_mushroom"
     },
     {
-      "item": "biomeblends:biome_blend"
-    },
-    {
       "item": "minecraft:red_mushroom"
     },
     {
       "item": "minecraft:red_mushroom"
+    },
+    {
+      "item": "biomeblends:bland_blend"
     }
   ],
   "result": {

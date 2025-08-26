@@ -3,13 +3,13 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "biomeblends:biome_blend"
-    },
-    {
       "item": "minecraft:packed_ice"
     },
     {
       "item": "minecraft:packed_ice"
+    },
+    {
+      "item": "biomeblends:bland_blend"
     },
     {
       "item": "minecraft:ice"

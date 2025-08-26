@@ -6,13 +6,13 @@
       "item": "minecraft:acacia_sapling"
     },
     {
-      "item": "minecraft:short_grass"
+      "item": "biomeblends:bland_blend"
     },
     {
       "item": "minecraft:short_grass"
     },
     {
-      "item": "biomeblends:biome_blend"
+      "item": "minecraft:short_grass"
     }
   ],
   "result": {

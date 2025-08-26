@@ -3,6 +3,9 @@
   "category": "misc",
   "ingredients": [
     {
+      "item": "biomeblends:bland_blend"
+    },
+    {
       "item": "minecraft:dead_bush"
     },
     {
@@ -13,9 +16,6 @@
     },
     {
       "item": "minecraft:sand"
-    },
-    {
-      "item": "biomeblends:biome_blend"
     }
   ],
   "result": {

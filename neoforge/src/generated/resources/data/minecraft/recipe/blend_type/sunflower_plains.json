@@ -3,10 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:short_grass"
-    },
-    {
-      "item": "minecraft:short_grass"
+      "item": "biomeblends:bland_blend"
     },
     {
       "item": "minecraft:sunflower"
@@ -15,7 +12,10 @@
       "item": "minecraft:sunflower"
     },
     {
-      "item": "biomeblends:biome_blend"
+      "item": "minecraft:short_grass"
+    },
+    {
+      "item": "minecraft:short_grass"
     }
   ],
   "result": {

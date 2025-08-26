@@ -40,7 +40,7 @@ public interface BlendAction {
                 return false;
             }
 
-            boolean containsNamespace = namespaceBlacklist.stream().anyMatch(ns -> biomeHolder.unwrapKey().isEmpty() && biomeHolder.unwrapKey().get().location().getNamespace().equals(ns));
+            boolean containsNamespace = namespaceBlacklist.stream().anyMatch(ns -> biomeHolder.unwrapKey().isPresent() && biomeHolder.unwrapKey().get().location().getNamespace().equals(ns));
             return containsNamespace == blendType.namespaceBlacklist().negate();
         };
     }

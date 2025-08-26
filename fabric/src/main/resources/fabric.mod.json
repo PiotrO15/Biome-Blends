@@ -19,6 +19,9 @@
     ],
     "client": [
       "piotro15.biomeblends.fabric.client.BiomeBlendsFabricClient"
+    ],
+    "jei_mod_plugin": [
+      "piotro15.biomeblends.compat.BiomeBlendsJeiPlugin"
     ]
   },
   "depends": {

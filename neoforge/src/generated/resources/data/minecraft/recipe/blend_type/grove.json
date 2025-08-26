@@ -6,10 +6,10 @@
       "item": "minecraft:powder_snow_bucket"
     },
     {
-      "item": "biomeblends:biome_blend"
+      "item": "minecraft:spruce_sapling"
     },
     {
-      "item": "minecraft:spruce_sapling"
+      "item": "biomeblends:bland_blend"
     }
   ],
   "result": {
