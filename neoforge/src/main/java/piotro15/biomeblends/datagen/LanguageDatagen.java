@@ -18,5 +18,10 @@ public class LanguageDatagen extends LanguageProvider {
                 add("blend_type.minecraft." + blendData.id(), blendData.name()));
 
         add("itemGroup.biomeblends.blends", "Biome Blends");
+
+        add("biomeblends.configuration.horizontal_scale", "Horizontal Scale");
+        add("biomeblends.configuration.vertical_scale", "Vertical Scale");
+        add("biomeblends.configuration.ignore_vertical_radius", "Ignore Vertical Radius");
+        add("biomeblends.configuration.blend_cooldown", "Blend Cooldown");
     }
 }

@@ -1,4 +1,8 @@
 {
+  "biomeblends.configuration.blend_cooldown": "Blend Cooldown",
+  "biomeblends.configuration.horizontal_scale": "Horizontal Scale",
+  "biomeblends.configuration.ignore_vertical_radius": "Ignore Vertical Radius",
+  "biomeblends.configuration.vertical_scale": "Vertical Scale",
   "blend_type.minecraft.badlands": "Badlands Blend",
   "blend_type.minecraft.bamboo_jungle": "Bamboo Jungle Blend",
   "blend_type.minecraft.basalt_deltas": "Basalt Deltas Blend",
