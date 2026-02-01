@@ -8,12 +8,15 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.config.ModConfig;
+import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.registries.DataPackRegistryEvent;
 import piotro15.biomeblends.BiomeBlends;
 import net.neoforged.fml.common.Mod;
 import piotro15.biomeblends.CommonConfig;
 import piotro15.biomeblends.blend.BlendType;
+import piotro15.biomeblends.command.GenerateBlendsCommand;
 import piotro15.biomeblends.registry.BiomeBlendsCreativeModeTabs;
 import piotro15.biomeblends.registry.BiomeBlendsDataComponents;
 import piotro15.biomeblends.registry.BiomeBlendsItems;
@@ -28,6 +31,7 @@ public final class BiomeBlendsNeoForge {
 
         modEventBus.addListener(this::registerDatapackRegistries);
         modEventBus.addListener(this::registerBlendsInCreativeTab);
+        NeoForge.EVENT_BUS.addListener(this::registerCommands);
 
         container.registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC);
     }
@@ -52,5 +56,10 @@ public final class BiomeBlendsNeoForge {
                 event.accept(stack);
             }
         }
+    }
+
+    @SubscribeEvent
+    public void registerCommands(RegisterCommandsEvent event) {
+        GenerateBlendsCommand.register(event.getDispatcher(), event.getBuildContext());
     }
 }
