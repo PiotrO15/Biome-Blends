@@ -23,5 +23,9 @@ public class LanguageDatagen extends LanguageProvider {
         add("biomeblends.configuration.vertical_scale", "Vertical Scale");
         add("biomeblends.configuration.ignore_vertical_radius", "Ignore Vertical Radius");
         add("biomeblends.configuration.blend_cooldown", "Blend Cooldown");
+
+        add("commands.exportblends.invalid_pattern", "The provided pattern is not a valid regular expression");
+        add("commands.exportblends.no_blends_found", "Found no biomes matching the given pattern");
+        add("commands.exportblends.success", "Successfully exported %s blend type(s)");
     }
 }
