@@ -55,7 +55,7 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(),
                 (DataProvider.Factory<DatapackBuiltinEntriesProvider>) output -> new DatapackBuiltinEntriesProvider(dataOutput, event.getLookupProvider(), registrySetBuilder, Set.of(modId)) {
                     @Override
-                    public String getName() {
+                    public @NotNull String getName() {
                         return "Registries " + modId;
                     }
                 });

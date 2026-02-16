@@ -2,13 +2,19 @@ package piotro15.biomeblends.neoforge;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.Registry;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.repository.Pack;
+import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.registries.DataPackRegistryEvent;
@@ -31,6 +37,7 @@ public final class BiomeBlendsNeoForge {
 
         modEventBus.addListener(this::registerDatapackRegistries);
         modEventBus.addListener(this::registerBlendsInCreativeTab);
+        modEventBus.addListener(this::addDataPacks);
         NeoForge.EVENT_BUS.addListener(this::registerCommands);
 
         container.registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC);
@@ -61,5 +68,12 @@ public final class BiomeBlendsNeoForge {
     @SubscribeEvent
     public void registerCommands(RegisterCommandsEvent event) {
         ExportBlendsCommand.register(event.getDispatcher());
+    }
+
+    @SubscribeEvent
+    public void addDataPacks(AddPackFindersEvent event) {
+        if (event.getPackType() == PackType.SERVER_DATA) {
+            event.addPackFinders(ResourceLocation.fromNamespaceAndPath(BiomeBlends.MOD_ID, "datapacks/biomesoplenty"), PackType.SERVER_DATA, Component.literal("Mod blends"), PackSource.BUILT_IN, true, Pack.Position.BOTTOM);
+        }
     }
 }
