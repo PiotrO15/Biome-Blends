@@ -11,6 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import org.jetbrains.annotations.NotNull;
 import piotro15.biomeblends.registry.BiomeBlendsDataComponents;
 import piotro15.biomeblends.registry.BiomeBlendsItems;
@@ -38,14 +39,21 @@ public class RecipeDatagen extends RecipeProvider {
             Map<Item, Integer> items = new HashMap<>();
             items.put(BiomeBlendsItems.BLAND_BLEND.get(), 1);
             items.putAll(blend.ingredients());
-            shapelessBlendRecipe(output, blend.id(), items);
+            shapelessBlendRecipe(output, blend.getResourceLocation(), items);
+        });
+
+        BlendData.biomesOPlentyBlends.forEach(blend -> {
+            Map<Item, Integer> items = new HashMap<>();
+            items.put(BiomeBlendsItems.BLAND_BLEND.get(), 1);
+            items.putAll(blend.ingredients());
+            conditionalBlendRecipe(output, blend.getResourceLocation(), items);
         });
     }
 
-    private static void shapelessBlendRecipe(RecipeOutput output, String path, Map<Item, Integer> ingredients) {
+    private static void shapelessBlendRecipe(RecipeOutput output, ResourceLocation resourceLocation, Map<Item, Integer> ingredients) {
         ItemStack outputStack = new ItemStack(BiomeBlendsItems.BIOME_BLEND.get());
         outputStack.applyComponents(DataComponentMap.builder()
-                .set(BiomeBlendsDataComponents.BLEND_TYPE, minecraft(path))
+                .set(BiomeBlendsDataComponents.BLEND_TYPE, resourceLocation)
                 .build());
 
         ShapelessRecipeBuilder recipeBuilder = ShapelessRecipeBuilder.shapeless(
@@ -54,10 +62,26 @@ public class RecipeDatagen extends RecipeProvider {
         );
         ingredients.forEach(recipeBuilder::requires);
         recipeBuilder.unlockedBy("has_ingredients", has(ingredients.keySet().iterator().next()));
-        recipeBuilder.save(output, minecraft("blend_type/" + path));
+        recipeBuilder.save(output, recipeLocation(resourceLocation));
     }
 
-    private static ResourceLocation minecraft(String path) {
-        return ResourceLocation.fromNamespaceAndPath("minecraft", path);
+    private static void conditionalBlendRecipe(RecipeOutput output, ResourceLocation resourceLocation, Map<Item, Integer> ingredients) {
+        ItemStack outputStack = new ItemStack(BiomeBlendsItems.BIOME_BLEND.get());
+        outputStack.applyComponents(DataComponentMap.builder()
+                .set(BiomeBlendsDataComponents.BLEND_TYPE, resourceLocation)
+                .build());
+
+        ShapelessRecipeBuilder recipeBuilder = ShapelessRecipeBuilder.shapeless(
+                RecipeCategory.MISC,
+                outputStack
+        );
+        output = output.withConditions(new ModLoadedCondition(resourceLocation.getNamespace()));
+        ingredients.forEach(recipeBuilder::requires);
+        recipeBuilder.unlockedBy("has_ingredients", has(ingredients.keySet().iterator().next()));
+        recipeBuilder.save(output, recipeLocation(resourceLocation));
+    }
+
+    private static ResourceLocation recipeLocation(ResourceLocation blendLocation) {
+        return ResourceLocation.fromNamespaceAndPath(blendLocation.getNamespace(), "blend_type/" + blendLocation.getPath());
     }
 }

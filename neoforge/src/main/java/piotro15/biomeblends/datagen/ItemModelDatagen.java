@@ -13,12 +13,17 @@ public class ItemModelDatagen extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        BlendData.blends.forEach(blend -> this.registerBlendTypeModel(blend.id(), blend.model()));
+        BlendData.blends.forEach(blend -> this.registerBlendTypeModel(blend.getResourceLocation(), blend.model()));
+        BlendData.biomesOPlentyBlends.forEach(blend -> this.registerBlendTypeModel(blend.getResourceLocation(), blend.model()));
     }
 
-    public void registerBlendTypeModel(String blendType, String texture) {
-        getBuilder("minecraft:blend_type/" + blendType)
+    public void registerBlendTypeModel(ResourceLocation blendType, String texture) {
+        getBuilder(getModelLocation(blendType))
                 .parent(new ModelFile.UncheckedModelFile("item/generated"))
                 .texture("layer0", ResourceLocation.fromNamespaceAndPath("biomeblends", "item/" + texture));
+    }
+
+    private String getModelLocation(ResourceLocation blendType) {
+        return blendType.getNamespace() + ":blend_type/" + blendType.getPath();
     }
 }
