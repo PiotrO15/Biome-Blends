@@ -16,7 +16,9 @@ public class BlendTypeProvider {
                         blend.blendType()
                 )
         );
+    }
 
+    public static void registerBOP(BootstrapContext<BlendType> bootstrapContext) {
         BlendData.biomesOPlentyBlends.forEach(blend -> bootstrapContext.register(
                     ResourceKey.create(
                             BiomeBlendsRegistries.BLEND_TYPE,

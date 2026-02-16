@@ -89,35 +89,42 @@ public record BlendData(String name, ResourceKey<Biome> id, BlendType blendType,
     );
 
     public static List<BlendData> biomesOPlentyBlends = List.of(
-            blendDataWithModCondition("Aspen Glade Blend", BOPBiomes.ASPEN_GLADE, "bumpy_blend", Map.of(BOPItems.YELLOW_MAPLE_SAPLING, 1, Items.BIRCH_LOG, 2)),
-            blendDataWithModCondition("Auroral Garden Blend", BOPBiomes.AURORAL_GARDEN, "fluffy_blend", Map.of(BOPItems.RAINBOW_BIRCH_SAPLING, 1, Items.SNOWBALL, 2)),
-            blendDataWithModCondition("Bayou Blend", BOPBiomes.BAYOU, "bumpy_blend", Map.of(BOPItems.WILLOW_SAPLING, 1, Items.FERN, 2)),
-            blendDataWithModCondition("Bog Blend", BOPBiomes.BOG, "bumpy_blend", Map.of(BOPItems.RED_MAPLE_SAPLING, 1, BOPItems.BUSH, 2)),
-            blendDataWithModCondition("Cold Desert Blend", BOPBiomes.COLD_DESERT, "bumpy_blend", Map.of(Items.GRAVEL, 3, Items.SNOWBALL, 1)),
-            blendDataWithModCondition("Coniferous Forest Blend", BOPBiomes.CONIFEROUS_FOREST, "fluffy_blend", Map.of(BOPItems.FIR_SAPLING, 1, Items.FERN, 1)),
-            blendDataWithModCondition("Crag Blend", BOPBiomes.CRAG, "bumpy_blend", Map.of(Items.MOSS_BLOCK, 2, Items.COBBLESTONE, 2)),
-            blendDataWithModCondition("Crystalline Chasm Blend", BOPBiomes.CRYSTALLINE_CHASM,"bumpy_blend", Map.of(BOPItems.ROSE_QUARTZ_CHUNK, 2, Items.NETHERRACK, 2)),
-            blendDataWithModCondition("Dead Forest Blend", BOPBiomes.DEAD_FOREST, "fluffy_blend", Map.of(BOPItems.DEAD_SAPLING, 1, Items.DEAD_BUSH, 2)),
-            blendDataWithModCondition("Dryland Blend", BOPBiomes.DRYLAND, "bumpy_blend", Map.of(BOPItems.PINE_SAPLING, 1, BOPItems.BUSH, 2)),
-            blendDataWithModCondition("Dune Beach Blend", BOPBiomes.DUNE_BEACH, "bumpy_blend", Map.of(BOPItems.SEA_OATS, 2, Items.SAND, 2)),
-            blendDataWithModCondition("End Corruption Blend", BOPBiomes.END_CORRUPTION, "bumpy_blend", Map.of(BOPItems.NULL_BLOCK, 2, Items.END_STONE, 2)),
-            blendDataWithModCondition("End Reef Blend", BOPBiomes.END_REEF, "bumpy_blend", Map.of(BOPItems.WISPJELLY, 1, Items.SAND, 2)),
-            blendDataWithModCondition("End Wilds Blend", BOPBiomes.END_WILDS, "fluffy_blend", Map.of(BOPItems.EMPYREAL_SAPLING, 1, Items.END_STONE, 2)),
-            blendDataWithModCondition("Erupting Inferno Blend", BOPBiomes.ERUPTING_INFERNO, "bumpy_blend", Map.of(BOPItems.BRIMSTONE, 2, Items.NETHERRACK, 2)),
-            blendDataWithModCondition("Field Blend", BOPBiomes.FIELD, "bumpy_blend", Map.of(BOPItems.TALL_WHITE_LAVENDER, 2, Items.SPRUCE_SAPLING, 1)),
-            blendDataWithModCondition("Fir Clearing Blend", BOPBiomes.FIR_CLEARING, "fluffy_blend", Map.of(BOPItems.FIR_SAPLING, 1, BOPItems.TOADSTOOL, 2)),
-            blendDataWithModCondition("Floodplain Blend", BOPBiomes.FLOODPLAIN, "bumpy_blend", Map.of(BOPItems.WATERGRASS, 3, BOPItems.ORANGE_COSMOS, 1))
+            generatedColorBlendData("Aspen Glade Blend", BOPBiomes.ASPEN_GLADE, ColorType.FOLIAGE_COLOR, "bumpy_blend", Map.of(BOPItems.YELLOW_MAPLE_SAPLING, 1, Items.BIRCH_LOG, 2)),
+            generatedColorBlendData("Auroral Garden Blend", BOPBiomes.AURORAL_GARDEN, ColorType.FOLIAGE_COLOR, "fluffy_blend", Map.of(BOPItems.RAINBOW_BIRCH_SAPLING, 1, Items.SNOWBALL, 2)),
+            generatedColorBlendData("Bayou Blend", BOPBiomes.BAYOU, ColorType.FOLIAGE_COLOR, "bumpy_blend", Map.of(BOPItems.WILLOW_SAPLING, 1, Items.FERN, 2)),
+            generatedColorBlendData("Bog Blend", BOPBiomes.BOG, ColorType.FOLIAGE_COLOR, "bumpy_blend", Map.of(BOPItems.RED_MAPLE_SAPLING, 1, BOPItems.BUSH, 2)),
+            generatedColorBlendData("Cold Desert Blend", BOPBiomes.COLD_DESERT, ColorType.FOLIAGE_COLOR, "bumpy_blend", Map.of(Items.GRAVEL, 3, Items.SNOWBALL, 1)),
+            defaultBlendData("Coniferous Forest Blend", BOPBiomes.CONIFEROUS_FOREST, 0xC96435, "fluffy_blend", Map.of(BOPItems.FIR_SAPLING, 1, Items.FERN, 1)),
+            defaultBlendData("Crag Blend", BOPBiomes.CRAG, 0xC96435, "bumpy_blend", Map.of(Items.MOSS_BLOCK, 2, Items.COBBLESTONE, 2)),
+            defaultBlendData("Crystalline Chasm Blend", BOPBiomes.CRYSTALLINE_CHASM, 0xC96435,"bumpy_blend", Map.of(BOPItems.ROSE_QUARTZ_CHUNK, 2, Items.NETHERRACK, 2)),
+            generatedColorBlendData("Dead Forest Blend", BOPBiomes.DEAD_FOREST, ColorType.FOLIAGE_COLOR, "fluffy_blend", Map.of(BOPItems.DEAD_SAPLING, 1, Items.DEAD_BUSH, 2)),
+            generatedColorBlendData("Dryland Blend", BOPBiomes.DRYLAND, ColorType.FOLIAGE_COLOR, "bumpy_blend", Map.of(BOPItems.PINE_SAPLING, 1, BOPItems.BUSH, 2)),
+            defaultBlendData("Dune Beach Blend", BOPBiomes.DUNE_BEACH, 0xC96435, "bumpy_blend", Map.of(BOPItems.SEA_OATS, 2, Items.SAND, 2)),
+            generatedColorBlendData("End Corruption Blend", BOPBiomes.END_CORRUPTION, ColorType.FOLIAGE_COLOR, "bumpy_blend", Map.of(BOPItems.NULL_BLOCK, 2, Items.END_STONE, 2)),
+            generatedColorBlendData("End Reef Blend", BOPBiomes.END_REEF, ColorType.FOLIAGE_COLOR, "bumpy_blend", Map.of(BOPItems.WISPJELLY, 1, Items.SAND, 2)),
+            generatedColorBlendData("End Wilds Blend", BOPBiomes.END_WILDS, ColorType.FOLIAGE_COLOR, "fluffy_blend", Map.of(BOPItems.EMPYREAL_SAPLING, 1, Items.END_STONE, 2)),
+            defaultBlendData("Erupting Inferno Blend", BOPBiomes.ERUPTING_INFERNO, 0xC96435, "bumpy_blend", Map.of(BOPItems.BRIMSTONE, 2, Items.NETHERRACK, 2)),
+            generatedColorBlendData("Field Blend", BOPBiomes.FIELD, ColorType.FOLIAGE_COLOR, "bumpy_blend", Map.of(BOPItems.TALL_WHITE_LAVENDER, 2, Items.SPRUCE_SAPLING, 1)),
+            defaultBlendData("Fir Clearing Blend", BOPBiomes.FIR_CLEARING, 0xC96435, "fluffy_blend", Map.of(BOPItems.FIR_SAPLING, 1, BOPItems.TOADSTOOL, 2)),
+            generatedColorBlendData("Floodplain Blend", BOPBiomes.FLOODPLAIN, ColorType.FOLIAGE_COLOR, "bumpy_blend", Map.of(BOPItems.WATERGRASS, 3, BOPItems.ORANGE_COSMOS, 1))
     );
 
-    private static BlendData blendDataWithModCondition(String name, ResourceKey<Biome> id, String model, Map<Item, Integer> ingredients) {
+    private static BlendData generatedColorBlendData(String name, ResourceKey<Biome> id, ColorType colorType, String model, Map<Item, Integer> ingredients) {
         BlendType.BlendTypeBuilder builder = new BlendType.BlendTypeBuilder()
                 .action(new SetBiomeAction(id.location()))
-                .color(findColorForBiome(id));
+                .color(findColorForBiome(id, colorType));
 
         return new BlendData(name, id, builder.build(), model, ingredients);
     }
 
-    private static int findColorForBiome(ResourceKey<Biome> id) {
+    private enum ColorType {
+        FOLIAGE_COLOR,
+        GRASS_COLOR,
+        WATER_COLOR,
+        CALCULATED
+    }
+
+    private static int findColorForBiome(ResourceKey<Biome> id, ColorType colorType) {
         String path = "data/" + id.location().getNamespace()
                 + "/worldgen/biome/" + id.location().getPath() + ".json";
 
@@ -125,16 +132,39 @@ public record BlendData(String name, ResourceKey<Biome> id, BlendType blendType,
             if (is == null) throw new IllegalStateException("Biome JSON not found: " + path);
             JsonObject json = GsonHelper.parse(new InputStreamReader(is));
             JsonObject effects = json.getAsJsonObject("effects");
-            if (effects.has("foliage_color")) {
-                int color = GsonHelper.getAsInt(effects, "foliage_color");
-                System.out.println("Found foliage color for " + id.location() + ": " + Integer.toHexString(color));
-                return color;
+            switch (colorType) {
+                case FOLIAGE_COLOR -> {
+                    if (effects.has("foliage_color")) {
+                        int color = GsonHelper.getAsInt(effects, "foliage_color");
+                        System.out.println("Found foliage color for " + id.location() + ": " + Integer.toHexString(color));
+                        return color;
+                    }
+                }
+                case GRASS_COLOR -> {
+                    if (effects.has("grass_color")) {
+                        int color = GsonHelper.getAsInt(effects, "grass_color");
+                        System.out.println("Found grass color for " + id.location() + ": " + Integer.toHexString(color));
+                        return color;
+                    }
+                }
+                case WATER_COLOR -> {
+                    if (effects.has("water_color")) {
+                        int color = GsonHelper.getAsInt(effects, "water_color");
+                        System.out.println("Found water color for " + id.location() + ": " + Integer.toHexString(color));
+                        return color;
+                    }
+                }
+                case CALCULATED -> {
+                    if (effects.has("temperature") && effects.has("downfall")) {
+                        float temp = json.get("temperature").getAsFloat();
+                        float downfall = json.get("downfall").getAsFloat();
+                        int color = FoliageColor.get(temp, downfall);
+                        System.out.println("Calculated color for " + id.location() + ": " + Integer.toHexString(color));
+                        return color;
+                    }
+                }
             }
-            // Fall back to computing from temperature/downfall like vanilla does
-            float temp = json.get("temperature").getAsFloat();
-            float downfall = json.get("downfall").getAsFloat();
-            System.out.println("Temperature: " + temp + ", Downfall: " + downfall);
-            return FoliageColor.get(temp, downfall);
+            throw new IllegalStateException("Failed to find the required field for " + colorType);
         } catch (IOException e) {
             throw new RuntimeException("Failed to read biome JSON for " + id.location(), e);
         }

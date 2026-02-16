@@ -26,6 +26,22 @@ public class RecipeDatagen extends RecipeProvider {
         super(output, provider);
     }
 
+    public static class BOPRecipeDatagen extends RecipeProvider {
+        public BOPRecipeDatagen(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture) {
+            super(arg, completableFuture);
+        }
+
+        @Override
+        protected void buildRecipes(@NotNull RecipeOutput output) {
+            BlendData.biomesOPlentyBlends.forEach(blend -> {
+                Map<Item, Integer> items = new HashMap<>();
+                items.put(BiomeBlendsItems.BLAND_BLEND.get(), 1);
+                items.putAll(blend.ingredients());
+                conditionalBlendRecipe(output, blend.getResourceLocation(), items);
+            });
+        }
+    }
+
     @Override
     protected void buildRecipes(@NotNull RecipeOutput output) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BiomeBlendsItems.BLAND_BLEND.get())
@@ -40,13 +56,6 @@ public class RecipeDatagen extends RecipeProvider {
             items.put(BiomeBlendsItems.BLAND_BLEND.get(), 1);
             items.putAll(blend.ingredients());
             shapelessBlendRecipe(output, blend.getResourceLocation(), items);
-        });
-
-        BlendData.biomesOPlentyBlends.forEach(blend -> {
-            Map<Item, Integer> items = new HashMap<>();
-            items.put(BiomeBlendsItems.BLAND_BLEND.get(), 1);
-            items.putAll(blend.ingredients());
-            conditionalBlendRecipe(output, blend.getResourceLocation(), items);
         });
     }
 
