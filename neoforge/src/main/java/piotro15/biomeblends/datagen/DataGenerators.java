@@ -23,7 +23,7 @@ public class DataGenerators {
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
         event.createDatapackRegistryObjects(new RegistrySetBuilder()
-                .add(BiomeBlendsRegistries.BLEND_TYPE, ctx -> BlendTypeProvider.registerBlendTypes(ctx, lookupProvider.join())),
+                .add(BiomeBlendsRegistries.BLEND_TYPE, BlendTypeProvider::registerBlendTypes),
                 Set.of(BiomeBlends.MOD_ID, "minecraft", BiomesOPlenty.MOD_ID)
         );
 

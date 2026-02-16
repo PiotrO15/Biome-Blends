@@ -2,17 +2,21 @@ package piotro15.biomeblends.datagen;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.item.BOPItems;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
+import com.google.gson.JsonObject;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import piotro15.biomeblends.blend.BlendType;
 import piotro15.biomeblends.blend.blend_action.SetBiomeAction;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Map;
 
@@ -84,28 +88,56 @@ public record BlendData(String name, ResourceKey<Biome> id, BlendType blendType,
             defaultBlendData("Wooded Badlands Blend", Biomes.WOODED_BADLANDS, 0xC96435, "bumpy_blend", Map.of(Items.COARSE_DIRT, 2, Items.OAK_SAPLING, 1))
     );
 
-    public static void registerBiomesOPlentyBlends(HolderLookup.Provider lookupProvider) {
-        HolderLookup.RegistryLookup<Biome> biomeRegistry = lookupProvider.lookupOrThrow(Registries.BIOME);
-        biomesOPlentyBlends = List.of(
-                blendDataWithModCondition(biomeRegistry, "Aspen Glade Blend", BOPBiomes.ASPEN_GLADE, "bumpy_blend", Map.of(BOPItems.YELLOW_MAPLE_SAPLING, 2, Items.BIRCH_LOG, 2))
-        );
+    public static List<BlendData> biomesOPlentyBlends = List.of(
+            blendDataWithModCondition("Aspen Glade Blend", BOPBiomes.ASPEN_GLADE, "bumpy_blend", Map.of(BOPItems.YELLOW_MAPLE_SAPLING, 1, Items.BIRCH_LOG, 2)),
+            blendDataWithModCondition("Auroral Garden Blend", BOPBiomes.AURORAL_GARDEN, "fluffy_blend", Map.of(BOPItems.RAINBOW_BIRCH_SAPLING, 1, Items.SNOWBALL, 2)),
+            blendDataWithModCondition("Bayou Blend", BOPBiomes.BAYOU, "bumpy_blend", Map.of(BOPItems.WILLOW_SAPLING, 1, Items.FERN, 2)),
+            blendDataWithModCondition("Bog Blend", BOPBiomes.BOG, "bumpy_blend", Map.of(BOPItems.RED_MAPLE_SAPLING, 1, BOPItems.BUSH, 2)),
+            blendDataWithModCondition("Cold Desert Blend", BOPBiomes.COLD_DESERT, "bumpy_blend", Map.of(Items.GRAVEL, 3, Items.SNOWBALL, 1)),
+            blendDataWithModCondition("Coniferous Forest Blend", BOPBiomes.CONIFEROUS_FOREST, "fluffy_blend", Map.of(BOPItems.FIR_SAPLING, 1, Items.FERN, 1)),
+            blendDataWithModCondition("Crag Blend", BOPBiomes.CRAG, "bumpy_blend", Map.of(Items.MOSS_BLOCK, 2, Items.COBBLESTONE, 2)),
+            blendDataWithModCondition("Crystalline Chasm Blend", BOPBiomes.CRYSTALLINE_CHASM,"bumpy_blend", Map.of(BOPItems.ROSE_QUARTZ_CHUNK, 2, Items.NETHERRACK, 2)),
+            blendDataWithModCondition("Dead Forest Blend", BOPBiomes.DEAD_FOREST, "fluffy_blend", Map.of(BOPItems.DEAD_SAPLING, 1, Items.DEAD_BUSH, 2)),
+            blendDataWithModCondition("Dryland Blend", BOPBiomes.DRYLAND, "bumpy_blend", Map.of(BOPItems.PINE_SAPLING, 1, BOPItems.BUSH, 2)),
+            blendDataWithModCondition("Dune Beach Blend", BOPBiomes.DUNE_BEACH, "bumpy_blend", Map.of(BOPItems.SEA_OATS, 2, Items.SAND, 2)),
+            blendDataWithModCondition("End Corruption Blend", BOPBiomes.END_CORRUPTION, "bumpy_blend", Map.of(BOPItems.NULL_BLOCK, 2, Items.END_STONE, 2)),
+            blendDataWithModCondition("End Reef Blend", BOPBiomes.END_REEF, "bumpy_blend", Map.of(BOPItems.WISPJELLY, 1, Items.SAND, 2)),
+            blendDataWithModCondition("End Wilds Blend", BOPBiomes.END_WILDS, "fluffy_blend", Map.of(BOPItems.EMPYREAL_SAPLING, 1, Items.END_STONE, 2)),
+            blendDataWithModCondition("Erupting Inferno Blend", BOPBiomes.ERUPTING_INFERNO, "bumpy_blend", Map.of(BOPItems.BRIMSTONE, 2, Items.NETHERRACK, 2)),
+            blendDataWithModCondition("Field Blend", BOPBiomes.FIELD, "bumpy_blend", Map.of(BOPItems.TALL_WHITE_LAVENDER, 2, Items.SPRUCE_SAPLING, 1)),
+            blendDataWithModCondition("Fir Clearing Blend", BOPBiomes.FIR_CLEARING, "fluffy_blend", Map.of(BOPItems.FIR_SAPLING, 1, BOPItems.TOADSTOOL, 2)),
+            blendDataWithModCondition("Floodplain Blend", BOPBiomes.FLOODPLAIN, "bumpy_blend", Map.of(BOPItems.WATERGRASS, 3, BOPItems.ORANGE_COSMOS, 1))
+    );
+
+    private static BlendData blendDataWithModCondition(String name, ResourceKey<Biome> id, String model, Map<Item, Integer> ingredients) {
+        BlendType.BlendTypeBuilder builder = new BlendType.BlendTypeBuilder()
+                .action(new SetBiomeAction(id.location()))
+                .color(findColorForBiome(id));
+
+        return new BlendData(name, id, builder.build(), model, ingredients);
     }
 
-    public static List<BlendData> biomesOPlentyBlends;
+    private static int findColorForBiome(ResourceKey<Biome> id) {
+        String path = "data/" + id.location().getNamespace()
+                + "/worldgen/biome/" + id.location().getPath() + ".json";
 
-    private static BlendData blendDataWithModCondition(HolderLookup.RegistryLookup<Biome> registryLookup, String name, ResourceKey<Biome> id, String model, Map<Item, Integer> ingredients) {
-
-        BlendType.BlendTypeBuilder blendType = new BlendType.BlendTypeBuilder()
-                .action(new SetBiomeAction(id.location()));
-
-        if (registryLookup.get(id).isPresent()) {
-            blendType = blendType.color(registryLookup.get(id).get().value().getFoliageColor());
-            System.out.println(blendType.color(registryLookup.get(id).get().value().getFoliageColor()));
-        } else {
-            System.out.println(":(((((");
+        try (InputStream is = BlendTypeProvider.class.getClassLoader().getResourceAsStream(path)) {
+            if (is == null) throw new IllegalStateException("Biome JSON not found: " + path);
+            JsonObject json = GsonHelper.parse(new InputStreamReader(is));
+            JsonObject effects = json.getAsJsonObject("effects");
+            if (effects.has("foliage_color")) {
+                int color = GsonHelper.getAsInt(effects, "foliage_color");
+                System.out.println("Found foliage color for " + id.location() + ": " + Integer.toHexString(color));
+                return color;
+            }
+            // Fall back to computing from temperature/downfall like vanilla does
+            float temp = json.get("temperature").getAsFloat();
+            float downfall = json.get("downfall").getAsFloat();
+            System.out.println("Temperature: " + temp + ", Downfall: " + downfall);
+            return FoliageColor.get(temp, downfall);
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to read biome JSON for " + id.location(), e);
         }
-
-        return new BlendData(name, id, blendType.build(), model, ingredients);
     }
 
     private static BlendData defaultBlendData(String name, ResourceKey<Biome> id, int color, String model, Map<Item, Integer> ingredients) {
