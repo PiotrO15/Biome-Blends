@@ -17,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
 import piotro15.biomeblends.registry.BiomeBlendsDataComponents;
 import piotro15.biomeblends.registry.BiomeBlendsItems;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -35,7 +35,7 @@ public class RecipeDatagen extends RecipeProvider {
         @Override
         protected void buildRecipes(@NotNull RecipeOutput output) {
             BlendData.biomesOPlentyBlends.forEach(blend -> {
-                Map<Item, Integer> items = new HashMap<>();
+                Map<Item, Integer> items = new LinkedHashMap<>();
                 items.put(BiomeBlendsItems.BLAND_BLEND.get(), 1);
                 items.putAll(blend.ingredients());
                 shapelessBlendRecipe(output, blend.getResourceLocation(), items);
@@ -53,7 +53,7 @@ public class RecipeDatagen extends RecipeProvider {
                 .save(output);
 
         BlendData.blends.forEach(blend -> {
-            Map<Item, Integer> items = new HashMap<>();
+            Map<Item, Integer> items = new LinkedHashMap<>();
             items.put(BiomeBlendsItems.BLAND_BLEND.get(), 1);
             items.putAll(blend.ingredients());
             shapelessBlendRecipe(output, blend.getResourceLocation(), items);
