@@ -4,9 +4,7 @@ import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.DetectedVersion;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
-import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.metadata.PackMetadataGenerator;
 import net.minecraft.data.recipes.RecipeProvider;
@@ -49,11 +47,11 @@ public class DataGenerators {
         DataGenerator generator = event.getGenerator();
         PackOutput dataOutput = generator.getPackOutput("datapacks/" + modId);
 
-        generator.addProvider(event.includeServer(), (DataProvider.Factory<DataProvider>) output -> new PackMetadataGenerator(dataOutput)
+        generator.addProvider(event.includeServer(), new PackMetadataGenerator(dataOutput)
                 .add(PackMetadataSection.TYPE, new PackMetadataSection(Component.translatable("biomeblends.datapacks." + modId), DetectedVersion.BUILT_IN.getPackVersion(PackType.SERVER_DATA))));
 
         generator.addProvider(event.includeServer(),
-                (DataProvider.Factory<DatapackBuiltinEntriesProvider>) output -> new DatapackBuiltinEntriesProvider(dataOutput, event.getLookupProvider(), registrySetBuilder, Set.of(modId)) {
+                new DatapackBuiltinEntriesProvider(dataOutput, event.getLookupProvider(), registrySetBuilder, Set.of(modId)) {
                     @Override
                     public @NotNull String getName() {
                         return "Registries " + modId;
@@ -61,21 +59,6 @@ public class DataGenerators {
                 });
 
         RecipeProvider inner = recipeProvider.apply(dataOutput, event.getLookupProvider());
-        generator.addProvider(event.includeServer(),
-                (DataProvider.Factory<DataProvider>) output -> namedRecipeProvider("Recipes " + modId, inner));
-    }
-
-    private static DataProvider namedRecipeProvider(String name, RecipeProvider provider) {
-        return new DataProvider() {
-            @Override
-            public @NotNull CompletableFuture<?> run(@NotNull CachedOutput output) {
-                return provider.run(output);
-            }
-
-            @Override
-            public @NotNull String getName() {
-                return name;
-            }
-        };
+        generator.addProvider(event.includeServer(), RecipeDatagen.namedRecipeProvider("Recipes " + modId, inner));
     }
 }

@@ -12,6 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.AddPackFindersEvent;
@@ -73,7 +74,9 @@ public final class BiomeBlendsNeoForge {
     @SubscribeEvent
     public void addDataPacks(AddPackFindersEvent event) {
         if (event.getPackType() == PackType.SERVER_DATA) {
-            event.addPackFinders(ResourceLocation.fromNamespaceAndPath(BiomeBlends.MOD_ID, "datapacks/biomesoplenty"), PackType.SERVER_DATA, Component.literal("Mod blends"), PackSource.BUILT_IN, true, Pack.Position.BOTTOM);
+            if (ModList.get().isLoaded("biomesoplenty")) {
+                event.addPackFinders(ResourceLocation.fromNamespaceAndPath(BiomeBlends.MOD_ID, "datapacks/biomesoplenty"), PackType.SERVER_DATA, Component.literal("Mod blends"), PackSource.BUILT_IN, true, Pack.Position.BOTTOM);
+            }
         }
     }
 }

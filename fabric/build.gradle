@@ -40,6 +40,12 @@ dependencies {
 
     modImplementation "dev.architectury:architectury-fabric:$rootProject.architectury_api_version"
 
+    // BOP and its dependencies
+    modImplementation "curse.maven:terrablender-fabric-565956:6054948"
+    modRuntimeOnly 'net.jodah:typetools:0.6.3' // Why do you even need that Glitchcore?
+    modImplementation "curse.maven:glitchcore-955399:5660741"
+    modImplementation "curse.maven:biomes-o-plenty-220318:7251967"
+
     modApi "fuzs.forgeconfigapiport:forgeconfigapiport-fabric:$rootProject.forge_config_api_version"
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive false }
