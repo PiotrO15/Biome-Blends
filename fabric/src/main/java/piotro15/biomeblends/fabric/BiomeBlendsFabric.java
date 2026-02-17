@@ -19,7 +19,7 @@ public final class BiomeBlendsFabric implements ModInitializer {
         NeoForgeConfigRegistry.INSTANCE.register(BiomeBlends.MOD_ID, ModConfig.Type.COMMON, CommonConfig.SPEC);
 
         FabricLoader.getInstance().getModContainer(BiomeBlends.MOD_ID).ifPresent(container -> {
-            if (FabricLoader.getInstance().isModLoaded("biomesoplenty")) {
+            if (FabricLoader.getInstance().isModLoaded("biomesoplenty") && CommonConfig.INSTANCE.bopCompat.get()) {
                 ResourceManagerHelper.registerBuiltinResourcePack(ResourceLocation.fromNamespaceAndPath(BiomeBlends.MOD_ID, "biomesoplenty"), "datapacks/biomesoplenty", container, true);
             }
         });

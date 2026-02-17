@@ -74,7 +74,7 @@ public final class BiomeBlendsNeoForge {
     @SubscribeEvent
     public void addDataPacks(AddPackFindersEvent event) {
         if (event.getPackType() == PackType.SERVER_DATA) {
-            if (ModList.get().isLoaded("biomesoplenty")) {
+            if (ModList.get().isLoaded("biomesoplenty") && CommonConfig.INSTANCE.bopCompat.get()) {
                 event.addPackFinders(ResourceLocation.fromNamespaceAndPath(BiomeBlends.MOD_ID, "datapacks/biomesoplenty"), PackType.SERVER_DATA, Component.literal("Mod blends"), PackSource.BUILT_IN, true, Pack.Position.BOTTOM);
             }
         }
