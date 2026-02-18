@@ -1,0 +1,18 @@
+# Commands
+
+Biome Blends can be generated automatically using the `/generateblends` command. It scans the Biome registry for biomes matching a given pattern, then creates a basic blend file for each match.
+
+## Command Structure
+
+`/generateblends <pattern> <color_type>`
+
+| Parameter | Description |
+|---|---|
+| `<pattern>` | A regex pattern used to match biome names in the registry. |
+| `<color_type>` | The color to apply to the blend item. Accepted values are `"foliage_color"`, `"grass_color"`, and `"water_color"`. Empty string can be passed `""` to generate blends with no color. |
+
+## Example Usage
+
+`/generateblends "minecraft:.*" "grass_color"` generates blends for all vanilla Minecraft biomes, applying each biome's grass color to the item texture.
+
+`/generateblends "custom:biome" ""` generates a blend for the `custom:biome`, provided it exists. The blend item will not be tinted.
