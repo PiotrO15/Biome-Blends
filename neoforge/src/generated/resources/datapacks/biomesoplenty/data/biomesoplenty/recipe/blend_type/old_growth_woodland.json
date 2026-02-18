@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomesoplenty:toadstool"
+    },
+    {
+      "item": "minecraft:oak_sapling"
+    },
+    {
+      "item": "minecraft:oak_sapling"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:old_growth_woodland"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

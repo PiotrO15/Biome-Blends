@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomesoplenty:aspen_glade"
+  },
+  "color": 13746762
+}

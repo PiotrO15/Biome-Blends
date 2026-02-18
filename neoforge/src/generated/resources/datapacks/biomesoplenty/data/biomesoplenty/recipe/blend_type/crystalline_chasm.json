@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomesoplenty:rose_quartz_chunk"
+    },
+    {
+      "item": "biomesoplenty:rose_quartz_chunk"
+    },
+    {
+      "item": "minecraft:netherrack"
+    },
+    {
+      "item": "minecraft:netherrack"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:crystalline_chasm"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

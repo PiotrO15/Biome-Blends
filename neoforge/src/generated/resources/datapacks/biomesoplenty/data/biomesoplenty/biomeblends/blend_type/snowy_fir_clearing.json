@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomesoplenty:snowy_fir_clearing"
+  },
+  "color": 10997954
+}

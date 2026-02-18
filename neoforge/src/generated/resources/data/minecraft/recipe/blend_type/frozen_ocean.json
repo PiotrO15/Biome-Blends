@@ -6,16 +6,16 @@
       "item": "biomeblends:bland_blend"
     },
     {
-      "item": "minecraft:seagrass"
-    },
-    {
-      "item": "minecraft:seagrass"
-    },
-    {
       "item": "minecraft:ice"
     },
     {
       "item": "minecraft:ice"
+    },
+    {
+      "item": "minecraft:seagrass"
+    },
+    {
+      "item": "minecraft:seagrass"
     }
   ],
   "result": {

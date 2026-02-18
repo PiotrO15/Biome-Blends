@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomesoplenty:redwood_forest"
+  },
+  "color": 9355074
+}

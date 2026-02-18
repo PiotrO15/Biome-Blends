@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomesoplenty:highland"
+  },
+  "color": 8097625
+}

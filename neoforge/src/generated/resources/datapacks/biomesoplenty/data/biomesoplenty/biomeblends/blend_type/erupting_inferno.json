@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomesoplenty:erupting_inferno"
+  },
+  "color": 16739098
+}

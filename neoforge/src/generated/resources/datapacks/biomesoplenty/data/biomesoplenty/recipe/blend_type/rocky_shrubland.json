@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomesoplenty:bush"
+    },
+    {
+      "item": "biomesoplenty:bush"
+    },
+    {
+      "item": "minecraft:cobblestone"
+    },
+    {
+      "item": "minecraft:cobblestone"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:rocky_shrubland"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

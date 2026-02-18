@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomesoplenty:rainbow_birch_sapling"
+    },
+    {
+      "item": "minecraft:snowball"
+    },
+    {
+      "item": "minecraft:snowball"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:auroral_garden"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

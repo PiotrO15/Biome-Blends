@@ -3,12 +3,6 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:packed_ice"
-    },
-    {
-      "item": "minecraft:packed_ice"
-    },
-    {
       "item": "biomeblends:bland_blend"
     },
     {
@@ -16,6 +10,12 @@
     },
     {
       "item": "minecraft:snow_block"
+    },
+    {
+      "item": "minecraft:packed_ice"
+    },
+    {
+      "item": "minecraft:packed_ice"
     }
   ],
   "result": {

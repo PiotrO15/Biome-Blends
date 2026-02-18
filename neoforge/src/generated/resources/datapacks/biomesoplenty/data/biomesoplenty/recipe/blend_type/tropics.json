@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomesoplenty:palm_sapling"
+    },
+    {
+      "item": "biomesoplenty:blue_hydrangea"
+    },
+    {
+      "item": "biomesoplenty:blue_hydrangea"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:tropics"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

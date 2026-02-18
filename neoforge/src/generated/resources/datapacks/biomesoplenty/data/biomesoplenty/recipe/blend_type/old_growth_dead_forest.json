@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomesoplenty:dead_log"
+    },
+    {
+      "item": "biomesoplenty:dead_log"
+    },
+    {
+      "item": "minecraft:dead_bush"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:old_growth_dead_forest"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

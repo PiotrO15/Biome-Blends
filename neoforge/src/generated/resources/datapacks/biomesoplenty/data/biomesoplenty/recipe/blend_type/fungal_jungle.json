@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomesoplenty:toadstool"
+    },
+    {
+      "item": "biomesoplenty:toadstool"
+    },
+    {
+      "item": "minecraft:jungle_sapling"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:fungal_jungle"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

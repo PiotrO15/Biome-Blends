@@ -71,7 +71,7 @@ public class RecipeDatagen extends RecipeProvider {
                 outputStack
         );
         ingredients.forEach(recipeBuilder::requires);
-        recipeBuilder.unlockedBy("has_ingredients", has(ingredients.keySet().iterator().next()));
+        recipeBuilder.unlockedBy("has_ingredients", has(ingredients.keySet().stream().skip(1).findFirst().orElseThrow()));
         recipeBuilder.save(output, recipeLocation(resourceLocation));
     }
 

@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:water_bucket"
+      "item": "biomeblends:bland_blend"
     },
     {
-      "item": "biomeblends:bland_blend"
+      "item": "minecraft:water_bucket"
     },
     {
       "item": "minecraft:ice"

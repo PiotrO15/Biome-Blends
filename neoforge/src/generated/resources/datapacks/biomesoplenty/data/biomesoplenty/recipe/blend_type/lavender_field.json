@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomesoplenty:lavender"
+    },
+    {
+      "item": "biomesoplenty:lavender"
+    },
+    {
+      "item": "biomesoplenty:lavender"
+    },
+    {
+      "item": "biomesoplenty:jacaranda_sapling"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:lavender_field"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

@@ -3,6 +3,9 @@
   "category": "misc",
   "ingredients": [
     {
+      "item": "biomeblends:bland_blend"
+    },
+    {
       "item": "minecraft:spruce_sapling"
     },
     {
@@ -10,9 +13,6 @@
     },
     {
       "item": "minecraft:sweet_berries"
-    },
-    {
-      "item": "biomeblends:bland_blend"
     }
   ],
   "result": {

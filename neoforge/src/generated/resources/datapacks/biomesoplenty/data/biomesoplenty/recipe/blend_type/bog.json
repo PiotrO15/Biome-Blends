@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomesoplenty:red_maple_sapling"
+    },
+    {
+      "item": "biomesoplenty:bush"
+    },
+    {
+      "item": "biomesoplenty:bush"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:bog"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

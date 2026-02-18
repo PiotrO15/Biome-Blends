@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomesoplenty:watergrass"
+    },
+    {
+      "item": "biomesoplenty:watergrass"
+    },
+    {
+      "item": "biomesoplenty:watergrass"
+    },
+    {
+      "item": "biomesoplenty:orange_cosmos"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:floodplain"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

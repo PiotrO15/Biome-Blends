@@ -3,9 +3,6 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:spruce_sapling"
-    },
-    {
       "item": "biomeblends:bland_blend"
     },
     {
@@ -13,6 +10,9 @@
     },
     {
       "item": "minecraft:short_grass"
+    },
+    {
+      "item": "minecraft:spruce_sapling"
     }
   ],
   "result": {

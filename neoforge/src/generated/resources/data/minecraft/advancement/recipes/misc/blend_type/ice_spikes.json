@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:packed_ice"
+            "items": "minecraft:snow_block"
           }
         ]
       },

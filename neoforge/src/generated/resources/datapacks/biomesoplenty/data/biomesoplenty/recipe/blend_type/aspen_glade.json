@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomesoplenty:yellow_maple_sapling"
+    },
+    {
+      "item": "minecraft:birch_log"
+    },
+    {
+      "item": "minecraft:birch_log"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:aspen_glade"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

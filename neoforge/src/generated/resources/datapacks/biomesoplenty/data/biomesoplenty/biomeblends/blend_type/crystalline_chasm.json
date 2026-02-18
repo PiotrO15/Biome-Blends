@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomesoplenty:crystalline_chasm"
+  },
+  "color": 15121609
+}

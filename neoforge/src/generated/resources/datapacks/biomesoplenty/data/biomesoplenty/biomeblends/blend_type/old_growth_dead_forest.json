@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomesoplenty:old_growth_dead_forest"
+  },
+  "color": 12040035
+}

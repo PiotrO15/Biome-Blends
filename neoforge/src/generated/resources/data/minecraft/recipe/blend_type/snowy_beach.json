@@ -3,13 +3,13 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:snowball"
-    },
-    {
-      "item": "minecraft:snowball"
-    },
-    {
       "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "minecraft:snowball"
+    },
+    {
+      "item": "minecraft:snowball"
     },
     {
       "item": "minecraft:sand"

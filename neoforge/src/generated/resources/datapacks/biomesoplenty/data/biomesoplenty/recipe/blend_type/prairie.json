@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomesoplenty:goldenrod"
+    },
+    {
+      "item": "biomesoplenty:goldenrod"
+    },
+    {
+      "item": "biomesoplenty:barley"
+    },
+    {
+      "item": "biomesoplenty:barley"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:prairie"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

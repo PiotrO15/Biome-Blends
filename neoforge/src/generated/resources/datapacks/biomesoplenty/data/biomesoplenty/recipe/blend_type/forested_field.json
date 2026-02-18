@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "minecraft:spruce_sapling"
+    },
+    {
+      "item": "biomesoplenty:sprout"
+    },
+    {
+      "item": "biomesoplenty:sprout"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:forested_field"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

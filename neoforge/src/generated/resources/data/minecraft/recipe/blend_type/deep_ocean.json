@@ -3,13 +3,13 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:cod"
-    },
-    {
-      "item": "minecraft:cod"
-    },
-    {
       "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "minecraft:cod"
+    },
+    {
+      "item": "minecraft:cod"
     },
     {
       "item": "minecraft:kelp"
