@@ -45,7 +45,7 @@ public class RecipeDatagen extends RecipeProvider {
 
     @Override
     protected void buildRecipes(@NotNull RecipeOutput output) {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BiomeBlendsItems.BLAND_BLEND.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BiomeBlendsItems.BLAND_BLEND.get(), 4)
                 .requires(Items.CLAY_BALL, 3)
                 .requires(Items.WHITE_DYE, 2)
                 .requires(Items.PAPER)
