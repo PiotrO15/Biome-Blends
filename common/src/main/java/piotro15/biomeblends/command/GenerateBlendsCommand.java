@@ -29,20 +29,21 @@ import java.util.List;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
-public class ExportBlendsCommand {
+public class GenerateBlendsCommand {
     private static final DynamicCommandExceptionType ERROR_INVALID_PATTERN = new DynamicCommandExceptionType(object -> Component.translatable("commands.exportblends.invalid_pattern", object));
     private static final SimpleCommandExceptionType ERROR_NO_BLENDS_FOUND = new SimpleCommandExceptionType(Component.translatable("commands.exportblends.no_blends_found"));
     private static Path generatedDir = null;
 
     public static void register(CommandDispatcher<CommandSourceStack> commandDispatcher) {
         commandDispatcher.register(
-                Commands.literal("exportblends")
+                Commands.literal("generateblends")
                         .requires(commandSourceStack -> commandSourceStack.hasPermission(2))
                         .then(Commands.argument("pattern", StringArgumentType.string())
-                        .executes(context -> export(context.getSource(), StringArgumentType.getString(context, "pattern")))));
+                        .then(Commands.argument("color_type", StringArgumentType.string())
+                        .executes(context -> export(context.getSource(), StringArgumentType.getString(context, "pattern"), StringArgumentType.getString(context, "color_type"))))));
     }
 
-    public static int export(CommandSourceStack commandSourceStack, String pattern) throws CommandSyntaxException {
+    public static int export(CommandSourceStack commandSourceStack, String pattern, String colorType) throws CommandSyntaxException {
         if (!isValidRegex(pattern)) {
             throw ERROR_INVALID_PATTERN.create(pattern);
         }
@@ -56,7 +57,24 @@ public class ExportBlendsCommand {
         }
 
         try {
-            blends.forEach(ExportBlendsCommand::save);
+            Registry<Biome> biomeRegistry = commandSourceStack.getLevel().registryAccess().registryOrThrow(Registries.BIOME);
+
+            blends.forEach(blend -> {
+                Biome biome = biomeRegistry.get(blend);
+                if (biome == null) {
+                    return;
+                }
+
+                int blendColor = 0;
+                if (colorType.equalsIgnoreCase("foliage_color")) {
+                    blendColor = biome.getFoliageColor();
+                } else if (colorType.equalsIgnoreCase("water_color")) {
+                    blendColor = biome.getWaterColor();
+                } else if (colorType.equalsIgnoreCase("grass_color")) {
+                    blendColor = biome.getGrassColor(0, 0);
+                }
+                save(blend, blendColor);
+            });
         } catch (ResourceLocationException e) {
             return 0;
         }
@@ -66,10 +84,13 @@ public class ExportBlendsCommand {
         return blends.size();
     }
 
-    public static void save(ResourceLocation resourceLocation) {
+    public static void save(ResourceLocation resourceLocation, int blendColor) {
         Path path = createAndValidatePath(resourceLocation, ".json");
 
         BlendType.BlendTypeBuilder builder = new BlendType.BlendTypeBuilder().action(new SetBiomeAction(resourceLocation));
+        if (blendColor != 0) {
+            builder.color(blendColor);
+        }
 
         try {
             Path parent = path.getParent();

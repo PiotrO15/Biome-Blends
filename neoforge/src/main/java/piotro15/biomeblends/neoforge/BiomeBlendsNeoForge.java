@@ -23,7 +23,7 @@ import piotro15.biomeblends.BiomeBlends;
 import net.neoforged.fml.common.Mod;
 import piotro15.biomeblends.CommonConfig;
 import piotro15.biomeblends.blend.BlendType;
-import piotro15.biomeblends.command.ExportBlendsCommand;
+import piotro15.biomeblends.command.GenerateBlendsCommand;
 import piotro15.biomeblends.registry.BiomeBlendsCreativeModeTabs;
 import piotro15.biomeblends.registry.BiomeBlendsDataComponents;
 import piotro15.biomeblends.registry.BiomeBlendsItems;
@@ -68,7 +68,7 @@ public final class BiomeBlendsNeoForge {
 
     @SubscribeEvent
     public void registerCommands(RegisterCommandsEvent event) {
-        ExportBlendsCommand.register(event.getDispatcher());
+        GenerateBlendsCommand.register(event.getDispatcher());
     }
 
     @SubscribeEvent
