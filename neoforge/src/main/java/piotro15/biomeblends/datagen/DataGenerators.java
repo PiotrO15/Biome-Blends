@@ -2,6 +2,7 @@ package piotro15.biomeblends.datagen;
 
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.DetectedVersion;
+import net.minecraft.client.resources.LegacyStuffWrapper;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.data.DataGenerator;
@@ -9,8 +10,11 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.metadata.PackMetadataGenerator;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
+import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.world.level.FoliageColor;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
@@ -19,6 +23,7 @@ import org.jetbrains.annotations.NotNull;
 import piotro15.biomeblends.BiomeBlends;
 import piotro15.biomeblends.registry.BiomeBlendsRegistries;
 
+import java.io.IOException;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiFunction;
@@ -30,6 +35,7 @@ public class DataGenerators {
         DataGenerator gen = event.getGenerator();
         PackOutput packOutput = gen.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
+        initColors(event.getResourceManager(PackType.CLIENT_RESOURCES));
 
         event.createDatapackRegistryObjects(new RegistrySetBuilder()
                         .add(BiomeBlendsRegistries.BLEND_TYPE, BlendTypeProvider::registerBlendTypes),
@@ -60,5 +66,16 @@ public class DataGenerators {
 
         RecipeProvider inner = recipeProvider.apply(dataOutput, event.getLookupProvider());
         generator.addProvider(event.includeServer(), RecipeDatagen.namedRecipeProvider("Recipes " + modId, inner));
+    }
+
+    private static void initColors(ResourceManager arg) {
+        ResourceLocation LOCATION = ResourceLocation.withDefaultNamespace("textures/colormap/foliage.png");
+        try {
+            int[] colors = LegacyStuffWrapper.getPixels(arg, LOCATION);
+
+            FoliageColor.init(colors);
+        } catch (IOException iOException) {
+            throw new IllegalStateException("Failed to load foliage color texture", iOException);
+        }
     }
 }
