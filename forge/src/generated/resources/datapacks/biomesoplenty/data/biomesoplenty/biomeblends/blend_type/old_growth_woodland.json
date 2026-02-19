@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomesoplenty:old_growth_woodland"
+  },
+  "color": 8762376
+}

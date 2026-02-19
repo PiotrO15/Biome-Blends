@@ -14,13 +14,17 @@ public class CommonConfig {
 
     public final ForgeConfigSpec.IntValue blendUseCooldown;
 
+    public final ForgeConfigSpec.BooleanValue bopCompat;
+
     private CommonConfig(ForgeConfigSpec.Builder builder) {
-        horizontalScale = builder.comment("When any blend is applied, the horizontal radius is multiplied by this number.").defineInRange("horizontal_scale", 1.0D, 0, 10);
-        verticalScale = builder.comment("When any blend is applied, the vertical radius is multiplied by this number.").defineInRange("vertical_scale", 1.0D, 0, 10);
+        horizontalScale = builder.defineInRange("horizontal_scale", 1.0D, 0, 10);
+        verticalScale = builder.defineInRange("vertical_scale", 1.0D, 0, 10);
 
-        ignoreVerticalRadius = builder.comment("Causes all blends to be applied from the bottom to the top of the world.").define("ignore_vertical_radius", false);
+        ignoreVerticalRadius = builder.define("ignore_vertical_radius", false);
 
-        blendUseCooldown = builder.comment("Cooldown between blend uses in ticks (20 ticks = 1 second).").defineInRange("blend_cooldown", 10, 0, 1000);
+        blendUseCooldown = builder.defineInRange("blend_cooldown", 10, 0, 1000);
+
+        bopCompat = builder.define("compatibility.biomesoplenty", true);
     }
 
     static {

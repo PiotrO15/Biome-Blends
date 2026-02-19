@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomesoplenty:jacaranda_glade"
+  },
+  "color": 8634480
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomesoplenty:snowblossom_sapling"
+    },
+    {
+      "item": "biomesoplenty:white_petals"
+    },
+    {
+      "item": "biomesoplenty:white_petals"
+    }
+  ],
+  "result": {
+    "item": "biomeblends:biome_blend",
+    "nbt": "{blend_type:\"biomesoplenty:snowblossom_grove\"}"
+  }
+}

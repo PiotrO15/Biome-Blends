@@ -6,16 +6,16 @@
       "item": "biomeblends:bland_blend"
     },
     {
-      "item": "minecraft:wheat_seeds"
-    },
-    {
-      "item": "minecraft:wheat_seeds"
-    },
-    {
       "item": "minecraft:grass"
     },
     {
       "item": "minecraft:grass"
+    },
+    {
+      "item": "minecraft:wheat_seeds"
+    },
+    {
+      "item": "minecraft:wheat_seeds"
     }
   ],
   "result": {

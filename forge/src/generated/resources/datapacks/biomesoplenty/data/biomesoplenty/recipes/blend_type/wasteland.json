@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomesoplenty:dried_salt"
+    },
+    {
+      "item": "biomesoplenty:dried_salt"
+    },
+    {
+      "item": "biomesoplenty:dead_log"
+    },
+    {
+      "item": "biomesoplenty:dead_log"
+    }
+  ],
+  "result": {
+    "item": "biomeblends:biome_blend",
+    "nbt": "{blend_type:\"biomesoplenty:wasteland\"}"
+  }
+}

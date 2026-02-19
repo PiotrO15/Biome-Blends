@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomesoplenty:wasteland_steppe"
+  },
+  "color": 13091727
+}

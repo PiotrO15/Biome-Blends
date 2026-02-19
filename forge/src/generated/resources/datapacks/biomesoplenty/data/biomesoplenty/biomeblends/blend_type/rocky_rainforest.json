@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomesoplenty:rocky_rainforest"
+  },
+  "color": 8970560
+}

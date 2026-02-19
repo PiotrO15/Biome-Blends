@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomesoplenty:snowblossom_grove"
+  },
+  "color": 7705454
+}

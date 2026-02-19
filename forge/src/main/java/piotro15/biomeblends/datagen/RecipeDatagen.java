@@ -1,5 +1,7 @@
 package piotro15.biomeblends.datagen;
 
+import net.minecraft.data.CachedOutput;
+import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -15,6 +17,7 @@ import piotro15.biomeblends.blend.BlendType;
 import piotro15.biomeblends.registry.BiomeBlendsItems;
 
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 public class RecipeDatagen extends RecipeProvider {
@@ -23,9 +26,25 @@ public class RecipeDatagen extends RecipeProvider {
         super(output);
     }
 
+    public static class BOPRecipeDatagen extends RecipeProvider {
+        public BOPRecipeDatagen(PackOutput arg) {
+            super(arg);
+        }
+
+        @Override
+        protected void buildRecipes(@NotNull Consumer<FinishedRecipe> output) {
+            BlendData.biomesOPlentyBlends.forEach(blend -> {
+                Map<Item, Integer> items = new LinkedHashMap<>();
+                items.put(BiomeBlendsItems.BLAND_BLEND.get(), 1);
+                items.putAll(blend.ingredients());
+                shapelessBlendRecipe(output, blend.getResourceLocation(), items);
+            });
+        }
+    }
+
     @Override
     protected void buildRecipes(@NotNull Consumer<FinishedRecipe> output) {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BiomeBlendsItems.BLAND_BLEND.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BiomeBlendsItems.BLAND_BLEND.get(), 4)
                 .requires(Items.CLAY_BALL, 3)
                 .requires(Items.WHITE_DYE, 2)
                 .requires(Items.PAPER)
@@ -36,13 +55,13 @@ public class RecipeDatagen extends RecipeProvider {
             Map<Item, Integer> items = new LinkedHashMap<>();
             items.put(BiomeBlendsItems.BLAND_BLEND.get(), 1);
             items.putAll(blend.ingredients());
-            shapelessBlendRecipe(output, blend.id(), items);
+            shapelessBlendRecipe(output, blend.getResourceLocation(), items);
         });
     }
 
-    private static void shapelessBlendRecipe(Consumer<FinishedRecipe> output, String path, Map<Item, Integer> ingredients) {
+    private static void shapelessBlendRecipe(Consumer<FinishedRecipe> output, ResourceLocation resourceLocation, Map<Item, Integer> ingredients) {
         ItemStack outputStack = new ItemStack(BiomeBlendsItems.BIOME_BLEND.get());
-        BlendType.save(outputStack, minecraft(path));
+        BlendType.save(outputStack, resourceLocation);
 
         List<Ingredient> ingredientsList = new ArrayList<>();
         for (Map.Entry<Item, Integer> entry : ingredients.entrySet()) {
@@ -53,13 +72,27 @@ public class RecipeDatagen extends RecipeProvider {
             }
         }
 
-        NBTShapelessRecipe recipe = new NBTShapelessRecipe(RecipeCategory.MISC, minecraft("blend_type/" + path), outputStack, ingredientsList);
+        NBTShapelessRecipe recipe = new NBTShapelessRecipe(RecipeCategory.MISC, recipeLocation(resourceLocation), outputStack, ingredientsList);
         recipe.unlockedBy("has_ingredients", has(ingredients.keySet().stream().skip(1).findFirst().orElseThrow(() -> new IllegalStateException("Map has fewer than 2 items"))));
 
         output.accept(recipe);
     }
 
-    private static ResourceLocation minecraft(String path) {
-        return new ResourceLocation("minecraft", path);
+    private static ResourceLocation recipeLocation(ResourceLocation blendLocation) {
+        return ResourceLocation.fromNamespaceAndPath(blendLocation.getNamespace(), "blend_type/" + blendLocation.getPath());
+    }
+
+    public static DataProvider namedRecipeProvider(String name, RecipeProvider provider) {
+        return new DataProvider() {
+            @Override
+            public @NotNull CompletableFuture<?> run(@NotNull CachedOutput output) {
+                return provider.run(output);
+            }
+
+            @Override
+            public @NotNull String getName() {
+                return name;
+            }
+        };
     }
 }

@@ -2,7 +2,6 @@ package piotro15.biomeblends.datagen;
 
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import piotro15.biomeblends.blend.BlendType;
 import piotro15.biomeblends.registry.BiomeBlendsRegistries;
 
@@ -12,7 +11,18 @@ public class BlendTypeProvider {
                 bootstrapContext.register(
                         ResourceKey.create(
                                 BiomeBlendsRegistries.BLEND_TYPE,
-                                new ResourceLocation("minecraft", blend.id())
+                                blend.getResourceLocation()
+                        ),
+                        blend.blendType()
+                )
+        );
+    }
+
+    public static void registerBOP(BootstapContext<BlendType> bootstrapContext) {
+        BlendData.biomesOPlentyBlends.forEach(blend -> bootstrapContext.register(
+                        ResourceKey.create(
+                                BiomeBlendsRegistries.BLEND_TYPE,
+                                blend.getResourceLocation()
                         ),
                         blend.blendType()
                 )

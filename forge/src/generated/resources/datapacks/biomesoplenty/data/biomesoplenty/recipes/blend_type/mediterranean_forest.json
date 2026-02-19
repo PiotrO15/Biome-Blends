@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomesoplenty:cypress_sapling"
+    },
+    {
+      "item": "biomesoplenty:bush"
+    },
+    {
+      "item": "biomesoplenty:bush"
+    }
+  ],
+  "result": {
+    "item": "biomeblends:biome_blend",
+    "nbt": "{blend_type:\"biomesoplenty:mediterranean_forest\"}"
+  }
+}

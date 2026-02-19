@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomesoplenty:pine_sapling"
+    },
+    {
+      "item": "biomesoplenty:thermal_calcite"
+    },
+    {
+      "item": "biomesoplenty:thermal_calcite"
+    }
+  ],
+  "result": {
+    "item": "biomeblends:biome_blend",
+    "nbt": "{blend_type:\"biomesoplenty:hot_springs\"}"
+  }
+}

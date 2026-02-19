@@ -6,16 +6,16 @@
       "item": "biomeblends:bland_blend"
     },
     {
-      "item": "minecraft:dragon_breath"
-    },
-    {
-      "item": "minecraft:dragon_breath"
-    },
-    {
       "item": "minecraft:end_stone"
     },
     {
       "item": "minecraft:end_stone"
+    },
+    {
+      "item": "minecraft:dragon_breath"
+    },
+    {
+      "item": "minecraft:dragon_breath"
     }
   ],
   "result": {

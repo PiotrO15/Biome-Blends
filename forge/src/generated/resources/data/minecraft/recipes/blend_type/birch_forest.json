@@ -6,13 +6,13 @@
       "item": "biomeblends:bland_blend"
     },
     {
+      "item": "minecraft:grass"
+    },
+    {
+      "item": "minecraft:grass"
+    },
+    {
       "item": "minecraft:birch_sapling"
-    },
-    {
-      "item": "minecraft:grass"
-    },
-    {
-      "item": "minecraft:grass"
     }
   ],
   "result": {

@@ -6,16 +6,16 @@
       "item": "biomeblends:bland_blend"
     },
     {
-      "item": "minecraft:slime_ball"
-    },
-    {
-      "item": "minecraft:slime_ball"
-    },
-    {
       "item": "minecraft:vine"
     },
     {
       "item": "minecraft:vine"
+    },
+    {
+      "item": "minecraft:slime_ball"
+    },
+    {
+      "item": "minecraft:slime_ball"
     }
   ],
   "result": {

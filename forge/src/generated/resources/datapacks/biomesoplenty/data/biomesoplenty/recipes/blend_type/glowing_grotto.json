@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomesoplenty:glowing_moss_block"
+    },
+    {
+      "item": "biomesoplenty:glowing_moss_block"
+    },
+    {
+      "item": "biomesoplenty:glowshroom"
+    }
+  ],
+  "result": {
+    "item": "biomeblends:biome_blend",
+    "nbt": "{blend_type:\"biomesoplenty:glowing_grotto\"}"
+  }
+}

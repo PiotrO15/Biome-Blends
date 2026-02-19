@@ -6,16 +6,16 @@
       "item": "biomeblends:bland_blend"
     },
     {
-      "item": "minecraft:grass"
-    },
-    {
-      "item": "minecraft:grass"
-    },
-    {
       "item": "minecraft:sunflower"
     },
     {
       "item": "minecraft:sunflower"
+    },
+    {
+      "item": "minecraft:grass"
+    },
+    {
+      "item": "minecraft:grass"
     }
   ],
   "result": {
