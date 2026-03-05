@@ -10,12 +10,16 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+import piotro15.biomeblends.CommonConfig;
 import piotro15.biomeblends.blend.BlendType;
 import piotro15.biomeblends.registry.BiomeBlendsDataComponents;
 import piotro15.biomeblends.registry.BiomeBlendsRegistries;
+
+import java.util.List;
 
 public class BlendItem extends Item {
     public BlendItem() {
@@ -81,5 +85,15 @@ public class BlendItem extends Item {
         }
 
         return InteractionResult.PASS;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, List<Component> list, TooltipFlag tooltipFlag) {
+        if (CommonConfig.INSTANCE.displayNamespace.get()) {
+            ResourceLocation blendType = components().get(BiomeBlendsDataComponents.BLEND_TYPE.get());
+            if (blendType != null) {
+                list.add(Component.literal(blendType.toString()));
+            }
+        }
     }
 }

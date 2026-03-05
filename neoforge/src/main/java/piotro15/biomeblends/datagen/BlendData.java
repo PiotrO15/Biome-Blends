@@ -11,6 +11,8 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
+import net.potionstudios.biomeswevegone.world.item.BWGItems;
+import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import piotro15.biomeblends.blend.BlendType;
 import piotro15.biomeblends.blend.blend_action.SetBiomeAction;
 
@@ -179,6 +181,10 @@ public record BlendData(String name, ResourceKey<Biome> id, BlendType blendType,
             BlendData.of("Wintry Origin Valley Blend", BOPBiomes.WINTRY_ORIGIN_VALLEY, ColorType.FOLIAGE_COLOR, "bumpy_blend", Map.entry(BOPItems.ORIGIN_SAPLING, 1), Map.entry(Items.SNOWBALL, 3)),
             BlendData.of("Withered Abyss Blend", BOPBiomes.WITHERED_ABYSS, ColorType.FOLIAGE_COLOR, "bumpy_blend", Map.entry(BOPItems.BLACKSTONE_BULB, 1), Map.entry(Items.BLACKSTONE, 2)),
             BlendData.of("Woodland Blend", BOPBiomes.WOODLAND, ColorType.FOLIAGE_COLOR, "fluffy_blend", Map.entry(BOPItems.TOADSTOOL, 1), Map.entry(Items.ROSE_BUSH, 2))
+    );
+
+    public static List<BlendData> biomesWeveGoneBlends = List.of(
+            BlendData.of("", BWGBiomes.ALLIUM_SHRUBLAND, 0xFF0000, "bumpy_blend", Map.entry(BWGItems.ALLIUM_ODDION_SOUP.get(), 1))
     );
 
     private enum ColorType {

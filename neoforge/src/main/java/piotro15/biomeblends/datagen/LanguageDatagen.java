@@ -4,6 +4,8 @@ import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import piotro15.biomeblends.registry.BiomeBlendsItems;
 
+import java.util.List;
+
 public class LanguageDatagen extends LanguageProvider {
     public LanguageDatagen(PackOutput output, String modId, String locale) {
         super(output, modId, locale);
@@ -16,9 +18,6 @@ public class LanguageDatagen extends LanguageProvider {
 
         BlendData.blends.forEach(blendData ->
                 add("blend_type.minecraft." + blendData.getId(), blendData.name()));
-
-        BlendData.biomesOPlentyBlends.forEach(blendData ->
-                add("blend_type." + blendData.getNamespace() + "." + blendData.getId(), blendData.name()));
 
         add("itemGroup.biomeblends.blends", "Biome Blends");
 
@@ -39,5 +38,10 @@ public class LanguageDatagen extends LanguageProvider {
         add("commands.exportblends.invalid_pattern", "The provided pattern is not a valid regular expression");
         add("commands.exportblends.no_blends_found", "Found no biomes matching the given pattern");
         add("commands.exportblends.success", "Successfully exported %s blend type(s)");
+    }
+
+    public void addBlendTranslations(List<BlendData> blends) {
+        blends.forEach(blendData ->
+                add("blend_type." + blendData.getNamespace() + "." + blendData.getId(), blendData.name()));
     }
 }

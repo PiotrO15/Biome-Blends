@@ -11,20 +11,24 @@ public class CommonConfig {
     public final ModConfigSpec.DoubleValue horizontalScale;
 
     public final ModConfigSpec.BooleanValue ignoreVerticalRadius;
+    public final ModConfigSpec.BooleanValue displayNamespace;
 
     public final ModConfigSpec.IntValue blendUseCooldown;
 
     public final ModConfigSpec.BooleanValue bopCompat;
+    public final ModConfigSpec.BooleanValue bwgCompat;
 
     private CommonConfig(ModConfigSpec.Builder builder) {
         horizontalScale = builder.defineInRange("horizontal_scale", 1.0D, 0, 10);
         verticalScale = builder.defineInRange("vertical_scale", 1.0D, 0, 10);
 
         ignoreVerticalRadius = builder.define("ignore_vertical_radius", false);
+        displayNamespace = builder.define("display_namespace", false);
 
         blendUseCooldown = builder.defineInRange("blend_cooldown", 10, 0, 1000);
 
         bopCompat = builder.define("compatibility.biomesoplenty", true);
+        bwgCompat = builder.define("compatibility.biomeswevegone", true);
     }
 
     static {

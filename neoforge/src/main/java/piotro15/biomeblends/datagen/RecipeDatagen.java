@@ -2,8 +2,6 @@ package piotro15.biomeblends.datagen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentMap;
-import net.minecraft.data.CachedOutput;
-import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -18,6 +16,7 @@ import piotro15.biomeblends.registry.BiomeBlendsDataComponents;
 import piotro15.biomeblends.registry.BiomeBlendsItems;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -27,14 +26,16 @@ public class RecipeDatagen extends RecipeProvider {
         super(output, provider);
     }
 
-    public static class BOPRecipeDatagen extends RecipeProvider {
-        public BOPRecipeDatagen(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture) {
+    public static class BlendRecipeProvider extends RecipeProvider {
+        private final List<BlendData> blends;
+        public BlendRecipeProvider(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture, List<BlendData> blends) {
             super(arg, completableFuture);
+            this.blends = blends;
         }
 
         @Override
         protected void buildRecipes(@NotNull RecipeOutput output) {
-            BlendData.biomesOPlentyBlends.forEach(blend -> {
+            blends.forEach(blend -> {
                 Map<Item, Integer> items = new LinkedHashMap<>();
                 items.put(BiomeBlendsItems.BLAND_BLEND.get(), 1);
                 items.putAll(blend.ingredients());
@@ -77,19 +78,5 @@ public class RecipeDatagen extends RecipeProvider {
 
     private static ResourceLocation recipeLocation(ResourceLocation blendLocation) {
         return ResourceLocation.fromNamespaceAndPath(blendLocation.getNamespace(), "blend_type/" + blendLocation.getPath());
-    }
-
-    public static DataProvider namedRecipeProvider(String name, RecipeProvider provider) {
-        return new DataProvider() {
-            @Override
-            public @NotNull CompletableFuture<?> run(@NotNull CachedOutput output) {
-                return provider.run(output);
-            }
-
-            @Override
-            public @NotNull String getName() {
-                return name;
-            }
-        };
     }
 }

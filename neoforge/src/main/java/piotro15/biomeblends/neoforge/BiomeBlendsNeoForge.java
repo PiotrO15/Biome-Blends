@@ -78,5 +78,10 @@ public final class BiomeBlendsNeoForge {
                 event.addPackFinders(ResourceLocation.fromNamespaceAndPath(BiomeBlends.MOD_ID, "datapacks/biomesoplenty"), PackType.SERVER_DATA, Component.literal("Mod blends"), PackSource.BUILT_IN, true, Pack.Position.BOTTOM);
             }
         }
+        if (event.getPackType() == PackType.SERVER_DATA) {
+            if (ModList.get().isLoaded("biomeswevegone") && CommonConfig.INSTANCE.bwgCompat.get()) {
+                event.addPackFinders(ResourceLocation.fromNamespaceAndPath(BiomeBlends.MOD_ID, "datapacks/biomeswevegone"), PackType.SERVER_DATA, Component.literal("Mod blends"), PackSource.BUILT_IN, true, Pack.Position.BOTTOM);
+            }
+        }
     }
 }

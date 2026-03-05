@@ -38,6 +38,17 @@ subprojects {
                 includeGroup "curse.maven"
             }
         }
+        maven {
+            name = 'GeckoLib'
+            url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+            content {
+                includeGroup("software.bernie.geckolib")
+            }
+        }
+        maven {
+            name = "jTDev MavenReleases"
+            url = uri("https://maven.jt-dev.tech/releases")
+        }
     }
 
     dependencies {
