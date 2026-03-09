@@ -14,7 +14,9 @@ import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
+import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import piotro15.biomeblends.blend.BlendType;
 import piotro15.biomeblends.blend.blend_action.SetBiomeAction;
@@ -198,7 +200,60 @@ public record BlendData(String name, ResourceKey<Biome> id, BlendType blendType,
 
     public static List<BlendData> biomesWeveGoneBlends = List.of(
             BlendData.of("Allium Shrubland Blend", BWGBiomes.ALLIUM_SHRUBLAND, 0x9787B8, "bumpy_blend", BlendData.entry(Items.ALLIUM, 1), BlendData.entry(BWGBlocks.WHITE_ALLIUM.getItem(), 1), BlendData.entry(BWGBlocks.PINK_ALLIUM.getItem(), 1)),
-            BlendData.of("Amaranth Grassland Blend", BWGBiomes.AMARANTH_GRASSLAND, 0xE83256, "bumpy_blend", BlendData.entry(BWGItemTags.AMARANTH, 3))
+            BlendData.of("Amaranth Grassland Blend", BWGBiomes.AMARANTH_GRASSLAND, 0xE83256, "bumpy_blend", BlendData.entry(BWGItemTags.AMARANTH, 3)),
+            BlendData.of("Araucaria Savanna Blend", BWGBiomes.ARAUCARIA_SAVANNA, ColorType.CALCULATED, "bumpy_blend", BlendData.entry(BWGWood.ARAUCARIA_SAPLING.getItem(), 1), BlendData.entry(Items.ACACIA_SAPLING, 1)),
+            BlendData.of("Aspen Boreal Blend", BWGBiomes.ASPEN_BOREAL, 0x9FC77C, "fluffy_blend", BlendData.entry(BWGWood.ASPEN.sapling().getItem(), 1), BlendData.entry(BWGBlocks.ORANGE_DAISY.getItem(), 1)),
+            BlendData.of("Atacama Outback Blend", BWGBiomes.ATACAMA_OUTBACK, 0xC9B873, "bumpy_blend", BlendData.entry(BWGBlocks.ALOE_VERA.get().asItem(), 1), BlendData.entry(BWGBlocks.CRACKED_RED_SAND.get().asItem(), 2)),
+            BlendData.of("Baobab Savanna Blend", BWGBiomes.BAOBAB_SAVANNA, ColorType.CALCULATED, "bumpy_blend", BlendData.entry(BWGWood.BAOBAB.sapling().getItem(), 1), BlendData.entry(BWGItems.BAOBAB_FRUIT.get(), 2)),
+            BlendData.of("Basalt Barrera Blend", BWGBiomes.BASALT_BARRERA, 0x808080, "bumpy_blend", BlendData.entry(Items.BASALT, 3), BlendData.entry(Items.SMOOTH_BASALT, 1)),
+            BlendData.of("Bayou Blend", BWGBiomes.BAYOU, ColorType.GRASS_COLOR, "bumpy_blend", BlendData.entry(BWGWood.WILLOW.sapling().getItem(), 1), BlendData.entry(Items.VINE, 2)),
+            BlendData.of("Black Forest Blend", BWGBiomes.BLACK_FOREST, ColorType.GRASS_COLOR, "fluffy_blend", BlendData.entry(BWGWood.PINE.sapling().getItem(), 1), BlendData.entry(BWGWood.FIR.sapling().getItem(), 1), BlendData.entry(BWGBlocks.MOSSY_STONE_SET.getBase().asItem(), 2)),
+            BlendData.of("Canadian Shield Blend", BWGBiomes.CANADIAN_SHIELD, ColorType.CALCULATED, "fluffy_blend", BlendData.entry(BWGWood.FIR.sapling().getItem(), 1), BlendData.entry(Items.SPRUCE_SAPLING, 1), BlendData.entry(BWGBlocks.HYDRANGEA_HEDGE.get().asItem(), 1)),
+            BlendData.of("Cika Woods Blend", BWGBiomes.CIKA_WOODS, ColorType.GRASS_COLOR, "fluffy_blend", BlendData.entry(BWGWood.CIKA.sapling().getItem(), 1), BlendData.entry(Items.PUMPKIN, 2)),
+            BlendData.of("Coconino Meadow Blend", BWGBiomes.COCONINO_MEADOW, ColorType.GRASS_COLOR, "bumpy_blend", BlendData.entry(BWGBlocks.LUSH_DIRT.get().asItem(), 2), BlendData.entry(BWGBlocks.ANGELICA.getItem(), 1)),
+            BlendData.of("Coniferous Forest Blend", BWGBiomes.CONIFEROUS_FOREST, ColorType.CALCULATED, "fluffy_blend", BlendData.entry(BWGWood.FIR.sapling().getItem(), 1), BlendData.entry(Items.BROWN_MUSHROOM, 1), BlendData.entry(BWGBlocks.BLUE_ROSE_BUSH.get().asItem(), 1)),
+            BlendData.of("Crag Gardens Blend", BWGBiomes.CRAG_GARDENS, ColorType.GRASS_COLOR, "fluffy_blend", BlendData.entry(BWGWood.MAHOGANY.sapling().getItem(), 1), BlendData.entry(BWGWood.RAINBOW_EUCALYPTUS.sapling().getItem(), 1), BlendData.entry(Items.BAMBOO, 2)),
+            BlendData.of("Crimson Tundra Blend", BWGBiomes.CRIMSON_TUNDRA, ColorType.GRASS_COLOR, "bumpy_blend", BlendData.entry(BWGBlocks.ROSE.getItem(), 1), BlendData.entry(BWGBlocks.PEAT.get().asItem(), 2)),
+            BlendData.of("Cypress Swamplands Blend", BWGBiomes.CYPRESS_SWAMPLANDS, ColorType.GRASS_COLOR, "bumpy_blend", BlendData.entry(BWGWood.CYPRESS.sapling().getItem(), 1), BlendData.entry(BWGBlocks.CATTAIL_SPROUT.get().asItem(), 2)),
+            BlendData.of("Cypress Wetlands Blend", BWGBiomes.CYPRESS_WETLANDS, ColorType.CALCULATED, "bumpy_blend", BlendData.entry(BWGWood.CYPRESS.sapling().getItem(), 1), BlendData.entry(BWGBlocks.CATTAIL_SPROUT.get().asItem(), 1), BlendData.entry(BWGBlocks.FLUORESCENT_CATTAIL_SPROUT.get().asItem(), 1)),
+            BlendData.of("Dacite Ridges Blend", BWGBiomes.DACITE_RIDGES, ColorType.GRASS_COLOR, "bumpy_blend", BlendData.entry(BWGWood.HOLLY.sapling().getItem(), 1), BlendData.entry(Items.SPRUCE_SAPLING, 1), BlendData.entry(BWGBlocks.DACITE_SET.getBase().asItem(), 2)),
+            BlendData.of("Dacite Shore Blend", BWGBiomes.DACITE_SHORE, 0xA0A0A0, "bumpy_blend", BlendData.entry(BWGBlocks.WHITE_SAND_SET.getSand().asItem(), 2), BlendData.entry(BWGBlocks.WHITE_DACITE_SET.getBase().asItem(), 2)),
+            BlendData.of("Dead Sea Blend", BWGBiomes.DEAD_SEA, ColorType.WATER_COLOR, "bumpy_blend", BlendData.entry(Items.GRAVEL, 2), BlendData.entry(Items.POINTED_DRIPSTONE, 2)),
+            BlendData.of("Ebony Woods Blend", BWGBiomes.EBONY_WOODS, ColorType.GRASS_COLOR, "fluffy_blend", BlendData.entry(BWGWood.EBONY.sapling().getItem(), 1), BlendData.entry(BWGBlocks.WHITE_ANEMONE.getItem(), 2)),
+            BlendData.of("Enchanted Tangle Blend", BWGBiomes.ENCHANTED_TANGLE, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BWGWood.BLUE_ENCHANTED.sapling().getItem(), 1), BlendData.entry(BWGWood.GREEN_ENCHANTED.sapling().getItem(), 1), BlendData.entry(BWGBlocks.WOOD_BLEWIT.get().asItem(), 1)),
+            // Eroded Borealis?
+            BlendData.of("Firecracker Chaparral Blend", BWGBiomes.FIRECRACKER_CHAPARRAL,0xE83256, "bumpy_blend", BlendData.entry(BWGBlocks.FIRECRACKER_FLOWER_BUSH.getItem(), 2), BlendData.entry(BWGBlocks.SHELF_FUNGI.get().asItem(), 1)),
+            BlendData.of("Forgotten Forest Blend", BWGBiomes.FORGOTTEN_FOREST, ColorType.CALCULATED, "fluffy_blend", BlendData.entry(BWGWood.SILVER_MAPLE_SAPLING.getItem(), 1), BlendData.entry(BWGWood.EBONY.sapling().getItem(), 1), BlendData.entry(Items.DARK_OAK_SAPLING, 1), BlendData.entry(BWGBlocks.GREEN_MUSHROOM.get().asItem(), 1)),
+            BlendData.of("Fragment Jungle Blend", BWGBiomes.FRAGMENT_JUNGLE, ColorType.GRASS_COLOR, "fluffy_blend", BlendData.entry(BWGWood.MAHOGANY.sapling().getItem(), 1), BlendData.entry(BWGWood.RAINBOW_EUCALYPTUS.sapling().getItem(), 1), BlendData.entry(BWGBlocks.DELPHINIUM.get().asItem(), 1)),
+            BlendData.of("Frosted Coniferous Forest Blend", BWGBiomes.FROSTED_CONIFEROUS_FOREST, ColorType.CALCULATED, "fluffy_blend", BlendData.entry(BWGWood.FIR.sapling().getItem(), 1), BlendData.entry(Items.SPRUCE_SAPLING, 1), BlendData.entry(BWGBlocks.HYDRANGEA_HEDGE.get().asItem(), 1), BlendData.entry(Items.SNOWBALL, 1)),
+            BlendData.of("Frosted Taiga Blend", BWGBiomes.FROSTED_TAIGA, ColorType.CALCULATED, "fluffy_blend", BlendData.entry(BWGWood.BLUE_SPRUCE_SAPLING.getItem(), 1), BlendData.entry(Items.SPRUCE_SAPLING, 1), BlendData.entry(Items.SNOWBALL, 1)),
+            BlendData.of("Howling Peaks Blend", BWGBiomes.HOWLING_PEAKS, ColorType.GRASS_COLOR, "bumpy_blend", BlendData.entry(BWGWood.ORANGE_BIRCH_SAPLING.getItem(), 1), BlendData.entry(BWGWood.YELLOW_BIRCH_SAPLING.getItem(), 1), BlendData.entry(Items.SPRUCE_SAPLING, 1), BlendData.entry(Items.SNOWBALL, 1)),
+            BlendData.of("Ironwood Gour Blend", BWGBiomes.IRONWOOD_GOUR, ColorType.CALCULATED, "bumpy_blend", BlendData.entry(BWGWood.IRONWOOD.sapling().getItem(), 1), BlendData.entry(Items.ACACIA_SAPLING, 1), BlendData.entry(BWGBlocks.CALIFORNIA_POPPY.getItem(), 1)),
+            BlendData.of("Jacaranda Jungle Blend", BWGBiomes.JACARANDA_JUNGLE, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BWGWood.JACARANDA.sapling().getItem(), 1), BlendData.entry(BWGWood.INDIGO_JACARANDA_SAPLING.getItem(), 1)),
+            BlendData.of("Lush Stacks Blend", BWGBiomes.LUSH_STACKS, ColorType.WATER_COLOR, "bumpy_blend", BlendData.entry(Items.MOSS_BLOCK, 2), BlendData.entry(BWGBlocks.MOSSY_STONE_SET.getBase().asItem(), 2)),
+            BlendData.of("Maple Taiga Blend", BWGBiomes.MAPLE_TAIGA, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BWGWood.MAPLE.sapling().getItem(), 1), BlendData.entry(BWGWood.RED_MAPLE_SAPLING.getItem(), 1), BlendData.entry(Items.SPRUCE_SAPLING, 1)),
+            BlendData.of("Mojave Desert Blend", BWGBiomes.MOJAVE_DESERT, 0xC9B873, "bumpy_blend", BlendData.entry(BWGBlocks.ALOE_VERA.get().asItem(), 1), BlendData.entry(BWGBlocks.BEACH_GRASS.get().asItem(), 2)),
+            BlendData.of("Orchard Blend", BWGBiomes.ORCHARD, ColorType.GRASS_COLOR, "bumpy_blend", BlendData.entry(BWGWood.ORCHARD_SAPLING.getItem(), 1), BlendData.entry(BWGBlocks.WHITE_ALLIUM.getItem(), 1), BlendData.entry(BWGBlocks.LOLLIPOP_FLOWER.getItem(), 1)),
+            BlendData.of("Overgrowth Woodlands Blend", BWGBiomes.OVERGROWTH_WOODLANDS, ColorType.CALCULATED, "fluffy_blend", BlendData.entry(BWGWood.YELLOW_BIRCH_SAPLING.getItem(), 1), BlendData.entry(Items.BIRCH_SAPLING, 1), BlendData.entry(BWGBlocks.SHELF_FUNGI.get().asItem(), 1)),
+            BlendData.of("Pale Bog Blend", BWGBiomes.PALE_BOG, ColorType.GRASS_COLOR, "fluffy_blend", BlendData.entry(BWGWood.SPIRIT.sapling().getItem(), 1), BlendData.entry(BWGBlocks.PALE_MUD.get().asItem(), 2)),
+            BlendData.of("Prairie Blend", BWGBiomes.PRAIRIE, ColorType.GRASS_COLOR, "bumpy_blend", BlendData.entry(BWGBlocks.PRAIRIE_GRASS.get().asItem(), 3), BlendData.entry(BWGBlocks.CALIFORNIA_POPPY.getItem(), 1)),
+            BlendData.of("Pumpkin Valley Blend", BWGBiomes.PUMPKIN_VALLEY, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(Items.PUMPKIN, 3), BlendData.entry(BWGBlocks.CROCUS.getItem(), 1)),
+            BlendData.of("Rainbow Beach Blend", BWGBiomes.RAINBOW_BEACH, 0xA0A0A0, "bumpy_blend", BlendData.entry(BWGBlocks.BLUE_SAND_SET.getSand().asItem(), 2), BlendData.entry(BWGBlocks.BEACH_GRASS.get().asItem(), 2)),
+            BlendData.of("Red Rock Peaks Blend", BWGBiomes.RED_ROCK_PEAKS, ColorType.GRASS_COLOR, "bumpy_blend", BlendData.entry(BWGWood.PINE.sapling().getItem(), 1), BlendData.entry(BWGBlocks.RED_ROCK_SET.getBase().asItem(), 2)),
+            BlendData.of("Red Rock Valley Blend", BWGBiomes.RED_ROCK_VALLEY, ColorType.GRASS_COLOR, "bumpy_blend", BlendData.entry(BWGWood.PINE.sapling().getItem(), 1), BlendData.entry(BWGBlocks.RED_ROCK_SET.getBase().asItem(), 1), BlendData.entry(BWGBlocks.FIRECRACKER_FLOWER_BUSH.getItem(), 1)),
+            BlendData.of("Redwood Thicket Blend", BWGBiomes.REDWOOD_THICKET, ColorType.GRASS_COLOR, "fluffy_blend", BlendData.entry(BWGWood.REDWOOD.sapling().getItem(), 1), BlendData.entry(BWGBlocks.FIRECRACKER_FLOWER_BUSH.getItem(), 1), BlendData.entry(BWGBlocks.ROCKY_STONE_SET.getBase().asItem(), 2)),
+            BlendData.of("Rose Fields Blend", BWGBiomes.ROSE_FIELDS, ColorType.GRASS_COLOR, "bumpy_blend", BlendData.entry(BWGBlocks.BLACK_ROSE.getItem(), 1), BlendData.entry(Items.ROSE_BUSH, 1), BlendData.entry(BWGBlocks.OSIRIA_ROSE.getItem(), 1)),
+            BlendData.of("Rugged Badlands Blend", BWGBiomes.RUGGED_BADLANDS, ColorType.GRASS_COLOR, "bumpy_blend", BlendData.entry(BWGWood.PALO_VERDE_SAPLING.getItem(), 1), BlendData.entry(BWGBlocks.BEACH_GRASS.get().asItem(), 2)),
+            BlendData.of("Sakura Grove Blend", BWGBiomes.SAKURA_GROVE, ColorType.GRASS_COLOR, "fluffy_blend", BlendData.entry(BWGWood.WHITE_SAKURA_SAPLING.getItem(), 1), BlendData.entry(BWGWood.YELLOW_SAKURA_SAPLING.getItem(), 1), BlendData.entry(Items.CHERRY_SAPLING, 1)),
+            BlendData.of("Shattered Glacier Blend", BWGBiomes.SHATTERED_GLACIER, 0xA0A0A0, "bumpy_blend", BlendData.entry(BWGBlocks.PACKED_BLACK_ICE.get().asItem(), 3)),
+            BlendData.of("Sierra Badlands Blend", BWGBiomes.SIERRA_BADLANDS, ColorType.GRASS_COLOR, "bumpy_blend", BlendData.entry(Items.OAK_SAPLING, 1), BlendData.entry(BWGBlocks.FIRECRACKER_FLOWER_BUSH.getItem(), 1), BlendData.entry(Items.TERRACOTTA, 2)),
+            BlendData.of("Skyris Vale Blend", BWGBiomes.SKYRIS_VALE, ColorType.GRASS_COLOR, "bumpy_blend", BlendData.entry(BWGWood.SKYRIS.sapling().getItem(), 1), BlendData.entry(BWGWood.BLUE_SPRUCE_SAPLING.getItem(), 1), BlendData.entry(BWGBlocks.FOXGLOVE.get().asItem(), 1)),
+            BlendData.of("Temperate Grove Blend", BWGBiomes.TEMPERATE_GROVE, ColorType.GRASS_COLOR, "bumpy_blend", BlendData.entry(BWGWood.YELLOW_BIRCH_SAPLING.getItem(), 1), BlendData.entry(Items.BIRCH_SAPLING, 1), BlendData.entry(Items.SUNFLOWER, 1)),
+            BlendData.of("Tropical Rainforest Blend", BWGBiomes.TROPICAL_RAINFOREST, ColorType.GRASS_COLOR, "fluffy_blend", BlendData.entry(BWGWood.MAHOGANY.sapling().getItem(), 1), BlendData.entry(BWGBlocks.GREEN_MUSHROOM.get().asItem(), 1), BlendData.entry(BWGBlocks.DELPHINIUM.get().asItem(), 1)),
+            BlendData.of("Weeping Witch Forest Blend", BWGBiomes.WEEPING_WITCH_FOREST, ColorType.GRASS_COLOR, "fluffy_blend", BlendData.entry(BWGWood.WITCH_HAZEL.sapling().getItem(), 1), BlendData.entry(BWGBlocks.CROCUS.getItem(), 1), BlendData.entry(BWGBlocks.PEAT.get().asItem(), 2)),
+            BlendData.of("White Mangrove Marshes Blend", BWGBiomes.WHITE_MANGROVE_MARSHES, ColorType.GRASS_COLOR, "fluffy_blend", BlendData.entry(BWGWood.WHITE_MANGROVE.sapling().getItem(), 1), BlendData.entry(BWGBlocks.CATTAIL_SPROUT.get().asItem(), 2)),
+            BlendData.of("Windswept Desert Blend", BWGBiomes.WINDSWEPT_DESERT, 0xC9B873, "bumpy_blend", BlendData.entry(Items.CACTUS, 2), BlendData.entry(BWGBlocks.WINDSWEPT_SAND_SET.getSand().asItem(), 2)),
+            BlendData.of("Zelkova Forest Blend", BWGBiomes.ZELKOVA_FOREST, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BWGWood.ZELKOVA.sapling().getItem(), 1), BlendData.entry(Items.SHORT_GRASS, 2))
     );
 
     private enum ColorType {
