@@ -4,7 +4,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
@@ -74,14 +73,11 @@ public final class BiomeBlendsNeoForge {
     @SubscribeEvent
     public void addDataPacks(AddPackFindersEvent event) {
         if (event.getPackType() == PackType.SERVER_DATA) {
-            if (ModList.get().isLoaded("biomesoplenty") && CommonConfig.INSTANCE.bopCompat.get()) {
-                event.addPackFinders(ResourceLocation.fromNamespaceAndPath(BiomeBlends.MOD_ID, "datapacks/biomesoplenty"), PackType.SERVER_DATA, Component.literal("Mod blends"), PackSource.BUILT_IN, true, Pack.Position.BOTTOM);
-            }
-        }
-        if (event.getPackType() == PackType.SERVER_DATA) {
-            if (ModList.get().isLoaded("biomeswevegone") && CommonConfig.INSTANCE.bwgCompat.get()) {
-                event.addPackFinders(ResourceLocation.fromNamespaceAndPath(BiomeBlends.MOD_ID, "datapacks/biomeswevegone"), PackType.SERVER_DATA, Component.literal("Mod blends"), PackSource.BUILT_IN, true, Pack.Position.BOTTOM);
-            }
+            NeoForgePlatform.compatibilityDatapacks.forEach((s, register) -> {
+                if (ModList.get().isLoaded(s) && register.get()) {
+                    event.addPackFinders(BiomeBlends.id("datapacks/" + s), PackType.SERVER_DATA, Component.literal("Mod blends"), PackSource.BUILT_IN, true, Pack.Position.BOTTOM);
+                }
+            });
         }
     }
 }

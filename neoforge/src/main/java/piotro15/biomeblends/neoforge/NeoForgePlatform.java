@@ -7,15 +7,19 @@ import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.registries.DataPackRegistryEvent;
 import piotro15.biomeblends.util.Platform;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 
 public class NeoForgePlatform extends Platform {
     public static final List<DataRegistryRegisterable<?>> dataRegistryRegisterables = new ArrayList<>();
+    public static final Map<String, ModConfigSpec.BooleanValue> compatibilityDatapacks = new HashMap<>();
     public static final BiMap<Supplier<Item>, ItemColor> itemColors = HashBiMap.create();
 
     @Override
@@ -26,6 +30,11 @@ public class NeoForgePlatform extends Platform {
     @Override
     public void registerItemTint(ItemColor itemColor, Supplier<Item> itemSupplier) {
         itemColors.put(itemSupplier, itemColor);
+    }
+
+    @Override
+    public void registerDatapack(String name, ModConfigSpec.BooleanValue register) {
+        compatibilityDatapacks.put(name, register);
     }
 
     public record DataRegistryRegisterable<T>(ResourceKey<Registry<T>> key, Codec<T> codec, Codec<T> networkCodec) {
