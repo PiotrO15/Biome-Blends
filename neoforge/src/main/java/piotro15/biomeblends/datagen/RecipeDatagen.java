@@ -8,9 +8,9 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
 import piotro15.biomeblends.registry.BiomeBlendsDataComponents;
 import piotro15.biomeblends.registry.BiomeBlendsItems;
@@ -36,8 +36,8 @@ public class RecipeDatagen extends RecipeProvider {
         @Override
         protected void buildRecipes(@NotNull RecipeOutput output) {
             blends.forEach(blend -> {
-                Map<Item, Integer> items = new LinkedHashMap<>();
-                items.put(BiomeBlendsItems.BLAND_BLEND.get(), 1);
+                Map<Ingredient, Integer> items = new LinkedHashMap<>();
+                items.put(Ingredient.of(BiomeBlendsItems.BLAND_BLEND.get()), 1);
                 items.putAll(blend.ingredients());
                 shapelessBlendRecipe(output, blend.getResourceLocation(), items);
             });
@@ -54,14 +54,14 @@ public class RecipeDatagen extends RecipeProvider {
                 .save(output);
 
         BlendData.blends.forEach(blend -> {
-            Map<Item, Integer> items = new LinkedHashMap<>();
-            items.put(BiomeBlendsItems.BLAND_BLEND.get(), 1);
+            Map<Ingredient, Integer> items = new LinkedHashMap<>();
+            items.put(Ingredient.of(BiomeBlendsItems.BLAND_BLEND.get()), 1);
             items.putAll(blend.ingredients());
             shapelessBlendRecipe(output, blend.getResourceLocation(), items);
         });
     }
 
-    private static void shapelessBlendRecipe(RecipeOutput output, ResourceLocation resourceLocation, Map<Item, Integer> ingredients) {
+    private static void shapelessBlendRecipe(RecipeOutput output, ResourceLocation resourceLocation, Map<Ingredient, Integer> ingredients) {
         ItemStack outputStack = new ItemStack(BiomeBlendsItems.BIOME_BLEND.get());
         outputStack.applyComponents(DataComponentMap.builder()
                 .set(BiomeBlendsDataComponents.BLEND_TYPE, resourceLocation)
@@ -72,7 +72,8 @@ public class RecipeDatagen extends RecipeProvider {
                 outputStack
         );
         ingredients.forEach(recipeBuilder::requires);
-        recipeBuilder.unlockedBy("has_ingredients", has(ingredients.keySet().stream().skip(1).findFirst().orElseThrow()));
+        // TODO: Fully support tags in the unlock condition
+        recipeBuilder.unlockedBy("has_ingredients", has(ingredients.keySet().stream().skip(1).findFirst().orElseThrow().getItems()[0].getItem()));
         recipeBuilder.save(output, recipeLocation(resourceLocation));
     }
 
