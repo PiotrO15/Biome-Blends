@@ -1,9 +1,6 @@
 package piotro15.biomeblends.neoforge;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
@@ -21,7 +18,6 @@ import net.neoforged.neoforge.registries.DataPackRegistryEvent;
 import piotro15.biomeblends.BiomeBlends;
 import net.neoforged.fml.common.Mod;
 import piotro15.biomeblends.CommonConfig;
-import piotro15.biomeblends.blend.BlendType;
 import piotro15.biomeblends.command.GenerateBlendsCommand;
 import piotro15.biomeblends.registry.BiomeBlendsCreativeModeTabs;
 import piotro15.biomeblends.registry.BiomeBlendsDataComponents;
@@ -54,15 +50,11 @@ public final class BiomeBlendsNeoForge {
     public void registerBlendsInCreativeTab(BuildCreativeModeTabContentsEvent event) {
         if (!event.getTabKey().equals(BiomeBlendsCreativeModeTabs.BLENDS_TAB.getKey())) return;
 
-        if (Minecraft.getInstance().level != null) {
-            Registry<BlendType> blendTypeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(BiomeBlendsRegistries.BLEND_TYPE);
-
-            for (ResourceKey<BlendType> blendKey : blendTypeRegistry.registryKeySet()) {
-                ItemStack stack = new ItemStack(BiomeBlendsItems.BIOME_BLEND.get());
-                stack.set(BiomeBlendsDataComponents.BLEND_TYPE.get(), blendKey.location());
-                event.accept(stack);
-            }
-        }
+        event.getParameters().holders().lookupOrThrow(BiomeBlendsRegistries.BLEND_TYPE).listElementIds().forEach(blendKey -> {
+            ItemStack stack = new ItemStack(BiomeBlendsItems.BIOME_BLEND.get());
+            stack.set(BiomeBlendsDataComponents.BLEND_TYPE.get(), blendKey.location());
+            event.accept(stack);
+        });
     }
 
     @SubscribeEvent
