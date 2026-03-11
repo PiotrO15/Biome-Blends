@@ -7,14 +7,12 @@ import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.registries.DataPackRegistryEvent;
 import piotro15.biomeblends.util.Platform;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Supplier;
 
 public class NeoForgePlatform extends Platform {
@@ -35,6 +33,12 @@ public class NeoForgePlatform extends Platform {
     @Override
     public void registerDatapack(String name, ModConfigSpec.BooleanValue register) {
         compatibilityDatapacks.put(name, register);
+    }
+
+    @Override
+    public Optional<String> getModDisplayName(String modId) {
+        return ModList.get().getModContainerById(modId)
+                .map(mod -> mod.getModInfo().getDisplayName());
     }
 
     public record DataRegistryRegisterable<T>(ResourceKey<Registry<T>> key, Codec<T> codec, Codec<T> networkCodec) {

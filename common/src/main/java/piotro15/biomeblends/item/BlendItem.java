@@ -1,5 +1,6 @@
 package piotro15.biomeblends.item;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
@@ -18,8 +19,10 @@ import piotro15.biomeblends.CommonConfig;
 import piotro15.biomeblends.blend.BlendType;
 import piotro15.biomeblends.registry.BiomeBlendsDataComponents;
 import piotro15.biomeblends.registry.BiomeBlendsRegistries;
+import piotro15.biomeblends.util.Platform;
 
 import java.util.List;
+import java.util.Optional;
 
 public class BlendItem extends Item {
     public BlendItem() {
@@ -90,9 +93,10 @@ public class BlendItem extends Item {
     @Override
     public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, List<Component> list, TooltipFlag tooltipFlag) {
         if (CommonConfig.INSTANCE.displayNamespace.get()) {
-            ResourceLocation blendType = components().get(BiomeBlendsDataComponents.BLEND_TYPE.get());
+            ResourceLocation blendType = itemStack.get(BiomeBlendsDataComponents.BLEND_TYPE.get());
             if (blendType != null) {
-                list.add(Component.literal(blendType.toString()));
+                Optional<String> modName = Platform.getInstance().getModDisplayName(blendType.getNamespace());
+                list.add(Component.literal(modName.orElseGet(blendType::getNamespace)).withStyle(ChatFormatting.GRAY));
             }
         }
     }

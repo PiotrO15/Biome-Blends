@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
+import java.util.Optional;
 import java.util.function.Supplier;
 
 public abstract class Platform {
@@ -25,4 +26,6 @@ public abstract class Platform {
     public abstract void registerItemTint(ItemColor itemColor, Supplier<Item> itemSupplier);
 
     public abstract void registerDatapack(String name, ModConfigSpec.BooleanValue register);
+
+    public abstract Optional<String> getModDisplayName(String modId);
 }
