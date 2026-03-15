@@ -3,13 +3,13 @@ package piotro15.biomeblends.datagen;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.item.BOPItems;
 import com.google.gson.JsonObject;
+import com.mojang.datafixers.util.Either;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
@@ -28,14 +28,14 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public record BlendData(String name, ResourceKey<Biome> id, BlendType blendType, String model, LinkedHashMap<Ingredient, Integer> ingredients) {
+public record BlendData(String name, ResourceKey<Biome> id, BlendType blendType, String model, LinkedHashMap<Either<Item, TagKey<Item>>, Integer> ingredients) {
     @SafeVarargs
-    private static BlendData of(String name, ResourceKey<Biome> id, int color, String model, Map.Entry<Ingredient, Integer>... ingredients) {
+    private static BlendData of(String name, ResourceKey<Biome> id, int color, String model, Map.Entry<Either<Item, TagKey<Item>>, Integer>... ingredients) {
         return new BlendData(name, id, defaultBlendType(id, color), model, toLinkedMap(ingredients));
     }
 
     @SafeVarargs
-    private static BlendData of(String name, ResourceKey<Biome> id, ColorType colorType, String model, Map.Entry<Ingredient, Integer>... ingredients) {
+    private static BlendData of(String name, ResourceKey<Biome> id, ColorType colorType, String model, Map.Entry<Either<Item, TagKey<Item>>, Integer>... ingredients) {
         BlendType.BlendTypeBuilder builder = new BlendType.BlendTypeBuilder()
                 .action(new SetBiomeAction(id.location()))
                 .color(findColorForBiome(id, colorType));
@@ -43,20 +43,20 @@ public record BlendData(String name, ResourceKey<Biome> id, BlendType blendType,
     }
 
     @SafeVarargs
-    private static LinkedHashMap<Ingredient, Integer> toLinkedMap(Map.Entry<Ingredient, Integer>... entries) {
-        LinkedHashMap<Ingredient, Integer> map = new LinkedHashMap<>();
-        for (Map.Entry<Ingredient, Integer> entry : entries) {
+    private static LinkedHashMap<Either<Item, TagKey<Item>>, Integer> toLinkedMap(Map.Entry<Either<Item, TagKey<Item>>, Integer>... entries) {
+        LinkedHashMap<Either<Item, TagKey<Item>>, Integer> map = new LinkedHashMap<>();
+        for (Map.Entry<Either<Item, TagKey<Item>>, Integer> entry : entries) {
             map.put(entry.getKey(), entry.getValue());
         }
         return map;
     }
 
-    public static Map.Entry<Ingredient, Integer> entry(Item item, int count) {
-        return Map.entry(Ingredient.of(item), count);
+    public static Map.Entry<Either<Item, TagKey<Item>>, Integer> entry(Item item, int count) {
+        return Map.entry(Either.left(item), count);
     }
     
-    public static Map.Entry<Ingredient, Integer> entry(TagKey<Item> tag, int count) {
-        return Map.entry(Ingredient.of(tag), count);
+    public static Map.Entry<Either<Item, TagKey<Item>>, Integer> entry(TagKey<Item> tag, int count) {
+        return Map.entry(Either.right(tag), count);
     }
 
     public static final List<BlendData> blends = List.of(

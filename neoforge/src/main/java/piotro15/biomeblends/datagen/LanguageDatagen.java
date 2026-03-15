@@ -29,11 +29,15 @@ public class LanguageDatagen extends LanguageProvider {
         add("biomeblends.configuration.ignore_vertical_radius.tooltip", "Causes all blends to be applied from the bottom to the top of the world.");
         add("biomeblends.configuration.blend_cooldown", "Blend Cooldown");
         add("biomeblends.configuration.blend_cooldown.tooltip", "Cooldown between blend uses in ticks (20 ticks = 1 second).");
+        add("biomeblends.configuration.display_namespace", "Blend Source in Tooltip");
+        add("biomeblends.configuration.display_namespace.tooltip", "Displays the source of the blend in its tooltip. Useful when using blends with similar names from different mods.");
 
         add("biomeblends.configuration.compatibility", "Mod Compatibility");
         add("biomeblends.configuration.compatibility.tooltip", "Enable blends for biomes added by other mods.");
         add("biomeblends.configuration.biomesoplenty", "Biomes O' Plenty");
         add("biomeblends.configuration.biomesoplenty.tooltip", "Enable blends for Biomes O' Plenty biomes.");
+        add("biomeblends.configuration.biomeswevegone", "Oh The Biomes We've Gone");
+        add("biomeblends.configuration.biomeswevegone.tooltip", "Enable blends for Oh The Biomes We've Gone biomes.");
 
         add("commands.exportblends.invalid_pattern", "The provided pattern is not a valid regular expression");
         add("commands.exportblends.no_blends_found", "Found no biomes matching the given pattern");
