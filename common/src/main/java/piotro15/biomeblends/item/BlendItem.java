@@ -1,5 +1,6 @@
 package piotro15.biomeblends.item;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
@@ -10,11 +11,18 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import piotro15.biomeblends.CommonConfig;
 import piotro15.biomeblends.blend.BlendType;
 import piotro15.biomeblends.registry.BiomeBlendsRegistries;
+import piotro15.biomeblends.util.Platform;
+
+import java.util.List;
+import java.util.Optional;
 
 public class BlendItem extends Item {
     public BlendItem() {
@@ -80,5 +88,16 @@ public class BlendItem extends Item {
         }
 
         return InteractionResult.PASS;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack itemStack, @Nullable Level level, List<Component> list, TooltipFlag tooltipFlag) {
+        if (CommonConfig.INSTANCE.displayNamespace.get()) {
+            ResourceLocation blendType = BlendType.fromItem(itemStack);
+            if (blendType != null) {
+                Optional<String> modName = Platform.getInstance().getModDisplayName(blendType.getNamespace());
+                list.add(Component.literal(modName.orElseGet(blendType::getNamespace)).withStyle(ChatFormatting.GRAY));
+            }
+        }
     }
 }

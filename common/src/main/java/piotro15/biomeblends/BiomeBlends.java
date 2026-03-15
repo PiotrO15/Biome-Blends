@@ -15,6 +15,9 @@ public final class BiomeBlends {
         BlendActionRegistry.registerActions();
         BiomeBlendsRegistries.init();
         BiomeBlendsCreativeModeTabs.load();
+
+        Platform.getInstance().registerDatapack("biomesoplenty", CommonConfig.INSTANCE.bopCompat);
+        Platform.getInstance().registerDatapack("biomeswevegone", CommonConfig.INSTANCE.bwgCompat);
     }
 
     public static void initClient() {

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:aloe_vera"
+    },
+    {
+      "item": "biomeswevegone:beach_grass"
+    },
+    {
+      "item": "biomeswevegone:beach_grass"
+    }
+  ],
+  "result": {
+    "item": "biomeblends:biome_blend",
+    "nbt": "{blend_type:\"biomeswevegone:mojave_desert\"}"
+  }
+}

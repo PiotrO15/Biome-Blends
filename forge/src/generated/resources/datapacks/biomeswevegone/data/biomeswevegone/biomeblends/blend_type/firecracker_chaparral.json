@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomeswevegone:firecracker_chaparral"
+  },
+  "color": 15217238
+}

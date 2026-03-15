@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:witch_hazel_sapling"
+    },
+    {
+      "item": "biomeswevegone:crocus"
+    },
+    {
+      "item": "biomeswevegone:peat"
+    },
+    {
+      "item": "biomeswevegone:peat"
+    }
+  ],
+  "result": {
+    "item": "biomeblends:biome_blend",
+    "nbt": "{blend_type:\"biomeswevegone:weeping_witch_forest\"}"
+  }
+}

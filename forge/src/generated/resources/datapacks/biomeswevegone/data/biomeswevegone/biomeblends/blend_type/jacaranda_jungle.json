@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomeswevegone:jacaranda_jungle"
+  },
+  "color": 14180771
+}

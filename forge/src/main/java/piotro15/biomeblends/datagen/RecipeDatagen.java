@@ -1,13 +1,13 @@
 package piotro15.biomeblends.datagen;
 
-import net.minecraft.data.CachedOutput;
-import net.minecraft.data.DataProvider;
+import com.mojang.datafixers.util.Either;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -17,7 +17,6 @@ import piotro15.biomeblends.blend.BlendType;
 import piotro15.biomeblends.registry.BiomeBlendsItems;
 
 import java.util.*;
-import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 public class RecipeDatagen extends RecipeProvider {
@@ -26,16 +25,18 @@ public class RecipeDatagen extends RecipeProvider {
         super(output);
     }
 
-    public static class BOPRecipeDatagen extends RecipeProvider {
-        public BOPRecipeDatagen(PackOutput arg) {
+    public static class BlendRecipeProvider extends RecipeProvider {
+        private final List<BlendData> blends;
+        public BlendRecipeProvider(PackOutput arg, List<BlendData> blends) {
             super(arg);
+            this.blends = blends;
         }
 
         @Override
         protected void buildRecipes(@NotNull Consumer<FinishedRecipe> output) {
-            BlendData.biomesOPlentyBlends.forEach(blend -> {
-                Map<Item, Integer> items = new LinkedHashMap<>();
-                items.put(BiomeBlendsItems.BLAND_BLEND.get(), 1);
+            blends.forEach(blend -> {
+                Map<Either<Item, TagKey<Item>>, Integer> items = new LinkedHashMap<>();
+                items.put(Either.left(BiomeBlendsItems.BLAND_BLEND.get()), 1);
                 items.putAll(blend.ingredients());
                 shapelessBlendRecipe(output, blend.getResourceLocation(), items);
             });
@@ -52,47 +53,33 @@ public class RecipeDatagen extends RecipeProvider {
                 .save(output);
 
         BlendData.blends.forEach(blend -> {
-            Map<Item, Integer> items = new LinkedHashMap<>();
-            items.put(BiomeBlendsItems.BLAND_BLEND.get(), 1);
+            Map<Either<Item, TagKey<Item>>, Integer> items = new LinkedHashMap<>();
+            items.put(Either.left(BiomeBlendsItems.BLAND_BLEND.get()), 1);
             items.putAll(blend.ingredients());
             shapelessBlendRecipe(output, blend.getResourceLocation(), items);
         });
     }
 
-    private static void shapelessBlendRecipe(Consumer<FinishedRecipe> output, ResourceLocation resourceLocation, Map<Item, Integer> ingredients) {
+    private static void shapelessBlendRecipe(Consumer<FinishedRecipe> output, ResourceLocation resourceLocation, Map<Either<Item, TagKey<Item>>, Integer> ingredients) {
         ItemStack outputStack = new ItemStack(BiomeBlendsItems.BIOME_BLEND.get());
         BlendType.save(outputStack, resourceLocation);
 
         List<Ingredient> ingredientsList = new ArrayList<>();
-        for (Map.Entry<Item, Integer> entry : ingredients.entrySet()) {
-            Item item = entry.getKey();
-            int count = entry.getValue();
+        ingredients.forEach((either, count) -> {
+            Ingredient ingredient = either.map(Ingredient::of, Ingredient::of);
             for (int i = 0; i < count; i++) {
-                ingredientsList.add(Ingredient.of(item));
+                ingredientsList.add(ingredient);
             }
-        }
+        });
 
         NBTShapelessRecipe recipe = new NBTShapelessRecipe(RecipeCategory.MISC, recipeLocation(resourceLocation), outputStack, ingredientsList);
-        recipe.unlockedBy("has_ingredients", has(ingredients.keySet().stream().skip(1).findFirst().orElseThrow(() -> new IllegalStateException("Map has fewer than 2 items"))));
+        Either<Item, TagKey<Item>> firstInput = ingredients.keySet().stream().skip(1).findFirst().orElseThrow();
+        recipe.unlockedBy("has_ingredients", firstInput.map(RecipeProvider::has, RecipeProvider::has));
 
         output.accept(recipe);
     }
 
     private static ResourceLocation recipeLocation(ResourceLocation blendLocation) {
         return ResourceLocation.fromNamespaceAndPath(blendLocation.getNamespace(), "blend_type/" + blendLocation.getPath());
-    }
-
-    public static DataProvider namedRecipeProvider(String name, RecipeProvider provider) {
-        return new DataProvider() {
-            @Override
-            public @NotNull CompletableFuture<?> run(@NotNull CachedOutput output) {
-                return provider.run(output);
-            }
-
-            @Override
-            public @NotNull String getName() {
-                return name;
-            }
-        };
     }
 }

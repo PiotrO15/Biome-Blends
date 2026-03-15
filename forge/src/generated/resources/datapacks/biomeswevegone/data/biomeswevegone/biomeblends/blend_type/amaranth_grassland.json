@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomeswevegone:amaranth_grassland"
+  },
+  "color": 15217238
+}

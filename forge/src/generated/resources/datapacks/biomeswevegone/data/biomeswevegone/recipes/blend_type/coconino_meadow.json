@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:lush_dirt"
+    },
+    {
+      "item": "biomeswevegone:lush_dirt"
+    },
+    {
+      "item": "biomeswevegone:angelica"
+    }
+  ],
+  "result": {
+    "item": "biomeblends:biome_blend",
+    "nbt": "{blend_type:\"biomeswevegone:coconino_meadow\"}"
+  }
+}

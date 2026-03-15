@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomeswevegone:white_mangrove_marshes"
+  },
+  "color": 5737549
+}

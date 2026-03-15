@@ -7,15 +7,17 @@ import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.DataPackRegistryEvent;
 import piotro15.biomeblends.util.Platform;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.function.Supplier;
 
 public class ForgePlatform extends Platform {
     public static final List<DataRegistryRegisterable<?>> dataRegistryRegisterables = new ArrayList<>();
+    public static final Map<String, ForgeConfigSpec.BooleanValue> compatibilityDatapacks = new HashMap<>();
     public static final BiMap<Supplier<Item>, ItemColor> itemColors = HashBiMap.create();
 
     @Override
@@ -26,6 +28,17 @@ public class ForgePlatform extends Platform {
     @Override
     public void registerItemTint(ItemColor itemColor, Supplier<Item> itemSupplier) {
         itemColors.put(itemSupplier, itemColor);
+    }
+
+    @Override
+    public void registerDatapack(String name, ForgeConfigSpec.BooleanValue register) {
+        compatibilityDatapacks.put(name, register);
+    }
+
+    @Override
+    public Optional<String> getModDisplayName(String modId) {
+        return ModList.get().getModContainerById(modId)
+                .map(mod -> mod.getModInfo().getDisplayName());
     }
 
     public record DataRegistryRegisterable<T>(ResourceKey<Registry<T>> key, Codec<T> codec, Codec<T> networkCodec) {

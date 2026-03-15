@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomeswevegone:overgrowth_woodlands"
+  },
+  "color": -12274410
+}

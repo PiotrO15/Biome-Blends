@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomeswevegone:araucaria_savanna"
+  },
+  "color": -10444421
+}

@@ -15,6 +15,7 @@ loom {
             programArgs "--output", file("src/generated/resources").absolutePath
             programArgs "--existing", project(":common").file("src/main/resources").absolutePath
             programArgs "--existing-mod", "biomesoplenty"
+            programArgs "--existing-mod", "biomeswevegone"
         }
     }
 }
@@ -54,6 +55,12 @@ dependencies {
     modLocalRuntime "curse.maven:glitchcore-955399:5787839"
     modLocalRuntime "curse.maven:terrablender-563928:6290448"
     modImplementation "curse.maven:biomes-o-plenty-220318:6364065"
+
+    // BYG
+    modImplementation "dev.corgitaco:Corgilib-Forge:${minecraft_version}-4.0.3.5"
+    modImplementation "software.bernie.geckolib:geckolib-forge-${minecraft_version}:${geckolib_version}"
+    modImplementation "dev.corgitaco:Oh-The-Trees-Youll-Grow-forge:${minecraft_version}-1.5.0"
+    modImplementation "curse.maven:oh-the-biomes-weve-gone-1070751:7759426"
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive false }
     shadowBundle project(path: ':common', configuration: 'transformProductionForge')

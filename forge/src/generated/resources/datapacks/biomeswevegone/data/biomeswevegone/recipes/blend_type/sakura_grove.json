@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:white_sakura_sapling"
+    },
+    {
+      "item": "biomeswevegone:yellow_sakura_sapling"
+    },
+    {
+      "item": "minecraft:cherry_sapling"
+    }
+  ],
+  "result": {
+    "item": "biomeblends:biome_blend",
+    "nbt": "{blend_type:\"biomeswevegone:sakura_grove\"}"
+  }
+}

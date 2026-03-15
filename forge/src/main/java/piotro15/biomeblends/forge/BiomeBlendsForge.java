@@ -1,17 +1,14 @@
 package piotro15.biomeblends.forge;
 
 import dev.architectury.platform.forge.EventBuses;
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackResources;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.PathPackResources;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
@@ -46,6 +43,7 @@ public final class BiomeBlendsForge {
         modEventBus.addListener(this::registerDatapackRegistries);
         modEventBus.addListener(this::registerBlendsInCreativeTab);
         modEventBus.addListener(this::addDataPacks);
+        MinecraftForge.EVENT_BUS.addListener(this::registerCommands);
 
         FMLJavaModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC);
     }
@@ -61,15 +59,11 @@ public final class BiomeBlendsForge {
     public void registerBlendsInCreativeTab(BuildCreativeModeTabContentsEvent event) {
         if (!event.getTabKey().equals(BiomeBlendsCreativeModeTabs.BLENDS_TAB.getKey())) return;
 
-        if (Minecraft.getInstance().level != null) {
-            Registry<BlendType> blendTypeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(BiomeBlendsRegistries.BLEND_TYPE);
-
-            for (ResourceKey<BlendType> blendKey : blendTypeRegistry.registryKeySet()) {
-                ItemStack stack = new ItemStack(BiomeBlendsItems.BIOME_BLEND.get());
-                BlendType.save(stack, blendKey.location());
-                event.accept(stack);
-            }
-        }
+        event.getParameters().holders().lookupOrThrow(BiomeBlendsRegistries.BLEND_TYPE).listElementIds().forEach(blendKey -> {
+            ItemStack stack = new ItemStack(BiomeBlendsItems.BIOME_BLEND.get());
+            BlendType.save(stack, blendKey.location());
+            event.accept(stack);
+        });
     }
 
     @SubscribeEvent
@@ -80,14 +74,16 @@ public final class BiomeBlendsForge {
     @SubscribeEvent
     public void addDataPacks(AddPackFindersEvent event) {
         if (event.getPackType() == PackType.SERVER_DATA) {
-            if (ModList.get().isLoaded("biomesoplenty") && CommonConfig.INSTANCE.bopCompat.get()) {
-                Path resourcePath = ModList.get().getModFileById(BiomeBlends.MOD_ID).getFile().findResource("datapacks", "biomesoplenty");
-                Function<String, PackResources> onName = path -> new PathPackResources(path, resourcePath, true);
-                Pack.ResourcesSupplier resources = string -> onName.apply("builtin/biomesoplenty");
+            ForgePlatform.compatibilityDatapacks.forEach((s, register) -> {
+                if (ModList.get().isLoaded(s) && register.get()) {
+                    Path resourcePath = ModList.get().getModFileById(BiomeBlends.MOD_ID).getFile().findResource("datapacks", s);
+                    Function<String, PackResources> onName = path -> new PathPackResources(path, resourcePath, true);
+                    Pack.ResourcesSupplier resources = string -> onName.apply("builtin/" + s);
 
-                Pack pack = Pack.readMetaAndCreate(ResourceLocation.fromNamespaceAndPath(BiomeBlends.MOD_ID, "datapacks/biomesoplenty").toString(), Component.literal("Mod blends"), true, resources, PackType.SERVER_DATA, Pack.Position.BOTTOM, PackSource.BUILT_IN);
-                event.addRepositorySource(packConsumer -> packConsumer.accept(pack));
-            }
+                    Pack pack = Pack.readMetaAndCreate(BiomeBlends.id("datapacks/" + s).toString(), Component.literal("Mod blends"), true, resources, PackType.SERVER_DATA, Pack.Position.BOTTOM, PackSource.BUILT_IN);
+                    event.addRepositorySource(packConsumer -> packConsumer.accept(pack));
+                }
+            });
         }
     }
 }
