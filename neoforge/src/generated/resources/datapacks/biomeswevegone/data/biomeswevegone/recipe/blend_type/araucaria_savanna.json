@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:araucaria_sapling"
+    },
+    {
+      "item": "minecraft:acacia_sapling"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomeswevegone:araucaria_savanna"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

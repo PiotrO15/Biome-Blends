@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:orange_birch_sapling"
+    },
+    {
+      "item": "biomeswevegone:yellow_birch_sapling"
+    },
+    {
+      "item": "minecraft:spruce_sapling"
+    },
+    {
+      "item": "minecraft:snowball"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomeswevegone:howling_peaks"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

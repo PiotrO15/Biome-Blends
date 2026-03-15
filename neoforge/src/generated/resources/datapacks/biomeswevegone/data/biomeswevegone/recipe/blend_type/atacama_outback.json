@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:aloe_vera"
+    },
+    {
+      "item": "biomeswevegone:cracked_red_sand"
+    },
+    {
+      "item": "biomeswevegone:cracked_red_sand"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomeswevegone:atacama_outback"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

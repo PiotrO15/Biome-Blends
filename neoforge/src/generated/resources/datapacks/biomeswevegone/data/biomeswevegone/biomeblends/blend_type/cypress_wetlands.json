@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomeswevegone:cypress_wetlands"
+  },
+  "color": -12274410
+}

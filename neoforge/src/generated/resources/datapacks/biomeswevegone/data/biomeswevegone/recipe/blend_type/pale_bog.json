@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:spirit_sapling"
+    },
+    {
+      "item": "biomeswevegone:pale_mud"
+    },
+    {
+      "item": "biomeswevegone:pale_mud"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomeswevegone:pale_bog"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

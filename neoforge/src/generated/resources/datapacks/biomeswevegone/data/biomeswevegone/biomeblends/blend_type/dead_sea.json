@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomeswevegone:dead_sea"
+  },
+  "color": 9230578
+}

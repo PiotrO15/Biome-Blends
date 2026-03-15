@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomeswevegone:canadian_shield"
+  },
+  "color": -8608432
+}

@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomeswevegone:pumpkin_valley"
+  },
+  "color": 11957015
+}

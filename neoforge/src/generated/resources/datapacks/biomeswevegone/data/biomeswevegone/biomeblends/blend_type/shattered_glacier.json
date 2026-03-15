@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomeswevegone:shattered_glacier"
+  },
+  "color": 10526880
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "minecraft:allium"
+    },
+    {
+      "item": "biomeswevegone:white_allium"
+    },
+    {
+      "item": "biomeswevegone:pink_allium"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomeswevegone:allium_shrubland"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:palo_verde_sapling"
+    },
+    {
+      "item": "biomeswevegone:beach_grass"
+    },
+    {
+      "item": "biomeswevegone:beach_grass"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomeswevegone:rugged_badlands"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

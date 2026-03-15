@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:fir_sapling"
+    },
+    {
+      "item": "minecraft:spruce_sapling"
+    },
+    {
+      "item": "biomeswevegone:hydrangea_hedge"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomeswevegone:canadian_shield"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

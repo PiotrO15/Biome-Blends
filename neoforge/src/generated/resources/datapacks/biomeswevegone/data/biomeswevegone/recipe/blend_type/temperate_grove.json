@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:yellow_birch_sapling"
+    },
+    {
+      "item": "minecraft:birch_sapling"
+    },
+    {
+      "item": "minecraft:sunflower"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomeswevegone:temperate_grove"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

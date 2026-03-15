@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:silver_maple_sapling"
+    },
+    {
+      "item": "biomeswevegone:ebony_sapling"
+    },
+    {
+      "item": "minecraft:dark_oak_sapling"
+    },
+    {
+      "item": "biomeswevegone:green_mushroom"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomeswevegone:forgotten_forest"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

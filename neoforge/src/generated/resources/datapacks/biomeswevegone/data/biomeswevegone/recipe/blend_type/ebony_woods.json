@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:ebony_sapling"
+    },
+    {
+      "item": "biomeswevegone:white_anemone"
+    },
+    {
+      "item": "biomeswevegone:white_anemone"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomeswevegone:ebony_woods"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

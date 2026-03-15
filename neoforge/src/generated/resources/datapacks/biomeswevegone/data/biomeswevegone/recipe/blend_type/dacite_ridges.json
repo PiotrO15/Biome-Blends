@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:holly_sapling"
+    },
+    {
+      "item": "minecraft:spruce_sapling"
+    },
+    {
+      "item": "biomeswevegone:dacite"
+    },
+    {
+      "item": "biomeswevegone:dacite"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomeswevegone:dacite_ridges"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

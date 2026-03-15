@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:blue_sand"
+    },
+    {
+      "item": "biomeswevegone:blue_sand"
+    },
+    {
+      "item": "biomeswevegone:beach_grass"
+    },
+    {
+      "item": "biomeswevegone:beach_grass"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomeswevegone:rainbow_beach"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

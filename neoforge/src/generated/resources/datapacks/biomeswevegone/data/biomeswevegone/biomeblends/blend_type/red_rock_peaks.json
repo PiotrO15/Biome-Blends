@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomeswevegone:red_rock_peaks"
+  },
+  "color": 10855786
+}

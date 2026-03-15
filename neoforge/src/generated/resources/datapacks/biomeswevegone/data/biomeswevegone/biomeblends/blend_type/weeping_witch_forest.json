@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomeswevegone:weeping_witch_forest"
+  },
+  "color": 12435265
+}

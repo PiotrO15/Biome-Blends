@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:redwood_sapling"
+    },
+    {
+      "item": "biomeswevegone:firecracker_flower_bush"
+    },
+    {
+      "item": "biomeswevegone:rocky_stone"
+    },
+    {
+      "item": "biomeswevegone:rocky_stone"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomeswevegone:redwood_thicket"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

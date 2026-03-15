@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:aspen_sapling"
+    },
+    {
+      "item": "biomeswevegone:orange_daisy"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomeswevegone:aspen_boreal"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

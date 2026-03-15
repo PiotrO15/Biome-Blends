@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:orchard_sapling"
+    },
+    {
+      "item": "biomeswevegone:white_allium"
+    },
+    {
+      "item": "biomeswevegone:lollipop_flower"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomeswevegone:orchard"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

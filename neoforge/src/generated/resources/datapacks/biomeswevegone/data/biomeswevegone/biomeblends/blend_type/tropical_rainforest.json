@@ -1,0 +1,7 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomeswevegone:tropical_rainforest"
+  },
+  "color": 10145074
+}

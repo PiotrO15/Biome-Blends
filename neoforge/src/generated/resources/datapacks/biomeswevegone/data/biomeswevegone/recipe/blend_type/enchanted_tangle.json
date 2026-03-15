@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:blue_enchanted_sapling"
+    },
+    {
+      "item": "biomeswevegone:green_enchanted_sapling"
+    },
+    {
+      "item": "biomeswevegone:wood_blewit"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomeswevegone:enchanted_tangle"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

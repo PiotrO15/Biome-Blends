@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:white_mangrove_sapling"
+    },
+    {
+      "item": "biomeswevegone:cattail_sprout"
+    },
+    {
+      "item": "biomeswevegone:cattail_sprout"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomeswevegone:white_mangrove_marshes"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

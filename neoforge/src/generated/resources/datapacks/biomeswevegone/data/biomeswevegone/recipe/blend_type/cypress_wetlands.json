@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:cypress_sapling"
+    },
+    {
+      "item": "biomeswevegone:cattail_sprout"
+    },
+    {
+      "item": "biomeswevegone:fluorescent_cattail_sprout"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomeswevegone:cypress_wetlands"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}

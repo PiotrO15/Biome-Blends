@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeblends:bland_blend"
+    },
+    {
+      "item": "biomeswevegone:white_sand"
+    },
+    {
+      "item": "biomeswevegone:white_sand"
+    },
+    {
+      "item": "biomeswevegone:white_dacite"
+    },
+    {
+      "item": "biomeswevegone:white_dacite"
+    }
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomeswevegone:dacite_shore"
+    },
+    "count": 1,
+    "id": "biomeblends:biome_blend"
+  }
+}
