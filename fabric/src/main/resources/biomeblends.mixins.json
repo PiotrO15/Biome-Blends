@@ -4,7 +4,6 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [],
   "client": [
-    "BlendRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -7,11 +7,14 @@ import net.minecraft.world.item.Item;
 import piotro15.biomeblends.BiomeBlends;
 import piotro15.biomeblends.item.BlendBagItem;
 import piotro15.biomeblends.item.BlendItem;
+import piotro15.biomeblends.util.Platform;
+
+import java.util.function.Supplier;
 
 public class BiomeBlendsItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(BiomeBlends.MOD_ID, Registries.ITEM);
 
-    public static final RegistrySupplier<Item> BIOME_BLEND = ITEMS.register("biome_blend", BlendItem::new);
-    public static final RegistrySupplier<Item> BLAND_BLEND = ITEMS.register("bland_blend", () -> new Item(new Item.Properties()));
-    public static final RegistrySupplier<Item> BLEND_BAG = ITEMS.register("blend_bag", BlendBagItem::new);
+    public static Supplier<Item> BIOME_BLEND = Platform.getInstance().registerItem("biome_blend", BlendItem::new, Item.Properties::new);
+    public static Supplier<Item> BLAND_BLEND = Platform.getInstance().registerItem("bland_blend", Item::new, Item.Properties::new);
+//    public static final Supplier<Item> BLEND_BAG = ITEMS.register("blend_bag", BlendBagItem::new);
 }

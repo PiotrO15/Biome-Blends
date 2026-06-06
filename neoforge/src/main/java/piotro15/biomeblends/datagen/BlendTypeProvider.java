@@ -13,7 +13,7 @@ public class BlendTypeProvider {
                 bootstrapContext.register(
                         ResourceKey.create(
                                 BiomeBlendsRegistries.BLEND_TYPE,
-                                blend.getResourceLocation()
+                                blend.getIdentifier()
                         ),
                         blend.blendType()
                 )
@@ -25,7 +25,7 @@ public class BlendTypeProvider {
                 bootstrapContext.register(
                         ResourceKey.create(
                                 BiomeBlendsRegistries.BLEND_TYPE,
-                                blend.getResourceLocation()
+                                blend.getIdentifier()
                         ),
                         blend.blendType()
                 )

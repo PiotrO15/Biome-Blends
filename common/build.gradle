@@ -1,15 +1,89 @@
-architectury {
-    common rootProject.enabled_platforms.split(',')
+plugins {
+    id 'multiloader-common'
+    id 'net.neoforged.moddev'
+}
+
+neoForge {
+    neoFormVersion = neo_form_version
+    // Automatically enable AccessTransformers if the file exists
+    def at = file('src/main/resources/META-INF/accesstransformer.cfg')
+    if (at.exists()) {
+        accessTransformers.from(at.absolutePath)
+    }
 }
 
 dependencies {
-    // We depend on Fabric Loader here to use the Fabric @Environment annotations,
-    // which get remapped to the correct annotations on each platform.
-    // Do NOT use other classes from Fabric Loader.
-    modImplementation "net.fabricmc:fabric-loader:$rootProject.fabric_loader_version"
-    modImplementation "software.bernie.geckolib:geckolib-common-${minecraft_version}:${geckolib_version}"
+    compileOnly "org.spongepowered:mixin:0.8.5"
+    compileOnly "io.github.llamalad7:mixinextras-common:0.5.3"
+    annotationProcessor "io.github.llamalad7:mixinextras-common:0.5.3"
 
-    modImplementation "dev.architectury:architectury:$rootProject.architectury_api_version"
+    api "fuzs.forgeconfigapiport:forgeconfigapiport-common-neoforgeapi:$rootProject.forge_config_api_version"
 
-    modCompileOnly "mezz.jei:jei-$minecraft_version-common-api:$jei_version"
+    implementation "dev.architectury:architectury:$rootProject.architectury_api_version"
+
+    compileOnly "mezz.jei:jei-$minecraft_version-common-api:$jei_version"
 }
+
+configurations {
+    commonJava {
+        canBeResolved = false
+        canBeConsumed = true
+    }
+    commonResources {
+        canBeResolved = false
+        canBeConsumed = true
+    }
+}
+
+artifacts {
+    commonJava sourceSets.main.java.sourceDirectories.singleFile
+    commonResources sourceSets.main.resources.sourceDirectories.singleFile
+}
+
+// Implement mcgradleconventions loader attribute
+def loaderAttribute = Attribute.of('io.github.mcgradleconventions.loader', String)
+['apiElements', 'runtimeElements', 'sourcesElements', 'javadocElements'].each { variant ->
+    configurations.named("$variant") {
+        attributes {
+            attribute(loaderAttribute, 'common')
+        }
+    }
+}
+sourceSets.configureEach {
+    [it.compileClasspathConfigurationName, it.runtimeClasspathConfigurationName].each { variant->
+        configurations.named("$variant") {
+            attributes {
+                attribute(loaderAttribute, 'common')
+            }
+        }
+    }
+}
+
+////architectury {
+////    common rootProject.enabled_platforms.split(',')
+////}
+//
+//dependencies {
+//    implementation "net.fabricmc:fabric-loader:$rootProject.fabric_loader_version"
+////    implementation "com.geckolib:geckolib-common-${minecraft_version}:${geckolib_version}"
+//
+//    implementation "dev.architectury:architectury:$rootProject.architectury_api_version"
+//
+//    compileOnly "mezz.jei:jei-$minecraft_version-common-api:$jei_version"
+//}
+//
+//configurations {
+//    namedElements {
+//        canBeResolved = false
+//        canBeConsumed = true
+//    }
+//    transformProductionFabric {
+//        canBeResolved = false
+//        canBeConsumed = true
+//    }
+//}
+//
+//artifacts {
+//    add('namedElements', jar)
+//    add('transformProductionFabric', jar)
+//}

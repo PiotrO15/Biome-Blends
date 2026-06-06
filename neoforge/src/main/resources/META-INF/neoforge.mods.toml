@@ -1,7 +1,7 @@
 modLoader = "javafml"
-loaderVersion = "[2,)"
+loaderVersion = "${neoforge_loader_version_range}"
 #issueTrackerURL = ""
-license = "MIT"
+license = "${license}"
 
 [[mods]]
 modId = "biomeblends"

@@ -4,6 +4,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -15,10 +16,12 @@ import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.registries.DataPackRegistryEvent;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import piotro15.biomeblends.BiomeBlends;
 import net.neoforged.fml.common.Mod;
 import piotro15.biomeblends.CommonConfig;
 import piotro15.biomeblends.command.GenerateBlendsCommand;
+import piotro15.biomeblends.item.BlendItem;
 import piotro15.biomeblends.registry.BiomeBlendsCreativeModeTabs;
 import piotro15.biomeblends.registry.BiomeBlendsDataComponents;
 import piotro15.biomeblends.registry.BiomeBlendsItems;
@@ -29,6 +32,7 @@ import piotro15.biomeblends.util.Platform;
 public final class BiomeBlendsNeoForge {
     public BiomeBlendsNeoForge(IEventBus modEventBus, ModContainer container) {
         Platform.setup(new NeoForgePlatform());
+        NeoForgePlatform.ITEMS.register(modEventBus);
         BiomeBlends.init();
 
         modEventBus.addListener(this::registerDatapackRegistries);
@@ -52,7 +56,7 @@ public final class BiomeBlendsNeoForge {
 
         event.getParameters().holders().lookupOrThrow(BiomeBlendsRegistries.BLEND_TYPE).listElementIds().forEach(blendKey -> {
             ItemStack stack = new ItemStack(BiomeBlendsItems.BIOME_BLEND.get());
-            stack.set(BiomeBlendsDataComponents.BLEND_TYPE.get(), blendKey.location());
+            stack.set(BiomeBlendsDataComponents.BLEND_TYPE.get(), blendKey.identifier());
             event.accept(stack);
         });
     }

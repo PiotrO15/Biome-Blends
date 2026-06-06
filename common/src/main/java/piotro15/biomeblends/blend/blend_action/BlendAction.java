@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.function.Predicate;
 
 public interface BlendAction {
-    ResourceLocation id();
+    Identifier id();
 
     void apply(Level level, BlockPos blockPos, Player player, BlendType blendType);
 
@@ -24,23 +24,23 @@ public interface BlendAction {
             return false;
         }
 
-        boolean containsDimension = blendType.dimensionBlacklist().values().contains(level.dimension().location());
+        boolean containsDimension = blendType.dimensionBlacklist().values().contains(level.dimension().identifier());
         return blendType.dimensionBlacklist().negate() == containsDimension;
     }
 
     default Predicate<Holder<Biome>> predicate(Level level, BlendType blendType) {
-        List<ResourceLocation> biomeBlacklist = blendType.biomeBlacklist().values();
+        List<Identifier> biomeBlacklist = blendType.biomeBlacklist().values();
         List<String> namespaceBlacklist = blendType.namespaceBlacklist().values();
 
         return biomeHolder -> {
-            Registry<Biome> registry = level.registryAccess().registryOrThrow(Registries.BIOME);
+            Registry<Biome> registry = level.registryAccess().lookupOrThrow(Registries.BIOME);
 
             boolean containsBiome = biomeBlacklist.stream().anyMatch(b -> registry.containsKey(b) && Objects.equals(registry.get(b), biomeHolder.value()));
             if (containsBiome != blendType.biomeBlacklist().negate()) {
                 return false;
             }
 
-            boolean containsNamespace = namespaceBlacklist.stream().anyMatch(ns -> biomeHolder.unwrapKey().isPresent() && biomeHolder.unwrapKey().get().location().getNamespace().equals(ns));
+            boolean containsNamespace = namespaceBlacklist.stream().anyMatch(ns -> biomeHolder.unwrapKey().isPresent() && biomeHolder.unwrapKey().get().identifier().getNamespace().equals(ns));
             return containsNamespace == blendType.namespaceBlacklist().negate();
         };
     }

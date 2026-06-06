@@ -1,17 +1,18 @@
 package piotro15.biomeblends.item;
 
 import net.minecraft.ChatFormatting;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Util;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
@@ -21,17 +22,17 @@ import piotro15.biomeblends.registry.BiomeBlendsDataComponents;
 import piotro15.biomeblends.registry.BiomeBlendsRegistries;
 import piotro15.biomeblends.util.Platform;
 
-import java.util.List;
 import java.util.Optional;
+import java.util.function.Consumer;
 
 public class BlendItem extends Item {
-    public BlendItem() {
-        super(new Item.Properties());
+    public BlendItem(Item.Properties properties) {
+        super(properties);
     }
 
     @Override
     public @NotNull Component getName(ItemStack stack) {
-        ResourceLocation blendId = stack.get(BiomeBlendsDataComponents.BLEND_TYPE.get());
+        Identifier blendId = stack.get(BiomeBlendsDataComponents.BLEND_TYPE.get());
         if (blendId != null) {
             return Component.translatable(Util.makeDescriptionId("blend_type", blendId));
         }
@@ -44,21 +45,21 @@ public class BlendItem extends Item {
         Player player = useOnContext.getPlayer();
         BlockPos blockPos = useOnContext.getClickedPos();
 
-        if (player != null && !level.isClientSide) {
+        if (player != null && !level.isClientSide()) {
             ItemStack stack = useOnContext.getItemInHand();
-            ResourceLocation blendId = stack.get(BiomeBlendsDataComponents.BLEND_TYPE.get());
+            Identifier blendId = stack.get(BiomeBlendsDataComponents.BLEND_TYPE.get());
 
             if (blendId == null) {
                 return InteractionResult.PASS;
             }
 
-            Registry<BlendType> registry = level.registryAccess().registryOrThrow(BiomeBlendsRegistries.BLEND_TYPE);
-            BlendType blendType = registry.get(blendId);
+            Registry<BlendType> registry = level.registryAccess().lookupOrThrow(BiomeBlendsRegistries.BLEND_TYPE);
 
-            if (blendType == null) {
-                player.displayClientMessage(Component.literal("Unknown blend type: " + blendId), true);
+            if (!registry.containsKey(blendId)) {
+                player.sendOverlayMessage(Component.literal("Unknown blend type: " + blendId));
                 return InteractionResult.FAIL;
             }
+            BlendType blendType = registry.getValue(blendId);
 
             if (blendType.action().canApply(level, blockPos, player, blendType)) {
                 blendType.action().apply(level, blockPos, player, blendType);
@@ -91,12 +92,12 @@ public class BlendItem extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, List<Component> list, TooltipFlag tooltipFlag) {
+    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {
         if (CommonConfig.INSTANCE.displayNamespace.get()) {
-            ResourceLocation blendType = itemStack.get(BiomeBlendsDataComponents.BLEND_TYPE.get());
+            Identifier blendType = itemStack.get(BiomeBlendsDataComponents.BLEND_TYPE.get());
             if (blendType != null) {
                 Optional<String> modName = Platform.getInstance().getModDisplayName(blendType.getNamespace());
-                list.add(Component.literal(modName.orElseGet(blendType::getNamespace)).withStyle(ChatFormatting.GRAY));
+                builder.accept(Component.literal(modName.orElseGet(blendType::getNamespace)).withStyle(ChatFormatting.GRAY));
             }
         }
     }

@@ -4,7 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ItemStack;
@@ -16,8 +16,8 @@ public record BlendType(
         BlendAction action,
         int horizontalRadius,
         int verticalRadius,
-        BlendFilter<ResourceLocation> dimensionBlacklist,
-        BlendFilter<ResourceLocation> biomeBlacklist,
+        BlendFilter<Identifier> dimensionBlacklist,
+        BlendFilter<Identifier> biomeBlacklist,
         BlendFilter<String> namespaceBlacklist,
         int color,
         ItemStack useRemainder,
@@ -33,7 +33,7 @@ public record BlendType(
                     BlendFilter.RESOURCE_LOCATION_CODEC.optionalFieldOf("biome_blacklist", new BlendFilter<>(new ArrayList<>(), false)).forGetter(BlendType::biomeBlacklist),
                     BlendFilter.STRING_CODEC.optionalFieldOf("namespace_blacklist", new BlendFilter<>(new ArrayList<>(), false)).forGetter(BlendType::namespaceBlacklist),
                     Codec.INT.optionalFieldOf("color", 0xFFFFFF).forGetter(BlendType::color),
-                    ItemStack.SINGLE_ITEM_CODEC.optionalFieldOf("use_remainder", ItemStack.EMPTY).forGetter(BlendType::useRemainder),
+                    ItemStack.CODEC.optionalFieldOf("use_remainder", ItemStack.EMPTY).forGetter(BlendType::useRemainder),
                     SoundEvent.DIRECT_CODEC.optionalFieldOf("sound", SoundEvents.GLOW_INK_SAC_USE).forGetter(BlendType::sound),
                     ParticleTypes.CODEC.optionalFieldOf("particle_type", ParticleTypes.HAPPY_VILLAGER).forGetter(BlendType::particleOptions)
             ).apply(instance, BlendType::new)
@@ -44,8 +44,8 @@ public record BlendType(
         private BlendAction action;
         private int horizontalRadius = 4;
         private int verticalRadius = 4;
-        private BlendFilter<ResourceLocation> dimensionBlacklist = new BlendFilter<>(new ArrayList<>(), false);
-        private BlendFilter<ResourceLocation> biomeBlacklist = new BlendFilter<>(new ArrayList<>(), false);
+        private BlendFilter<Identifier> dimensionBlacklist = new BlendFilter<>(new ArrayList<>(), false);
+        private BlendFilter<Identifier> biomeBlacklist = new BlendFilter<>(new ArrayList<>(), false);
         private BlendFilter<String> namespaceBlacklist = new BlendFilter<>(new ArrayList<>(), false);
         private int color = 0xFFFFFF;
         private ItemStack useRemainder = ItemStack.EMPTY;
@@ -67,12 +67,12 @@ public record BlendType(
             return this;
         }
 
-        public BlendTypeBuilder dimensionBlacklist(BlendFilter<ResourceLocation> filter) {
+        public BlendTypeBuilder dimensionBlacklist(BlendFilter<Identifier> filter) {
             this.dimensionBlacklist = filter;
             return this;
         }
 
-        public BlendTypeBuilder biomeBlacklist(BlendFilter<ResourceLocation> filter) {
+        public BlendTypeBuilder biomeBlacklist(BlendFilter<Identifier> filter) {
             this.biomeBlacklist = filter;
             return this;
         }

@@ -4,7 +4,7 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -17,17 +17,17 @@ import piotro15.biomeblends.util.BlendBiomeResolver;
 
 import java.util.function.Predicate;
 
-public record SetBiomeAction(ResourceLocation targetBiome) implements BlendAction {
-    public static final ResourceLocation id = BiomeBlends.id("set_biome");
+public record SetBiomeAction(Identifier targetBiome) implements BlendAction {
+    public static final Identifier id = BiomeBlends.id("set_biome");
 
     public static final MapCodec<SetBiomeAction> CODEC = RecordCodecBuilder.mapCodec(
             instance -> instance.group(
-                    ResourceLocation.CODEC.fieldOf("target_biome").forGetter(action -> action.targetBiome)
+                    Identifier.CODEC.fieldOf("target_biome").forGetter(action -> action.targetBiome)
             ).apply(instance, SetBiomeAction::new)
     );
 
     @Override
-    public ResourceLocation id() {
+    public Identifier id() {
         return id;
     }
 
@@ -41,7 +41,7 @@ public record SetBiomeAction(ResourceLocation targetBiome) implements BlendActio
 
         int blendCooldown = CommonConfig.INSTANCE.blendUseCooldown.get();
         if (blendCooldown > 0) {
-            player.getCooldowns().addCooldown(BiomeBlendsItems.BIOME_BLEND.get(), blendCooldown);
+            player.getCooldowns().addCooldown(BiomeBlendsItems.BIOME_BLEND.get().getDefaultInstance(), blendCooldown);
         }
 
         BlendBiomeResolver.applyResolver(

@@ -1,13 +1,14 @@
 package piotro15.biomeblends.util;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.client.color.item.ItemColor;
+import net.minecraft.client.color.item.ItemTintSource;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public abstract class Platform {
@@ -23,9 +24,11 @@ public abstract class Platform {
 
     public abstract <T> void registerDataRegistry(ResourceKey<Registry<T>> key, Codec<T> codec);
 
-    public abstract void registerItemTint(ItemColor itemColor, Supplier<Item> itemSupplier);
+    public abstract void registerItemTint(ItemTintSource itemColor, Supplier<Item> itemSupplier);
 
     public abstract void registerDatapack(String name, ModConfigSpec.BooleanValue register);
 
     public abstract Optional<String> getModDisplayName(String modId);
+
+    public abstract Supplier<Item> registerItem(String name, Function<Item.Properties, ? extends Item> func, Supplier<Item.Properties> properties);
 }

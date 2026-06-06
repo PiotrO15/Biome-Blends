@@ -3,22 +3,27 @@ package piotro15.biomeblends.neoforge;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import com.mojang.serialization.Codec;
-import net.minecraft.client.color.item.ItemColor;
+import net.minecraft.client.color.item.ItemTintSource;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.registries.DataPackRegistryEvent;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import piotro15.biomeblends.BiomeBlends;
 import piotro15.biomeblends.util.Platform;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class NeoForgePlatform extends Platform {
     public static final List<DataRegistryRegisterable<?>> dataRegistryRegisterables = new ArrayList<>();
     public static final Map<String, ModConfigSpec.BooleanValue> compatibilityDatapacks = new HashMap<>();
-    public static final BiMap<Supplier<Item>, ItemColor> itemColors = HashBiMap.create();
+    public static final BiMap<Supplier<Item>, ItemTintSource> itemColors = HashBiMap.create();
+
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(BiomeBlends.MOD_ID);
 
     @Override
     public <T> void registerDataRegistry(ResourceKey<Registry<T>> key, Codec<T> codec) {
@@ -26,7 +31,7 @@ public class NeoForgePlatform extends Platform {
     }
 
     @Override
-    public void registerItemTint(ItemColor itemColor, Supplier<Item> itemSupplier) {
+    public void registerItemTint(ItemTintSource itemColor, Supplier<Item> itemSupplier) {
         itemColors.put(itemSupplier, itemColor);
     }
 
@@ -39,6 +44,11 @@ public class NeoForgePlatform extends Platform {
     public Optional<String> getModDisplayName(String modId) {
         return ModList.get().getModContainerById(modId)
                 .map(mod -> mod.getModInfo().getDisplayName());
+    }
+
+    @Override
+    public Supplier<Item> registerItem(String name, Function<Item.Properties, ? extends Item> func, Supplier<Item.Properties> properties) {
+        return ITEMS.registerItem(name, func, properties);
     }
 
     public record DataRegistryRegisterable<T>(ResourceKey<Registry<T>> key, Codec<T> codec, Codec<T> networkCodec) {

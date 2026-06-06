@@ -1,39 +1,39 @@
-package piotro15.biomeblends.datagen;
-
-import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
-import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.client.model.generators.ModelFile;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class ItemModelDatagen extends ItemModelProvider {
-    private final List<List<BlendData>> blendLists = new ArrayList<>();
-
-    public ItemModelDatagen(PackOutput output, String modId, ExistingFileHelper existingFileHelper) {
-        super(output, modId, existingFileHelper);
-    }
-
-    @Override
-    protected void registerModels() {
-        BlendData.blends.forEach(blend -> this.registerBlendTypeModel(blend.getResourceLocation(), blend.model()));
-
-        blendLists.forEach(blends -> blends.forEach(blend -> this.registerBlendTypeModel(blend.getResourceLocation(), blend.model())));
-    }
-
-    public void registerBlendModels(List<BlendData> blends) {
-        blendLists.add(blends);
-    }
-
-    private void registerBlendTypeModel(ResourceLocation blendType, String texture) {
-        getBuilder(getModelLocation(blendType))
-                .parent(new ModelFile.UncheckedModelFile("item/generated"))
-                .texture("layer0", ResourceLocation.fromNamespaceAndPath("biomeblends", "item/" + texture));
-    }
-
-    private String getModelLocation(ResourceLocation blendType) {
-        return blendType.getNamespace() + ":blend_type/" + blendType.getPath();
-    }
-}
+//package piotro15.biomeblends.datagen;
+//
+//import net.minecraft.data.PackOutput;
+//import net.minecraft.resources.Identifier;
+//import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+//import net.neoforged.neoforge.client.model.generators.ModelFile;
+//import net.neoforged.neoforge.common.data.ExistingFileHelper;
+//
+//import java.util.ArrayList;
+//import java.util.List;
+//
+//public class ItemModelDatagen extends ItemModelProvider {
+//    private final List<List<BlendData>> blendLists = new ArrayList<>();
+//
+//    public ItemModelDatagen(PackOutput output, String modId, ExistingFileHelper existingFileHelper) {
+//        super(output, modId, existingFileHelper);
+//    }
+//
+//    @Override
+//    protected void registerModels() {
+//        BlendData.blends.forEach(blend -> this.registerBlendTypeModel(blend.getIdentifier(), blend.model()));
+//
+//        blendLists.forEach(blends -> blends.forEach(blend -> this.registerBlendTypeModel(blend.getIdentifier(), blend.model())));
+//    }
+//
+//    public void registerBlendModels(List<BlendData> blends) {
+//        blendLists.add(blends);
+//    }
+//
+//    private void registerBlendTypeModel(Identifier blendType, String texture) {
+//        getBuilder(getModelLocation(blendType))
+//                .parent(new ModelFile.UncheckedModelFile("item/generated"))
+//                .texture("layer0", Identifier.fromNamespaceAndPath("biomeblends", "item/" + texture));
+//    }
+//
+//    private String getModelLocation(Identifier blendType) {
+//        return blendType.getNamespace() + ":blend_type/" + blendType.getPath();
+//    }
+//}
