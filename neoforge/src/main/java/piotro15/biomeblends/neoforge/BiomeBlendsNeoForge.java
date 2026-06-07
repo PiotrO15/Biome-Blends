@@ -31,6 +31,8 @@ public final class BiomeBlendsNeoForge {
         Platform.setup(new NeoForgePlatform());
         NeoForgePlatform.ITEMS.register(modEventBus);
         BiomeBlends.init();
+        NeoForgePlatform.CREATIVE_MODE_TABS.register(modEventBus);
+        NeoForgePlatform.DATA_COMPONENTS.register(modEventBus);
 
         modEventBus.addListener(this::registerDatapackRegistries);
         modEventBus.addListener(this::registerBlendsInCreativeTab);
@@ -49,7 +51,7 @@ public final class BiomeBlendsNeoForge {
 
     @SubscribeEvent
     public void registerBlendsInCreativeTab(BuildCreativeModeTabContentsEvent event) {
-        if (!event.getTabKey().equals(BiomeBlendsCreativeModeTabs.BLENDS_TAB.getKey())) return;
+        if (!event.getTabKey().equals(BiomeBlendsCreativeModeTabs.BLENDS_TAB_KEY)) return;
 
         event.getParameters().holders().lookupOrThrow(BiomeBlendsRegistries.BLEND_TYPE).listElementIds().forEach(blendKey -> {
             ItemStack stack = new ItemStack(BiomeBlendsItems.BIOME_BLEND.get());

@@ -13,7 +13,8 @@ public final class BiomeBlends {
 
     public static void init() {
 //        BiomeBlendsItems.ITEMS.register();
-        BiomeBlendsDataComponents.REGISTRAR.register();
+//        BiomeBlendsDataComponents.REGISTRAR.register();
+        BiomeBlendsDataComponents.load();
         BlendActionRegistry.registerActions();
         BiomeBlendsRegistries.init();
         BiomeBlendsCreativeModeTabs.load();

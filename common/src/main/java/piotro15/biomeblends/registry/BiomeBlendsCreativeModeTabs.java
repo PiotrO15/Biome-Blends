@@ -1,28 +1,18 @@
 package piotro15.biomeblends.registry;
 
-import dev.architectury.registry.CreativeTabRegistry;
-import dev.architectury.registry.registries.DeferredRegister;
-import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
 import piotro15.biomeblends.BiomeBlends;
+import piotro15.biomeblends.util.Platform;
+
+import java.util.function.Supplier;
 
 public class BiomeBlendsCreativeModeTabs {
-    public static DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(BiomeBlends.MOD_ID, Registries.CREATIVE_MODE_TAB);
-
-    public static RegistrySupplier<CreativeModeTab> BLENDS_TAB;
+    public static ResourceKey<CreativeModeTab> BLENDS_TAB_KEY = ResourceKey.create(Registries.CREATIVE_MODE_TAB, BiomeBlends.id("blends"));
+    public static Supplier<CreativeModeTab> BLENDS_TAB;
 
     public static void load() {
-        BLENDS_TAB = CREATIVE_TABS.register("blends",
-                () -> CreativeTabRegistry.create(
-                        Component.translatable("itemGroup." + BiomeBlends.MOD_ID + ".blends"),
-                        () -> new ItemStack(BiomeBlendsItems.BLAND_BLEND.get())
-                ));
-
-        CreativeTabRegistry.appendStack(BLENDS_TAB, () -> BiomeBlendsItems.BLAND_BLEND.get().getDefaultInstance());
-
-        CREATIVE_TABS.register();
+        Platform.getInstance().registerCreativeModeTab();
     }
 }

@@ -75,7 +75,6 @@ public class DataGenerators {
                     }
                 });
 
-//        RecipeProvider inner = new RecipeDatagen.BlendRecipeProvider(dataOutput, event.getLookupProvider(), blends);
         event.addProvider(namedProvider("Recipes " + modId, new RecipeDatagen.BlendRecipeProvider.Runner(dataOutput, event.getLookupProvider(), blends)));
         languageProvider.addBlendTranslations(blends);
     }

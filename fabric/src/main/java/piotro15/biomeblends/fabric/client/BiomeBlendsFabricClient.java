@@ -25,7 +25,7 @@ public final class BiomeBlendsFabricClient implements ClientModInitializer {
     public void onInitializeClient() {
         BiomeBlends.initClient();
 
-        CreativeModeTabEvents.modifyOutputEvent(BiomeBlendsCreativeModeTabs.BLENDS_TAB.getKey()).register(entries -> {
+        CreativeModeTabEvents.modifyOutputEvent(BiomeBlendsCreativeModeTabs.BLENDS_TAB_KEY).register(entries -> {
             if (Minecraft.getInstance().level != null) {
                 Registry<BlendType> blendTypeRegistry = Minecraft.getInstance().level.registryAccess().lookupOrThrow(BiomeBlendsRegistries.BLEND_TYPE);
 

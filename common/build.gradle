@@ -19,8 +19,6 @@ dependencies {
 
     api "fuzs.forgeconfigapiport:forgeconfigapiport-common-neoforgeapi:$rootProject.forge_config_api_version"
 
-    implementation "dev.architectury:architectury:$rootProject.architectury_api_version"
-
     compileOnly "mezz.jei:jei-$minecraft_version-common-api:$jei_version"
 }
 
