@@ -2,27 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:oxeye_daisy"
-    },
-    {
-      "item": "minecraft:oxeye_daisy"
-    },
-    {
-      "item": "minecraft:cornflower"
-    },
-    {
-      "item": "minecraft:cornflower"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:oxeye_daisy",
+    "minecraft:oxeye_daisy",
+    "minecraft:cornflower",
+    "minecraft:cornflower"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:meadow"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

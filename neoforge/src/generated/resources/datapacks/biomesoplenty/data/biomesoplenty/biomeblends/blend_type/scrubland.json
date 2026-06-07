@@ -1,7 +1,0 @@
-{
-  "action": {
-    "type": "biomeblends:set_biome",
-    "target_biome": "biomesoplenty:scrubland"
-  },
-  "color": -13656241
-}

@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:floodplain"
   },
-  "color": 6016293
+  "color": 6016293,
+  "model": "biomeblends:bumpy_blend"
 }

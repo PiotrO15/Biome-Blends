@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:savanna"
   },
-  "color": 12433493
+  "color": 12433493,
+  "model": "biomeblends:bumpy_blend"
 }

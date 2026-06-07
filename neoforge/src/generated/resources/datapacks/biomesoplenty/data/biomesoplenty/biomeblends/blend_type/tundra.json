@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:tundra"
   },
-  "color": 12949340
+  "color": 12949340,
+  "model": "biomeblends:bumpy_blend"
 }

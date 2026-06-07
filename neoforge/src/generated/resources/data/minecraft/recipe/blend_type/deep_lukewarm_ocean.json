@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:pufferfish"
-    },
-    {
-      "item": "minecraft:kelp"
-    },
-    {
-      "item": "minecraft:kelp"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:pufferfish",
+    "minecraft:kelp",
+    "minecraft:kelp"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:deep_lukewarm_ocean"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:plains"
   },
-  "color": 9551193
+  "color": 9551193,
+  "model": "biomeblends:bumpy_blend"
 }

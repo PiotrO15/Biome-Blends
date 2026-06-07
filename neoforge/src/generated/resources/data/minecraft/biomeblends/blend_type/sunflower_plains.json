@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:sunflower_plains"
   },
-  "color": 10672207
+  "color": 10672207,
+  "model": "biomeblends:bumpy_blend"
 }

@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:crystalline_chasm"
   },
-  "color": 15121609
+  "color": 15121609,
+  "model": "biomeblends:bumpy_blend"
 }

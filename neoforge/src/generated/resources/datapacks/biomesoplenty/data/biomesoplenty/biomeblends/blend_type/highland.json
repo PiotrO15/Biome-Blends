@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:highland"
   },
-  "color": 8097625
+  "color": 8097625,
+  "model": "biomeblends:bumpy_blend"
 }

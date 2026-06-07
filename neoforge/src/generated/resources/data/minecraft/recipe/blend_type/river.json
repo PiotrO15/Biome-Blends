@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:clay_ball"
-    },
-    {
-      "item": "minecraft:clay_ball"
-    },
-    {
-      "item": "minecraft:water_bucket"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:clay_ball",
+    "minecraft:clay_ball",
+    "minecraft:water_bucket"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:river"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

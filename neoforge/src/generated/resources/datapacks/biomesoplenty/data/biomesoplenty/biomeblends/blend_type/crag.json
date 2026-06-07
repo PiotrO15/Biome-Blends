@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:crag"
   },
-  "color": -9721536
+  "color": -9721536,
+  "model": "biomeblends:bumpy_blend"
 }

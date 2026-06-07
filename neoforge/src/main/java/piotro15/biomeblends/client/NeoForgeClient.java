@@ -5,7 +5,6 @@ import net.minecraft.resources.FileToIdConverter;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.resources.Resource;
 import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -24,7 +23,7 @@ import java.util.Map;
 @Mod(value = BiomeBlends.MOD_ID, dist = Dist.CLIENT)
 @EventBusSubscriber(modid = BiomeBlends.MOD_ID, value = Dist.CLIENT)
 public class NeoForgeClient {
-    public NeoForgeClient(IEventBus modBus, ModContainer container) {
+    public NeoForgeClient(ModContainer container) {
         BiomeBlends.initClient();
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
     }
@@ -50,7 +49,7 @@ public class NeoForgeClient {
     public static void modifyBakingResults(ModelEvent.ModifyBakingResult event) {
         event.getBakingResult().itemStackModels().computeIfPresent(
                 Identifier.fromNamespaceAndPath(BiomeBlends.MOD_ID, "biome_blend"),
-                (identifier, model) -> new BiomeBlendsClient.BlendWrapper(model)
+                (_, model) -> new BiomeBlendsClient.BlendWrapper(model)
         );
     }
 }

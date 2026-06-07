@@ -2,27 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:end_stone"
-    },
-    {
-      "item": "minecraft:end_stone"
-    },
-    {
-      "item": "minecraft:dragon_breath"
-    },
-    {
-      "item": "minecraft:dragon_breath"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:end_stone",
+    "minecraft:end_stone",
+    "minecraft:dragon_breath",
+    "minecraft:dragon_breath"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:the_end"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

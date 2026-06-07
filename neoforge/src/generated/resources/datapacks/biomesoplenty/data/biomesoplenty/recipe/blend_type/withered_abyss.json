@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "biomesoplenty:blackstone_bulb"
-    },
-    {
-      "item": "minecraft:blackstone"
-    },
-    {
-      "item": "minecraft:blackstone"
-    }
+    "biomeblends:bland_blend",
+    "biomesoplenty:blackstone_bulb",
+    "minecraft:blackstone",
+    "minecraft:blackstone"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "biomesoplenty:withered_abyss"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

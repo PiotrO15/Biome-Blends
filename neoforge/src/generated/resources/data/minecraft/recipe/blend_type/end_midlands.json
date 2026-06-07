@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:end_stone"
-    },
-    {
-      "item": "minecraft:popped_chorus_fruit"
-    },
-    {
-      "item": "minecraft:popped_chorus_fruit"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:end_stone",
+    "minecraft:popped_chorus_fruit",
+    "minecraft:popped_chorus_fruit"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:end_midlands"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

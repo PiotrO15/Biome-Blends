@@ -2,27 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "biomesoplenty:high_grass"
-    },
-    {
-      "item": "biomesoplenty:high_grass"
-    },
-    {
-      "item": "biomesoplenty:high_grass"
-    },
-    {
-      "item": "biomesoplenty:huge_clover_petal"
-    }
+    "biomeblends:bland_blend",
+    "biomesoplenty:high_grass",
+    "biomesoplenty:high_grass",
+    "biomesoplenty:high_grass",
+    "biomesoplenty:huge_clover_petal"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "biomesoplenty:overgrown_greens"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

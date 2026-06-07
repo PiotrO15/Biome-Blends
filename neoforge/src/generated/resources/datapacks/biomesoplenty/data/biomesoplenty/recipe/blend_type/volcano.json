@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "biomesoplenty:black_sandstone"
-    },
-    {
-      "item": "minecraft:basalt"
-    },
-    {
-      "item": "minecraft:basalt"
-    }
+    "biomeblends:bland_blend",
+    "biomesoplenty:black_sandstone",
+    "minecraft:basalt",
+    "minecraft:basalt"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "biomesoplenty:volcano"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

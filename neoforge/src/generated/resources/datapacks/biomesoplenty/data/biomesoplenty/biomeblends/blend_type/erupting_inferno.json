@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:erupting_inferno"
   },
-  "color": 16739098
+  "color": 16739098,
+  "model": "biomeblends:bumpy_blend"
 }

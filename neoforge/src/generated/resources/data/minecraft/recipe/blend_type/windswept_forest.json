@@ -2,21 +2,14 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:oak_sapling"
-    },
-    {
-      "item": "minecraft:spruce_sapling"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:oak_sapling",
+    "minecraft:spruce_sapling"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:windswept_forest"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

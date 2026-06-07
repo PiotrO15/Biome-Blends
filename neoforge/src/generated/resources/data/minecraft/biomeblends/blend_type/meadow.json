@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:meadow"
   },
-  "color": 10343298
+  "color": 10343298,
+  "model": "biomeblends:bumpy_blend"
 }

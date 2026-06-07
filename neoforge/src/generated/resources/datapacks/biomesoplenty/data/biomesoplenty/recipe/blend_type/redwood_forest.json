@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "biomesoplenty:redwood_sapling"
-    },
-    {
-      "item": "minecraft:fern"
-    },
-    {
-      "item": "minecraft:fern"
-    }
+    "biomeblends:bland_blend",
+    "biomesoplenty:redwood_sapling",
+    "minecraft:fern",
+    "minecraft:fern"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "biomesoplenty:redwood_forest"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

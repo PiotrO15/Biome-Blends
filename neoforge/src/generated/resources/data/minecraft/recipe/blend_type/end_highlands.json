@@ -2,27 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:end_stone"
-    },
-    {
-      "item": "minecraft:end_stone"
-    },
-    {
-      "item": "minecraft:chorus_flower"
-    },
-    {
-      "item": "minecraft:chorus_flower"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:end_stone",
+    "minecraft:end_stone",
+    "minecraft:chorus_flower",
+    "minecraft:chorus_flower"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:end_highlands"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

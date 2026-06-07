@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:lavender_field"
   },
-  "color": 10601325
+  "color": 10601325,
+  "model": "biomeblends:bumpy_blend"
 }

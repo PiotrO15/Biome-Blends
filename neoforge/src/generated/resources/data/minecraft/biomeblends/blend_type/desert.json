@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:desert"
   },
-  "color": 15057531
+  "color": 15057531,
+  "model": "biomeblends:bumpy_blend"
 }

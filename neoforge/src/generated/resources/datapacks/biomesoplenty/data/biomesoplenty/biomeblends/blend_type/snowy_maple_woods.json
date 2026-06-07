@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:snowy_maple_woods"
   },
-  "color": 13204310
+  "color": 13204310,
+  "model": "biomeblends:fluffy_blend"
 }

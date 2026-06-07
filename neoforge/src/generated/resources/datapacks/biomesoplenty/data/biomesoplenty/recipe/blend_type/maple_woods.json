@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "biomesoplenty:red_maple_sapling"
-    },
-    {
-      "item": "biomesoplenty:red_maple_sapling"
-    },
-    {
-      "item": "biomesoplenty:violet"
-    }
+    "biomeblends:bland_blend",
+    "biomesoplenty:red_maple_sapling",
+    "biomesoplenty:red_maple_sapling",
+    "biomesoplenty:violet"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "biomesoplenty:maple_woods"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

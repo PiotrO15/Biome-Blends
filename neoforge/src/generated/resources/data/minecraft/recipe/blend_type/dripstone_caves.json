@@ -2,27 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:pointed_dripstone"
-    },
-    {
-      "item": "minecraft:pointed_dripstone"
-    },
-    {
-      "item": "minecraft:copper_ingot"
-    },
-    {
-      "item": "minecraft:copper_ingot"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:pointed_dripstone",
+    "minecraft:pointed_dripstone",
+    "minecraft:copper_ingot",
+    "minecraft:copper_ingot"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:dripstone_caves"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

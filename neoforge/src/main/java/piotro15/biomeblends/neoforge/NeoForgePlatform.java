@@ -71,7 +71,7 @@ public class NeoForgePlatform extends Platform {
         BiomeBlendsCreativeModeTabs.BLENDS_TAB = CREATIVE_MODE_TABS.register("blends", () -> CreativeModeTab.builder()
                 .title(Component.translatable("itemGroup." + BiomeBlends.MOD_ID + ".blends"))
                 .icon(() -> new ItemStack(BiomeBlendsItems.BLAND_BLEND.get()))
-                .displayItems((parameters, output) -> output.accept(BiomeBlendsItems.BLAND_BLEND.get().getDefaultInstance()))
+                .displayItems((_, output) -> output.accept(BiomeBlendsItems.BLAND_BLEND.get().getDefaultInstance()))
                 .build()
         );
     }

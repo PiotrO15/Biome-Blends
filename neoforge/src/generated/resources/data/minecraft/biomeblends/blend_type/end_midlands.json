@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:end_midlands"
   },
-  "color": 12763820
+  "color": 12763820,
+  "model": "biomeblends:bumpy_blend"
 }

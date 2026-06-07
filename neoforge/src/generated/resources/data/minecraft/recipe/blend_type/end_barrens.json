@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:end_stone"
-    },
-    {
-      "item": "minecraft:end_stone"
-    },
-    {
-      "item": "minecraft:ender_pearl"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:end_stone",
+    "minecraft:end_stone",
+    "minecraft:ender_pearl"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:end_barrens"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

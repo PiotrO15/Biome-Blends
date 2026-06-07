@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:mystic_grove"
   },
-  "color": 7397557
+  "color": 7397557,
+  "model": "biomeblends:fluffy_blend"
 }

@@ -2,27 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "biomesoplenty:sea_oats"
-    },
-    {
-      "item": "biomesoplenty:sea_oats"
-    },
-    {
-      "item": "minecraft:sand"
-    },
-    {
-      "item": "minecraft:sand"
-    }
+    "biomeblends:bland_blend",
+    "biomesoplenty:sea_oats",
+    "biomesoplenty:sea_oats",
+    "minecraft:sand",
+    "minecraft:sand"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "biomesoplenty:dune_beach"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

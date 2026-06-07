@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:wasteland_steppe"
   },
-  "color": 13091727
+  "color": 13091727,
+  "model": "biomeblends:bumpy_blend"
 }

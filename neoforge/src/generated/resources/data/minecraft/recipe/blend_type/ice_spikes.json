@@ -2,27 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:snow_block"
-    },
-    {
-      "item": "minecraft:snow_block"
-    },
-    {
-      "item": "minecraft:packed_ice"
-    },
-    {
-      "item": "minecraft:packed_ice"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:snow_block",
+    "minecraft:snow_block",
+    "minecraft:packed_ice",
+    "minecraft:packed_ice"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:ice_spikes"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

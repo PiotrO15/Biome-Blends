@@ -1,7 +1,0 @@
-{
-  "action": {
-    "type": "biomeblends:set_biome",
-    "target_biome": "biomesoplenty:origin_valley"
-  },
-  "color": 3866368
-}

@@ -2,27 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "biomesoplenty:orange_maple_sapling"
-    },
-    {
-      "item": "minecraft:pumpkin"
-    },
-    {
-      "item": "minecraft:pumpkin"
-    },
-    {
-      "item": "minecraft:pumpkin"
-    }
+    "biomeblends:bland_blend",
+    "biomesoplenty:orange_maple_sapling",
+    "minecraft:pumpkin",
+    "minecraft:pumpkin",
+    "minecraft:pumpkin"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "biomesoplenty:pumpkin_patch"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

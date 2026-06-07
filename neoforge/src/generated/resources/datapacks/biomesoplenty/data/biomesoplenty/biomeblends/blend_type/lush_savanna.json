@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:lush_savanna"
   },
-  "color": 13881686
+  "color": 13881686,
+  "model": "biomeblends:bumpy_blend"
 }

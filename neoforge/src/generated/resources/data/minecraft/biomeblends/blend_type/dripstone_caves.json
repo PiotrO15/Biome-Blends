@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:dripstone_caves"
   },
-  "color": 10583664
+  "color": 10583664,
+  "model": "biomeblends:rocky_blend"
 }

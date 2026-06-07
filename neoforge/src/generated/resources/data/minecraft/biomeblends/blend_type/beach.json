@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:beach"
   },
-  "color": 16443040
+  "color": 16443040,
+  "model": "biomeblends:bumpy_blend"
 }

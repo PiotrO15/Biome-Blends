@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:moor"
   },
-  "color": 7914605
+  "color": 7914605,
+  "model": "biomeblends:bumpy_blend"
 }

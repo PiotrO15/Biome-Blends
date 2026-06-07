@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:pasture"
   },
-  "color": 13100658
+  "color": 13100658,
+  "model": "biomeblends:bumpy_blend"
 }

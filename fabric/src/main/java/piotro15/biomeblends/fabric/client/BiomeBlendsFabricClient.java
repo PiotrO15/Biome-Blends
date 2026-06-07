@@ -2,14 +2,10 @@ package piotro15.biomeblends.fabric.client;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
-//import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.Registry;
-import net.minecraft.resources.FileToIdConverter;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.Identifier;
-import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.world.item.ItemStack;
 import piotro15.biomeblends.BiomeBlends;
 import piotro15.biomeblends.blend.BlendType;
@@ -17,8 +13,6 @@ import piotro15.biomeblends.registry.BiomeBlendsCreativeModeTabs;
 import piotro15.biomeblends.registry.BiomeBlendsDataComponents;
 import piotro15.biomeblends.registry.BiomeBlendsItems;
 import piotro15.biomeblends.registry.BiomeBlendsRegistries;
-
-import java.util.Map;
 
 public final class BiomeBlendsFabricClient implements ClientModInitializer {
     @Override

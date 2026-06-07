@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:deep_cold_ocean"
   },
-  "color": 1915994
+  "color": 1915994,
+  "model": "biomeblends:bumpy_blend"
 }

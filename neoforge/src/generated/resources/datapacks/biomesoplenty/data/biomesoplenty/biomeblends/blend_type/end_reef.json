@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:end_reef"
   },
-  "color": 15073276
+  "color": 15073276,
+  "model": "biomeblends:bumpy_blend"
 }

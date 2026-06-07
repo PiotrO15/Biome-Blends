@@ -2,27 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:dead_bush"
-    },
-    {
-      "item": "minecraft:dead_bush"
-    },
-    {
-      "item": "minecraft:terracotta"
-    },
-    {
-      "item": "minecraft:terracotta"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:dead_bush",
+    "minecraft:dead_bush",
+    "minecraft:terracotta",
+    "minecraft:terracotta"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:eroded_badlands"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

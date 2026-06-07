@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:grove"
   },
-  "color": 10471292
+  "color": 10471292,
+  "model": "biomeblends:bumpy_blend"
 }

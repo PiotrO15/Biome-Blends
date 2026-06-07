@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:short_grass"
-    },
-    {
-      "item": "minecraft:short_grass"
-    },
-    {
-      "item": "minecraft:spruce_sapling"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:short_grass",
+    "minecraft:short_grass",
+    "minecraft:spruce_sapling"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:windswept_hills"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

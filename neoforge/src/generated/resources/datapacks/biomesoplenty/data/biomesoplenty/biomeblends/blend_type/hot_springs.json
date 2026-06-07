@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:hot_springs"
   },
-  "color": 6332795
+  "color": 6332795,
+  "model": "biomeblends:bumpy_blend"
 }

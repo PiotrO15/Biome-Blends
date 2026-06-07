@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:jungle_sapling"
-    },
-    {
-      "item": "minecraft:cocoa_beans"
-    },
-    {
-      "item": "minecraft:cocoa_beans"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:jungle_sapling",
+    "minecraft:cocoa_beans",
+    "minecraft:cocoa_beans"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:sparse_jungle"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

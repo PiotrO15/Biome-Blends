@@ -1,9 +1,7 @@
 package piotro15.biomeblends.registry;
 
 import net.minecraft.core.component.DataComponentType;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
-import net.minecraft.resources.ResourceKey;
 import piotro15.biomeblends.BiomeBlends;
 import piotro15.biomeblends.util.Platform;
 

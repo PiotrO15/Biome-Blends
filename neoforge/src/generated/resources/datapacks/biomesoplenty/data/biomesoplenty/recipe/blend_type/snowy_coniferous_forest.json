@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "biomesoplenty:fir_sapling"
-    },
-    {
-      "item": "minecraft:snowball"
-    },
-    {
-      "item": "minecraft:snowball"
-    }
+    "biomeblends:bland_blend",
+    "biomesoplenty:fir_sapling",
+    "minecraft:snowball",
+    "minecraft:snowball"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "biomesoplenty:snowy_coniferous_forest"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "biomesoplenty:mahogany_sapling"
-    },
-    {
-      "item": "minecraft:terracotta"
-    },
-    {
-      "item": "minecraft:terracotta"
-    }
+    "biomeblends:bland_blend",
+    "biomesoplenty:mahogany_sapling",
+    "minecraft:terracotta",
+    "minecraft:terracotta"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "biomesoplenty:rocky_rainforest"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

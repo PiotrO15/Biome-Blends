@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:tropics"
   },
-  "color": 3983282
+  "color": 3983282,
+  "model": "biomeblends:fluffy_blend"
 }

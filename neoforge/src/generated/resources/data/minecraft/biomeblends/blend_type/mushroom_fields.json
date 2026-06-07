@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:mushroom_fields"
   },
-  "color": 11047600
+  "color": 11047600,
+  "model": "biomeblends:bumpy_blend"
 }

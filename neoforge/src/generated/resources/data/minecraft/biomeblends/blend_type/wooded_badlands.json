@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:wooded_badlands"
   },
-  "color": 13198389
+  "color": 13198389,
+  "model": "biomeblends:bumpy_blend"
 }

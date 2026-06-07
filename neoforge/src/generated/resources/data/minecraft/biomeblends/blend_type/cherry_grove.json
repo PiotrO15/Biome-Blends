@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:cherry_grove"
   },
-  "color": 16754653
+  "color": 16754653,
+  "model": "biomeblends:fluffy_blend"
 }

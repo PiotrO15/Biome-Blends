@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:overgrown_greens"
   },
-  "color": 5618801
+  "color": 5618801,
+  "model": "biomeblends:bumpy_blend"
 }

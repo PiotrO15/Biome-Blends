@@ -2,27 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:sunflower"
-    },
-    {
-      "item": "minecraft:sunflower"
-    },
-    {
-      "item": "minecraft:short_grass"
-    },
-    {
-      "item": "minecraft:short_grass"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:sunflower",
+    "minecraft:sunflower",
+    "minecraft:short_grass",
+    "minecraft:short_grass"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:sunflower_plains"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

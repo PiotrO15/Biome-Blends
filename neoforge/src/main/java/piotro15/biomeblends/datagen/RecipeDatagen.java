@@ -71,7 +71,7 @@ public class RecipeDatagen extends RecipeProvider {
 
         public static final class Runner extends RecipeProvider.Runner
         {
-            private List<BlendData> blends;
+            private final List<BlendData> blends;
 
             public Runner(PackOutput output, CompletableFuture<HolderLookup.Provider> completableFuture, List<BlendData> blends)
             {

@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:spider_nest"
   },
-  "color": 6176326
+  "color": 6176326,
+  "model": "biomeblends:rocky_blend"
 }

@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:frozen_peaks"
   },
-  "color": 14084082
+  "color": 14084082,
+  "model": "biomeblends:bumpy_blend"
 }

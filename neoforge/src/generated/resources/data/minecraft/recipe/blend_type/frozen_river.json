@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:water_bucket"
-    },
-    {
-      "item": "minecraft:ice"
-    },
-    {
-      "item": "minecraft:ice"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:water_bucket",
+    "minecraft:ice",
+    "minecraft:ice"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:frozen_river"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

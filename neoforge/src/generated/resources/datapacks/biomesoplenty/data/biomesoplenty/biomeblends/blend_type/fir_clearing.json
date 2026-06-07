@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:fir_clearing"
   },
-  "color": -9197746
+  "color": -9197746,
+  "model": "biomeblends:fluffy_blend"
 }

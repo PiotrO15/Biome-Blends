@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:crimson_forest"
   },
-  "color": 8660518
+  "color": 8660518,
+  "model": "biomeblends:fluffy_blend"
 }

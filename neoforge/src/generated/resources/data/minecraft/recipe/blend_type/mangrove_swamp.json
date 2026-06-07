@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:mangrove_propagule"
-    },
-    {
-      "item": "minecraft:mud"
-    },
-    {
-      "item": "minecraft:mud"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:mangrove_propagule",
+    "minecraft:mud",
+    "minecraft:mud"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:mangrove_swamp"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

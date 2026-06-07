@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:acacia_sapling"
-    },
-    {
-      "item": "minecraft:acacia_sapling"
-    },
-    {
-      "item": "minecraft:short_grass"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:acacia_sapling",
+    "minecraft:acacia_sapling",
+    "minecraft:short_grass"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:savanna_plateau"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

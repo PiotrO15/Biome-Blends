@@ -2,27 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:salmon"
-    },
-    {
-      "item": "minecraft:salmon"
-    },
-    {
-      "item": "minecraft:kelp"
-    },
-    {
-      "item": "minecraft:kelp"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:salmon",
+    "minecraft:salmon",
+    "minecraft:kelp",
+    "minecraft:kelp"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:deep_cold_ocean"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

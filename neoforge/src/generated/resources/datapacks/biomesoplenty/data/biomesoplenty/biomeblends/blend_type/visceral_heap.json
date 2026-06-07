@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:visceral_heap"
   },
-  "color": 9317167
+  "color": 9317167,
+  "model": "biomeblends:bumpy_blend"
 }

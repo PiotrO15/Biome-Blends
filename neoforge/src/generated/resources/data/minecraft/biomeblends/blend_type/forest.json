@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:forest"
   },
-  "color": 6935100
+  "color": 6935100,
+  "model": "biomeblends:fluffy_blend"
 }

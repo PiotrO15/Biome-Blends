@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:jungle"
   },
-  "color": 5025616
+  "color": 5025616,
+  "model": "biomeblends:bumpy_blend"
 }

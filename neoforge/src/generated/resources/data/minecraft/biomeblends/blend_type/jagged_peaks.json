@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:jagged_peaks"
   },
-  "color": 12571872
+  "color": 12571872,
+  "model": "biomeblends:bumpy_blend"
 }

@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:red_mushroom"
-    },
-    {
-      "item": "minecraft:brown_mushroom"
-    },
-    {
-      "item": "minecraft:dark_oak_sapling"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:red_mushroom",
+    "minecraft:brown_mushroom",
+    "minecraft:dark_oak_sapling"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:dark_forest"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

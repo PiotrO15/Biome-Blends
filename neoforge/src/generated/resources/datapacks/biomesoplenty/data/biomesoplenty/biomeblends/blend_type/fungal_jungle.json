@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:fungal_jungle"
   },
-  "color": 14738722
+  "color": 14738722,
+  "model": "biomeblends:fluffy_blend"
 }

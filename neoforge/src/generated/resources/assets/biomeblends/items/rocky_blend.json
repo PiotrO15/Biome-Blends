@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "biomeblends:item/rocky_blend",
+    "tints": [
+      {
+        "type": "biomeblends:biome_blend",
+        "default": -16776961
+      }
+    ]
+  }
+}

@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:crimson_fungus"
-    },
-    {
-      "item": "minecraft:nether_wart_block"
-    },
-    {
-      "item": "minecraft:nether_wart_block"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:crimson_fungus",
+    "minecraft:nether_wart_block",
+    "minecraft:nether_wart_block"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:crimson_forest"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

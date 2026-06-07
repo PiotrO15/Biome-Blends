@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:volcano"
   },
-  "color": 5537090
+  "color": 5537090,
+  "model": "biomeblends:bumpy_blend"
 }

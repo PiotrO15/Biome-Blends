@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:snow_block"
-    },
-    {
-      "item": "minecraft:snow_block"
-    },
-    {
-      "item": "minecraft:powder_snow_bucket"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:snow_block",
+    "minecraft:snow_block",
+    "minecraft:powder_snow_bucket"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:snowy_slopes"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

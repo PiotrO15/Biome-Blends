@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:frozen_ocean"
   },
-  "color": 9097955
+  "color": 9097955,
+  "model": "biomeblends:bumpy_blend"
 }

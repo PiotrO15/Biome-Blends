@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:pumpkin_patch"
   },
-  "color": 13553994
+  "color": 13553994,
+  "model": "biomeblends:bumpy_blend"
 }

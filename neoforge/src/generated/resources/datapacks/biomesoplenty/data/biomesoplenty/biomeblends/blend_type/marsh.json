@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:marsh"
   },
-  "color": 6979139
+  "color": 6979139,
+  "model": "biomeblends:bumpy_blend"
 }

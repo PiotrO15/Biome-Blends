@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:birch_forest"
   },
-  "color": 16777023
+  "color": 16777023,
+  "model": "biomeblends:fluffy_blend"
 }

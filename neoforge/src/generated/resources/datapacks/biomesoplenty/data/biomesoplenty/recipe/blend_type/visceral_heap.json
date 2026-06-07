@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "biomesoplenty:flesh"
-    },
-    {
-      "item": "biomesoplenty:flesh"
-    },
-    {
-      "item": "biomesoplenty:flesh"
-    }
+    "biomeblends:bland_blend",
+    "biomesoplenty:flesh",
+    "biomesoplenty:flesh",
+    "biomesoplenty:flesh"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "biomesoplenty:visceral_heap"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

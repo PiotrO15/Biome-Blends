@@ -2,27 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:moss_block"
-    },
-    {
-      "item": "minecraft:moss_block"
-    },
-    {
-      "item": "minecraft:cobblestone"
-    },
-    {
-      "item": "minecraft:cobblestone"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:moss_block",
+    "minecraft:moss_block",
+    "minecraft:cobblestone",
+    "minecraft:cobblestone"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "biomesoplenty:crag"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

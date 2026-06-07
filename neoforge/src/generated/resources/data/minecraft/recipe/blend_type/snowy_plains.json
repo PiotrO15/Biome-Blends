@@ -2,27 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:snow_block"
-    },
-    {
-      "item": "minecraft:snow_block"
-    },
-    {
-      "item": "minecraft:wheat_seeds"
-    },
-    {
-      "item": "minecraft:wheat_seeds"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:snow_block",
+    "minecraft:snow_block",
+    "minecraft:wheat_seeds",
+    "minecraft:wheat_seeds"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:snowy_plains"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

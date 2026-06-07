@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:wetland"
   },
-  "color": 5215831
+  "color": 5215831,
+  "model": "biomeblends:bumpy_blend"
 }

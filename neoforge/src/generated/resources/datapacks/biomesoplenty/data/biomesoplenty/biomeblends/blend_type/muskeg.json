@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:muskeg"
   },
-  "color": 9280363
+  "color": 9280363,
+  "model": "biomeblends:bumpy_blend"
 }

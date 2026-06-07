@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:warped_fungus"
-    },
-    {
-      "item": "minecraft:warped_wart_block"
-    },
-    {
-      "item": "minecraft:warped_wart_block"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:warped_fungus",
+    "minecraft:warped_wart_block",
+    "minecraft:warped_wart_block"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:warped_forest"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

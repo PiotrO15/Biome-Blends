@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:pink_petals"
-    },
-    {
-      "item": "minecraft:pink_petals"
-    },
-    {
-      "item": "minecraft:cherry_sapling"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:pink_petals",
+    "minecraft:pink_petals",
+    "minecraft:cherry_sapling"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:cherry_grove"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

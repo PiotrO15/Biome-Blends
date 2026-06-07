@@ -2,27 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:netherrack"
-    },
-    {
-      "item": "minecraft:netherrack"
-    },
-    {
-      "item": "minecraft:netherrack"
-    },
-    {
-      "item": "minecraft:quartz"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:netherrack",
+    "minecraft:netherrack",
+    "minecraft:netherrack",
+    "minecraft:quartz"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:nether_wastes"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:jade_cliffs"
   },
-  "color": 9156462
+  "color": 9156462,
+  "model": "biomeblends:bumpy_blend"
 }

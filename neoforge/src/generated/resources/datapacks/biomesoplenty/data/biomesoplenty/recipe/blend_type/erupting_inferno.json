@@ -2,27 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "biomesoplenty:brimstone"
-    },
-    {
-      "item": "biomesoplenty:brimstone"
-    },
-    {
-      "item": "minecraft:netherrack"
-    },
-    {
-      "item": "minecraft:netherrack"
-    }
+    "biomeblends:bland_blend",
+    "biomesoplenty:brimstone",
+    "biomesoplenty:brimstone",
+    "minecraft:netherrack",
+    "minecraft:netherrack"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "biomesoplenty:erupting_inferno"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

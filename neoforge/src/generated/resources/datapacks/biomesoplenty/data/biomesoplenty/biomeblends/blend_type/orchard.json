@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:orchard"
   },
-  "color": 13236061
+  "color": 13236061,
+  "model": "biomeblends:fluffy_blend"
 }

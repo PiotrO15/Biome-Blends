@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:windswept_hills"
   },
-  "color": 9610105
+  "color": 9610105,
+  "model": "biomeblends:bumpy_blend"
 }

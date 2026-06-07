@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "biomeblends:item/biome_blend",
+    "tints": [
+      {
+        "type": "biomeblends:biome_blend",
+        "default": -16776961
+      }
+    ]
+  }
+}

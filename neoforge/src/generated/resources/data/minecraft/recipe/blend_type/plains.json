@@ -2,27 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:short_grass"
-    },
-    {
-      "item": "minecraft:short_grass"
-    },
-    {
-      "item": "minecraft:wheat_seeds"
-    },
-    {
-      "item": "minecraft:wheat_seeds"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:short_grass",
+    "minecraft:short_grass",
+    "minecraft:wheat_seeds",
+    "minecraft:wheat_seeds"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:plains"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

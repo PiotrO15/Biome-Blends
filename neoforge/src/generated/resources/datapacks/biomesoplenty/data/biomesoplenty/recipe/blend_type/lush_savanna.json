@@ -2,27 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:poppy"
-    },
-    {
-      "item": "minecraft:poppy"
-    },
-    {
-      "item": "minecraft:poppy"
-    },
-    {
-      "item": "minecraft:rose_bush"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:poppy",
+    "minecraft:poppy",
+    "minecraft:poppy",
+    "minecraft:rose_bush"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "biomesoplenty:lush_savanna"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "minecraft:mossy_cobblestone"
-    },
-    {
-      "item": "minecraft:mossy_cobblestone"
-    },
-    {
-      "item": "minecraft:spruce_sapling"
-    }
+    "biomeblends:bland_blend",
+    "minecraft:mossy_cobblestone",
+    "minecraft:mossy_cobblestone",
+    "minecraft:spruce_sapling"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "minecraft:old_growth_pine_taiga"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }

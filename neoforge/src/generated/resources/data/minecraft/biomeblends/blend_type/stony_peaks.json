@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:stony_peaks"
   },
-  "color": 10526880
+  "color": 10526880,
+  "model": "biomeblends:bumpy_blend"
 }

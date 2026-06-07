@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:swamp"
   },
-  "color": 5597999
+  "color": 5597999,
+  "model": "biomeblends:bumpy_blend"
 }

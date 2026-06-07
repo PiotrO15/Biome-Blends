@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "minecraft:taiga"
   },
-  "color": 5798986
+  "color": 5798986,
+  "model": "biomeblends:fluffy_blend"
 }

@@ -3,5 +3,6 @@
     "type": "biomeblends:set_biome",
     "target_biome": "biomesoplenty:dune_beach"
   },
-  "color": 15258019
+  "color": 15258019,
+  "model": "biomeblends:bumpy_blend"
 }

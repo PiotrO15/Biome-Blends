@@ -2,24 +2,15 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "biomeblends:bland_blend"
-    },
-    {
-      "item": "biomesoplenty:empyreal_sapling"
-    },
-    {
-      "item": "minecraft:end_stone"
-    },
-    {
-      "item": "minecraft:end_stone"
-    }
+    "biomeblends:bland_blend",
+    "biomesoplenty:empyreal_sapling",
+    "minecraft:end_stone",
+    "minecraft:end_stone"
   ],
   "result": {
     "components": {
       "biomeblends:blend_type": "biomesoplenty:end_wilds"
     },
-    "count": 1,
     "id": "biomeblends:biome_blend"
   }
 }
