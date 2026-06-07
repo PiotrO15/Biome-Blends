@@ -8,6 +8,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ItemStack;
+import piotro15.biomeblends.BiomeBlends;
 import piotro15.biomeblends.blend.blend_action.BlendAction;
 
 import java.util.ArrayList;
@@ -22,7 +23,8 @@ public record BlendType(
         int color,
         ItemStack useRemainder,
         SoundEvent sound,
-        ParticleOptions particleOptions
+        ParticleOptions particleOptions,
+        Identifier model
 ) {
     public static final Codec<BlendType> CODEC = RecordCodecBuilder.create(
             instance -> instance.group(
@@ -35,7 +37,8 @@ public record BlendType(
                     Codec.INT.optionalFieldOf("color", 0xFFFFFF).forGetter(BlendType::color),
                     ItemStack.CODEC.optionalFieldOf("use_remainder", ItemStack.EMPTY).forGetter(BlendType::useRemainder),
                     SoundEvent.DIRECT_CODEC.optionalFieldOf("sound", SoundEvents.GLOW_INK_SAC_USE).forGetter(BlendType::sound),
-                    ParticleTypes.CODEC.optionalFieldOf("particle_type", ParticleTypes.HAPPY_VILLAGER).forGetter(BlendType::particleOptions)
+                    ParticleTypes.CODEC.optionalFieldOf("particle_type", ParticleTypes.HAPPY_VILLAGER).forGetter(BlendType::particleOptions),
+                    Identifier.CODEC.optionalFieldOf("model", Identifier.fromNamespaceAndPath(BiomeBlends.MOD_ID, "biome_blend")).forGetter(BlendType::model)
             ).apply(instance, BlendType::new)
     );
 
@@ -51,6 +54,7 @@ public record BlendType(
         private ItemStack useRemainder = ItemStack.EMPTY;
         private SoundEvent sound = SoundEvents.GLOW_INK_SAC_USE;
         private ParticleOptions particleOptions = ParticleTypes.HAPPY_VILLAGER;
+        private Identifier model = BiomeBlends.id("biome_blend");
 
         public BlendTypeBuilder action(BlendAction action) {
             this.action = action;
@@ -102,12 +106,17 @@ public record BlendType(
             return this;
         }
 
+        public BlendTypeBuilder model(Identifier modelId) {
+            this.model = modelId;
+            return this;
+        }
+
         public BlendType build() {
             if (action == null) {
                 throw new IllegalStateException("Blend type definition requires a blend action to work.");
             }
             return new BlendType(action, horizontalRadius, verticalRadius,
-                    dimensionBlacklist, biomeBlacklist, namespaceBlacklist, color, useRemainder, sound, particleOptions);
+                    dimensionBlacklist, biomeBlacklist, namespaceBlacklist, color, useRemainder, sound, particleOptions,  model);
         }
     }
 }

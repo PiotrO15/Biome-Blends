@@ -23,7 +23,7 @@ public final class BiomeBlends {
     }
 
     public static void initClient() {
-        Platform.getInstance().registerItemTint(BiomeBlendsClient.TINT_HANDLER, BiomeBlendsItems.BIOME_BLEND);
+        Platform.getInstance().registerItemTint(new BiomeBlendsClient.BiomeBlend(0xFF0000FF), BiomeBlendsItems.BIOME_BLEND);
     }
 
     public static Identifier id(String path) {

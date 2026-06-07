@@ -1,7 +1,6 @@
 package piotro15.biomeblends.client;
 
 import net.minecraft.client.Minecraft;
-//import net.minecraft.client.resources.model.ModelIdentifier;
 import net.minecraft.resources.FileToIdConverter;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.resources.Resource;
@@ -15,8 +14,10 @@ import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
+import net.neoforged.neoforge.client.model.standalone.SimpleUnbakedStandaloneModel;
+import net.neoforged.neoforge.client.model.standalone.StandaloneModelKey;
 import piotro15.biomeblends.BiomeBlends;
-import piotro15.biomeblends.neoforge.NeoForgePlatform;
+import piotro15.biomeblends.BiomeBlendsClient;
 
 import java.util.Map;
 
@@ -33,21 +34,28 @@ public class NeoForgeClient {
 //        NeoForgePlatform.itemColors.forEach(
 //                (item, color) -> event.register(color, item.get())
 //        );
+        event.register(Identifier.fromNamespaceAndPath(BiomeBlends.MOD_ID, "biome_blend"), BiomeBlendsClient.BiomeBlend.MAP_CODEC);
     }
 
-//    @SubscribeEvent
-//    public static void registerModels(ModelEvent.RegisterAdditional event) {
-//        for (Map.Entry<Identifier, Resource> entry : FileToIdConverter.json("models/blend_type").listMatchingResources(Minecraft.getInstance().getResourceManager()).entrySet()) {
-//            Identifier blendType = Identifier.parse(entry.getKey().toString().replace("models/blend_type", "blend_type").replace(".json", ""));
-//            event.register(ModelIdentifier.standalone(blendType));
-//        }
-//    }
-//
-//    @SubscribeEvent
-//    public static void modifyBakingResults(ModelEvent.ModifyBakingResult event) {
-//        event.getModels().computeIfPresent(
+    @SubscribeEvent
+    public static void registerModels(ModelEvent.RegisterStandalone event) {
+        for (Map.Entry<Identifier, Resource> entry : FileToIdConverter.json("models/blend_type").listMatchingResources(Minecraft.getInstance().getResourceManager()).entrySet()) {
+            Identifier blendType = Identifier.parse(entry.getKey().toString().replace("models/blend_type", "blend_type").replace(".json", ""));
+            System.out.println(entry.getKey());
+            event.register(new StandaloneModelKey<>(() -> "BiomeBlends Blend Model"), SimpleUnbakedStandaloneModel.simpleModelWrapper(blendType));
+        }
+    }
+
+    @SubscribeEvent
+    public static void modifyBakingResults(ModelEvent.ModifyBakingResult event) {
+        event.getBakingResult().itemStackModels().computeIfPresent(
+//                ItemModelUtils.plainModel(Identifier.fromNamespaceAndPath(BiomeBlends.MOD_ID, "biome_blend")),
+                Identifier.fromNamespaceAndPath(BiomeBlends.MOD_ID, "biome_blend"),
+                (identifier, model) -> new BlendWrapper(model)
+        );
+//        event.getTextureGetter().getModels().computeIfPresent(
 //                ModelIdentifier.inventory(Identifier.fromNamespaceAndPath("biomeblends", "biome_blend")),
 //                (location, model) -> new BlendWrapper(model)
 //        );
-//    }
+    }
 }

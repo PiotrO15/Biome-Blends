@@ -1,39 +1,46 @@
-//package piotro15.biomeblends.datagen;
-//
-//import net.minecraft.data.PackOutput;
-//import net.minecraft.resources.Identifier;
-//import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+package piotro15.biomeblends.datagen;
+
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.ModelProvider;
+import net.minecraft.client.data.models.model.ItemModelUtils;
+import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.client.renderer.item.ClientItem;
+import net.minecraft.client.resources.model.sprite.Material;
+import net.minecraft.data.PackOutput;
+import net.minecraft.resources.Identifier;
 //import net.neoforged.neoforge.client.model.generators.ModelFile;
-//import net.neoforged.neoforge.common.data.ExistingFileHelper;
-//
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//public class ItemModelDatagen extends ItemModelProvider {
-//    private final List<List<BlendData>> blendLists = new ArrayList<>();
-//
-//    public ItemModelDatagen(PackOutput output, String modId, ExistingFileHelper existingFileHelper) {
-//        super(output, modId, existingFileHelper);
-//    }
-//
-//    @Override
-//    protected void registerModels() {
-//        BlendData.blends.forEach(blend -> this.registerBlendTypeModel(blend.getIdentifier(), blend.model()));
-//
-//        blendLists.forEach(blends -> blends.forEach(blend -> this.registerBlendTypeModel(blend.getIdentifier(), blend.model())));
-//    }
-//
-//    public void registerBlendModels(List<BlendData> blends) {
-//        blendLists.add(blends);
-//    }
-//
-//    private void registerBlendTypeModel(Identifier blendType, String texture) {
-//        getBuilder(getModelLocation(blendType))
-//                .parent(new ModelFile.UncheckedModelFile("item/generated"))
-//                .texture("layer0", Identifier.fromNamespaceAndPath("biomeblends", "item/" + texture));
-//    }
-//
-//    private String getModelLocation(Identifier blendType) {
-//        return blendType.getNamespace() + ":blend_type/" + blendType.getPath();
-//    }
-//}
+import piotro15.biomeblends.BiomeBlends;
+import piotro15.biomeblends.BiomeBlendsClient;
+import piotro15.biomeblends.registry.BiomeBlendsItems;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ItemModelDatagen extends ModelProvider {
+
+    public ItemModelDatagen(PackOutput output) {
+        super(output, BiomeBlends.MOD_ID);
+    }
+
+    @Override
+    protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
+        itemModels.generateFlatItem(BiomeBlendsItems.BLAND_BLEND.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.itemModelOutput.accept(
+                BiomeBlendsItems.BIOME_BLEND.get(),
+                ItemModelUtils.tintedModel(itemModels.createFlatItemModel(BiomeBlendsItems.BIOME_BLEND.get(), ModelTemplates.FLAT_ITEM), new BiomeBlendsClient.BiomeBlend(0xFF0000FF))
+        );
+        registerBlendModel(itemModels, "bumpy_blend");
+        registerBlendModel(itemModels, "fluffy_blend");
+        registerBlendModel(itemModels, "rocky_blend");
+    }
+
+    private void registerBlendModel(ItemModelGenerators itemModels, String name) {
+        Identifier id = BiomeBlends.id("item/" + name);
+        itemModels.itemModelOutput.register(
+                id,
+                new ClientItem(ItemModelUtils.tintedModel(ModelTemplates.FLAT_ITEM.create(id, TextureMapping.layer0(new Material(id)), itemModels.modelOutput), new BiomeBlendsClient.BiomeBlend(0xFF0000FF)), ClientItem.Properties.DEFAULT)
+        );
+    }
+}
