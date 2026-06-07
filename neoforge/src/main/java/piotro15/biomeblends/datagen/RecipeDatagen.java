@@ -66,20 +66,23 @@ public class RecipeDatagen extends RecipeProvider {
         }
 
         private static String recipeLocation(Identifier blendLocation) {
-            return "blend_type/" + blendLocation.getPath();
+            return blendLocation.getNamespace() + ":blend_type/" + blendLocation.getPath();
         }
 
         public static final class Runner extends RecipeProvider.Runner
         {
-            public Runner(PackOutput output, CompletableFuture<HolderLookup.Provider> completableFuture)
+            private List<BlendData> blends;
+
+            public Runner(PackOutput output, CompletableFuture<HolderLookup.Provider> completableFuture, List<BlendData> blends)
             {
+                this.blends = blends;
                 super(output, completableFuture);
             }
 
             @Override
             protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput output)
             {
-                return new RecipeDatagen(provider, output);
+                return new BlendRecipeProvider(provider, output, blends);
             }
 
             @Override

@@ -5,10 +5,13 @@ import com.mojang.serialization.Codec;
 import net.fabricmc.fabric.api.event.registry.DynamicRegistries;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.color.item.ItemTintSource;
+import net.minecraft.client.color.item.ItemTintSources;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.common.ModConfigSpec;
+import piotro15.biomeblends.BiomeBlends;
+import piotro15.biomeblends.BiomeBlendsClient;
 import piotro15.biomeblends.registry.BiomeBlendsItems;
 import piotro15.biomeblends.util.Platform;
 
@@ -28,7 +31,7 @@ public class FabricPlatform extends Platform {
 
     @Override
     public void registerItemTint(ItemTintSource itemColor, Supplier<Item> itemSupplier) {
-//        ColorProviderRegistry.ITEM.register(itemColor, itemSupplier.get());
+        ItemTintSources.ID_MAPPER.put(BiomeBlends.id("biome_blend"), BiomeBlendsClient.BiomeBlend.MAP_CODEC);
     }
 
     @Override
@@ -46,10 +49,5 @@ public class FabricPlatform extends Platform {
     public Supplier<Item> registerItem(String name, Function<Item.Properties, ? extends Item> func, Supplier<Item.Properties> properties) {
         Item item = BiomeBlendsFabric.register(name, func, properties.get());
         return () -> item;
-    }
-
-    @Override
-    public void registerItems() {
-
     }
 }

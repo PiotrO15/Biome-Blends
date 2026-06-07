@@ -55,6 +55,15 @@ sourceSets.configureEach {
     }
 }
 
+sourceSets {
+    main {
+        resources {
+            srcDirs += project(":neoforge").file("src/generated/resources").absolutePath
+            exclude '.cache'
+        }
+    }
+}
+
 //plugins {
 //    id 'com.github.johnrengelman.shadow'
 //}

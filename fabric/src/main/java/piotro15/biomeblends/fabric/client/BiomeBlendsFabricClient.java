@@ -3,6 +3,7 @@ package piotro15.biomeblends.fabric.client;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
 //import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.FileToIdConverter;
@@ -24,24 +25,18 @@ public final class BiomeBlendsFabricClient implements ClientModInitializer {
     public void onInitializeClient() {
         BiomeBlends.initClient();
 
-        ModelLoadingPlugin.register(plugin -> {
-            for (Map.Entry<Identifier, Resource> entry : FileToIdConverter.json("models/blend_type").listMatchingResources(Minecraft.getInstance().getResourceManager()).entrySet()) {
-                Identifier blendType = Identifier.parse(entry.getKey().toString().replace("models/blend_type", "blend_type").replace(".json", ""));
-//                plugin.addModels(blendType);
+        CreativeModeTabEvents.modifyOutputEvent(BiomeBlendsCreativeModeTabs.BLENDS_TAB.getKey()).register(entries -> {
+            if (Minecraft.getInstance().level != null) {
+                Registry<BlendType> blendTypeRegistry = Minecraft.getInstance().level.registryAccess().lookupOrThrow(BiomeBlendsRegistries.BLEND_TYPE);
+
+                for (ResourceKey<BlendType> blendKey : blendTypeRegistry.registryKeySet()) {
+                    ItemStack stack = new ItemStack(BiomeBlendsItems.BIOME_BLEND.get());
+                    stack.set(BiomeBlendsDataComponents.BLEND_TYPE.get(), blendKey.identifier());
+                    entries.accept(stack);
+                }
             }
         });
 
-
-//        ItemGroupEvents.modifyEntriesEvent(BiomeBlendsCreativeModeTabs.BLENDS_TAB.getKey()).register(entries -> {
-//            if (Minecraft.getInstance().level != null) {
-//                Registry<BlendType> blendTypeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(BiomeBlendsRegistries.BLEND_TYPE);
-//
-//                for (ResourceKey<BlendType> blendKey : blendTypeRegistry.registryKeySet()) {
-//                    ItemStack stack = new ItemStack(BiomeBlendsItems.BIOME_BLEND.get());
-//                    stack.set(BiomeBlendsDataComponents.BLEND_TYPE.get(), blendKey.location());
-//                    entries.accept(stack);
-//                }
-//            }
-//        });
+        ModelLoadingPlugin.register(new BiomeBlendsModelLoadingPlugin());
     }
 }

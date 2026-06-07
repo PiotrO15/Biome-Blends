@@ -1,7 +1,7 @@
 package piotro15.biomeblends.datagen;
 
-//import biomesoplenty.api.biome.BOPBiomes;
-//import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.api.item.BOPItems;
 import com.google.gson.JsonObject;
 import com.mojang.datafixers.util.Either;
 import net.minecraft.resources.ResourceKey;
@@ -18,6 +18,7 @@ import net.minecraft.world.level.biome.Biomes;
 //import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 //import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 //import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
+import piotro15.biomeblends.BiomeBlends;
 import piotro15.biomeblends.blend.BlendType;
 import piotro15.biomeblends.blend.blend_action.SetBiomeAction;
 
@@ -28,18 +29,19 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public record BlendData(String name, ResourceKey<Biome> id, BlendType blendType, String model, LinkedHashMap<Either<Item, TagKey<Item>>, Integer> ingredients) {
+public record BlendData(String name, ResourceKey<Biome> id, BlendType blendType, LinkedHashMap<Either<Item, TagKey<Item>>, Integer> ingredients) {
     @SafeVarargs
     private static BlendData of(String name, ResourceKey<Biome> id, int color, String model, Map.Entry<Either<Item, TagKey<Item>>, Integer>... ingredients) {
-        return new BlendData(name, id, defaultBlendType(id, color), model, toLinkedMap(ingredients));
+        return new BlendData(name, id, defaultBlendType(id, color, BiomeBlends.id(model)), toLinkedMap(ingredients));
     }
 
     @SafeVarargs
     private static BlendData of(String name, ResourceKey<Biome> id, ColorType colorType, String model, Map.Entry<Either<Item, TagKey<Item>>, Integer>... ingredients) {
         BlendType.BlendTypeBuilder builder = new BlendType.BlendTypeBuilder()
                 .action(new SetBiomeAction(id.identifier()))
-                .color(findColorForBiome(id, colorType));
-        return new BlendData(name, id, builder.build(), model, toLinkedMap(ingredients));
+                .color(findColorForBiome(id, colorType))
+                .model(BiomeBlends.id(model));
+        return new BlendData(name, id, builder.build(), toLinkedMap(ingredients));
     }
 
     @SafeVarargs
@@ -126,77 +128,77 @@ public record BlendData(String name, ResourceKey<Biome> id, BlendType blendType,
             BlendData.of("Wooded Badlands Blend", Biomes.WOODED_BADLANDS, 0xC96435, "bumpy_blend", BlendData.entry(Items.COARSE_DIRT, 2), BlendData.entry(Items.OAK_SAPLING, 1))
     );
 
-//    public static List<BlendData> biomesOPlentyBlends = List.of(
+    public static List<BlendData> biomesOPlentyBlends = List.of(
 //            BlendData.of("Aspen Glade Blend", BOPBiomes.ASPEN_GLADE, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.YELLOW_MAPLE_SAPLING, 1), BlendData.entry(Items.BIRCH_LOG, 2)),
 //            BlendData.of("Auroral Garden Blend", BOPBiomes.AURORAL_GARDEN, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.RAINBOW_BIRCH_SAPLING, 1), BlendData.entry(Items.SNOWBALL, 2)),
-//            BlendData.of("Bayou Blend", BOPBiomes.BAYOU, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.WILLOW_SAPLING, 1), BlendData.entry(Items.FERN, 2)),
+            BlendData.of("Bayou Blend", BOPBiomes.BAYOU, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.WILLOW_SAPLING, 1), BlendData.entry(Items.FERN, 2)),
 //            BlendData.of("Bog Blend", BOPBiomes.BOG, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.RED_MAPLE_SAPLING, 1), BlendData.entry(BOPItems.BUSH, 2)),
-//            BlendData.of("Cold Desert Blend", BOPBiomes.COLD_DESERT, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(Items.GRAVEL, 3), BlendData.entry(Items.SNOWBALL, 1)),
-//            BlendData.of("Coniferous Forest Blend", BOPBiomes.CONIFEROUS_FOREST, ColorType.CALCULATED, "fluffy_blend", BlendData.entry(BOPItems.FIR_SAPLING, 1), BlendData.entry(Items.FERN, 1)),
-//            BlendData.of("Crag Blend", BOPBiomes.CRAG, ColorType.CALCULATED, "bumpy_blend", BlendData.entry(Items.MOSS_BLOCK, 2), BlendData.entry(Items.COBBLESTONE, 2)),
-//            BlendData.of("Crystalline Chasm Blend", BOPBiomes.CRYSTALLINE_CHASM, 0xE6BCC9,"bumpy_blend", BlendData.entry(BOPItems.ROSE_QUARTZ_CHUNK, 2), BlendData.entry(Items.NETHERRACK, 2)),
-//            BlendData.of("Dead Forest Blend", BOPBiomes.DEAD_FOREST, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.DEAD_SAPLING, 1), BlendData.entry(Items.DEAD_BUSH, 2)),
+            BlendData.of("Cold Desert Blend", BOPBiomes.COLD_DESERT, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(Items.GRAVEL, 3), BlendData.entry(Items.SNOWBALL, 1)),
+            BlendData.of("Coniferous Forest Blend", BOPBiomes.CONIFEROUS_FOREST, ColorType.CALCULATED, "fluffy_blend", BlendData.entry(BOPItems.FIR_SAPLING, 1), BlendData.entry(Items.FERN, 1)),
+            BlendData.of("Crag Blend", BOPBiomes.CRAG, ColorType.CALCULATED, "bumpy_blend", BlendData.entry(Items.MOSS_BLOCK, 2), BlendData.entry(Items.COBBLESTONE, 2)),
+            BlendData.of("Crystalline Chasm Blend", BOPBiomes.CRYSTALLINE_CHASM, 0xE6BCC9,"bumpy_blend", BlendData.entry(BOPItems.ROSE_QUARTZ_CHUNK, 2), BlendData.entry(Items.NETHERRACK, 2)),
+            BlendData.of("Dead Forest Blend", BOPBiomes.DEAD_FOREST, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.DEAD_SAPLING, 1), BlendData.entry(Items.DEAD_BUSH, 2)),
 //            BlendData.of("Dryland Blend", BOPBiomes.DRYLAND, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.PINE_SAPLING, 1), BlendData.entry(BOPItems.BUSH, 2)),
-//            BlendData.of("Dune Beach Blend", BOPBiomes.DUNE_BEACH, 0xE8D1A3, "bumpy_blend", BlendData.entry(BOPItems.SEA_OATS, 2), BlendData.entry(Items.SAND, 2)),
-//            BlendData.of("End Corruption Blend", BOPBiomes.END_CORRUPTION, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.NULL_BLOCK, 2), BlendData.entry(Items.END_STONE, 2)),
-//            BlendData.of("End Reef Blend", BOPBiomes.END_REEF, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.WISPJELLY, 1), BlendData.entry(Items.SAND, 2)),
-//            BlendData.of("End Wilds Blend", BOPBiomes.END_WILDS, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.EMPYREAL_SAPLING, 1), BlendData.entry(Items.END_STONE, 2)),
-//            BlendData.of("Erupting Inferno Blend", BOPBiomes.ERUPTING_INFERNO, 0xFF6B1A, "bumpy_blend", BlendData.entry(BOPItems.BRIMSTONE, 2), BlendData.entry(Items.NETHERRACK, 2)),
-//            BlendData.of("Field Blend", BOPBiomes.FIELD, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.TALL_WHITE_LAVENDER, 2), BlendData.entry(Items.SPRUCE_SAPLING, 1)),
-//            BlendData.of("Fir Clearing Blend", BOPBiomes.FIR_CLEARING, ColorType.CALCULATED, "fluffy_blend", BlendData.entry(BOPItems.FIR_SAPLING, 1), BlendData.entry(BOPItems.TOADSTOOL, 2)),
-//            BlendData.of("Floodplain Blend", BOPBiomes.FLOODPLAIN, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.WATERGRASS, 3), BlendData.entry(BOPItems.ORANGE_COSMOS, 1)),
-//            BlendData.of("Forested Field Blend", BOPBiomes.FORESTED_FIELD, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(Items.SPRUCE_SAPLING, 1), BlendData.entry(BOPItems.SPROUT, 2)),
-//            BlendData.of("Fungal Jungle Blend", BOPBiomes.FUNGAL_JUNGLE, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.TOADSTOOL, 2), BlendData.entry(Items.JUNGLE_SAPLING, 1)),
-//            BlendData.of("Glowing Grotto Blend", BOPBiomes.GLOWING_GROTTO, 0x3FEAD6, "rocky_blend", BlendData.entry(BOPItems.GLOWING_MOSS_BLOCK, 2), BlendData.entry(BOPItems.GLOWSHROOM, 1)),
+            BlendData.of("Dune Beach Blend", BOPBiomes.DUNE_BEACH, 0xE8D1A3, "bumpy_blend", BlendData.entry(BOPItems.SEA_OATS, 2), BlendData.entry(Items.SAND, 2)),
+            BlendData.of("End Corruption Blend", BOPBiomes.END_CORRUPTION, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.NULL_BLOCK, 2), BlendData.entry(Items.END_STONE, 2)),
+            BlendData.of("End Reef Blend", BOPBiomes.END_REEF, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.WISPJELLY, 1), BlendData.entry(Items.SAND, 2)),
+            BlendData.of("End Wilds Blend", BOPBiomes.END_WILDS, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.EMPYREAL_SAPLING, 1), BlendData.entry(Items.END_STONE, 2)),
+            BlendData.of("Erupting Inferno Blend", BOPBiomes.ERUPTING_INFERNO, 0xFF6B1A, "bumpy_blend", BlendData.entry(BOPItems.BRIMSTONE, 2), BlendData.entry(Items.NETHERRACK, 2)),
+            BlendData.of("Field Blend", BOPBiomes.FIELD, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.TALL_WHITE_LAVENDER, 2), BlendData.entry(Items.SPRUCE_SAPLING, 1)),
+            BlendData.of("Fir Clearing Blend", BOPBiomes.FIR_CLEARING, ColorType.CALCULATED, "fluffy_blend", BlendData.entry(BOPItems.FIR_SAPLING, 1), BlendData.entry(BOPItems.TOADSTOOL, 2)),
+            BlendData.of("Floodplain Blend", BOPBiomes.FLOODPLAIN, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.WATERGRASS, 3), BlendData.entry(BOPItems.ORANGE_COSMOS, 1)),
+            BlendData.of("Forested Field Blend", BOPBiomes.FORESTED_FIELD, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(Items.SPRUCE_SAPLING, 1), BlendData.entry(BOPItems.SPROUT, 2)),
+            BlendData.of("Fungal Jungle Blend", BOPBiomes.FUNGAL_JUNGLE, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.TOADSTOOL, 2), BlendData.entry(Items.JUNGLE_SAPLING, 1)),
+            BlendData.of("Glowing Grotto Blend", BOPBiomes.GLOWING_GROTTO, 0x3FEAD6, "rocky_blend", BlendData.entry(BOPItems.GLOWING_MOSS_BLOCK, 2), BlendData.entry(BOPItems.GLOWSHROOM, 1)),
 //            BlendData.of("Grassland Blend", BOPBiomes.GRASSLAND, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(Items.SHORT_GRASS, 4)),
-//            BlendData.of("Gravel Beach Blend", BOPBiomes.GRAVEL_BEACH, 0x9E9E9E, "bumpy_blend", BlendData.entry(Items.GRAVEL, 4)),
-//            BlendData.of("Highland Blend", BOPBiomes.HIGHLAND, 0x7B8F59, "bumpy_blend", BlendData.entry(Items.MOSSY_COBBLESTONE, 1), BlendData.entry(Items.SHORT_GRASS, 3)),
-//            BlendData.of("Hot Springs Blend", BOPBiomes.HOT_SPRINGS, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.PINE_SAPLING, 1), BlendData.entry(BOPItems.THERMAL_CALCITE, 2)),
+            BlendData.of("Gravel Beach Blend", BOPBiomes.GRAVEL_BEACH, 0x9E9E9E, "bumpy_blend", BlendData.entry(Items.GRAVEL, 4)),
+            BlendData.of("Highland Blend", BOPBiomes.HIGHLAND, 0x7B8F59, "bumpy_blend", BlendData.entry(Items.MOSSY_COBBLESTONE, 1), BlendData.entry(Items.SHORT_GRASS, 3)),
+            BlendData.of("Hot Springs Blend", BOPBiomes.HOT_SPRINGS, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.PINE_SAPLING, 1), BlendData.entry(BOPItems.THERMAL_CALCITE, 2)),
 //            BlendData.of("Jacaranda Glade Blend", BOPBiomes.JACARANDA_GLADE, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.JACARANDA_SAPLING, 1), BlendData.entry(Items.SHORT_GRASS, 2)),
-//            BlendData.of("Jade Cliffs Blend", BOPBiomes.JADE_CLIFFS, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.PINE_SAPLING, 1), BlendData.entry(Items.SPRUCE_SAPLING, 2)),
-//            BlendData.of("Lavender Field Blend", BOPBiomes.LAVENDER_FIELD, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.LAVENDER, 3), BlendData.entry(BOPItems.JACARANDA_SAPLING, 1)),
-//            BlendData.of("Lush Desert Blend", BOPBiomes.LUSH_DESERT, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.ORANGE_SAND, 2), BlendData.entry(Items.ACACIA_SAPLING, 1)),
-//            BlendData.of("Lush Savanna Blend", BOPBiomes.LUSH_SAVANNA, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(Items.POPPY, 3), BlendData.entry(Items.ROSE_BUSH, 1)),
-//            BlendData.of("Maple Woods Blend", BOPBiomes.MAPLE_WOODS, 0xB94A2E, "fluffy_blend", BlendData.entry(BOPItems.RED_MAPLE_SAPLING, 2), BlendData.entry(BOPItems.VIOLET, 1)),
-//            BlendData.of("Marsh Blend", BOPBiomes.MARSH, 0x6A7E43, "bumpy_blend", BlendData.entry(BOPItems.REED, 2), BlendData.entry(BOPItems.WATERGRASS, 2)),
+            BlendData.of("Jade Cliffs Blend", BOPBiomes.JADE_CLIFFS, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.PINE_SAPLING, 1), BlendData.entry(Items.SPRUCE_SAPLING, 2)),
+            BlendData.of("Lavender Field Blend", BOPBiomes.LAVENDER_FIELD, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.LAVENDER, 3), BlendData.entry(BOPItems.JACARANDA_SAPLING, 1)),
+            BlendData.of("Lush Desert Blend", BOPBiomes.LUSH_DESERT, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.ORANGE_SAND, 2), BlendData.entry(Items.ACACIA_SAPLING, 1)),
+            BlendData.of("Lush Savanna Blend", BOPBiomes.LUSH_SAVANNA, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(Items.POPPY, 3), BlendData.entry(Items.ROSE_BUSH, 1)),
+            BlendData.of("Maple Woods Blend", BOPBiomes.MAPLE_WOODS, 0xB94A2E, "fluffy_blend", BlendData.entry(BOPItems.RED_MAPLE_SAPLING, 2), BlendData.entry(BOPItems.VIOLET, 1)),
+            BlendData.of("Marsh Blend", BOPBiomes.MARSH, 0x6A7E43, "bumpy_blend", BlendData.entry(BOPItems.REED, 2), BlendData.entry(BOPItems.WATERGRASS, 2)),
 //            BlendData.of("Mediterranean Forest Blend", BOPBiomes.MEDITERRANEAN_FOREST, ColorType.CALCULATED, "fluffy_blend", BlendData.entry(BOPItems.CYPRESS_SAPLING, 1), BlendData.entry(BOPItems.BUSH, 2)),
-//            BlendData.of("Moor Blend", BOPBiomes.MOOR, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.VIOLET, 3), BlendData.entry(Items.SHORT_GRASS, 1)),
-//            BlendData.of("Muskeg Blend", BOPBiomes.MUSKEG, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(Items.MUD, 2), BlendData.entry(Items.SNOWBALL, 2)),
-//            BlendData.of("Mystic Grove Blend", BOPBiomes.MYSTIC_GROVE, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.MAGIC_SAPLING, 1), BlendData.entry(BOPItems.BLUE_HYDRANGEA, 2)),
-//            BlendData.of("Old Growth Dead Forest Blend", BOPBiomes.OLD_GROWTH_DEAD_FOREST, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.DEAD_LOG, 2), BlendData.entry(Items.DEAD_BUSH, 1)),
-//            BlendData.of("Old Growth Woodland Blend", BOPBiomes.OLD_GROWTH_WOODLAND, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.TOADSTOOL, 1), BlendData.entry(Items.OAK_SAPLING, 2)),
-//            BlendData.of("Ominous Woods Blend", BOPBiomes.OMINOUS_WOODS, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.UMBRAN_SAPLING, 2), BlendData.entry(Items.SHORT_GRASS, 2)),
-//            BlendData.of("Orchard Blend", BOPBiomes.ORCHARD, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.FLOWERING_OAK_SAPLING, 1), BlendData.entry(BOPItems.CLOVER, 3)),
+            BlendData.of("Moor Blend", BOPBiomes.MOOR, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.VIOLET, 3), BlendData.entry(Items.SHORT_GRASS, 1)),
+            BlendData.of("Muskeg Blend", BOPBiomes.MUSKEG, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(Items.MUD, 2), BlendData.entry(Items.SNOWBALL, 2)),
+            BlendData.of("Mystic Grove Blend", BOPBiomes.MYSTIC_GROVE, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.MAGIC_SAPLING, 1), BlendData.entry(BOPItems.BLUE_HYDRANGEA, 2)),
+            BlendData.of("Old Growth Dead Forest Blend", BOPBiomes.OLD_GROWTH_DEAD_FOREST, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.DEAD_LOG, 2), BlendData.entry(Items.DEAD_BUSH, 1)),
+            BlendData.of("Old Growth Woodland Blend", BOPBiomes.OLD_GROWTH_WOODLAND, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.TOADSTOOL, 1), BlendData.entry(Items.OAK_SAPLING, 2)),
+            BlendData.of("Ominous Woods Blend", BOPBiomes.OMINOUS_WOODS, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.UMBRAN_SAPLING, 2), BlendData.entry(Items.SHORT_GRASS, 2)),
+            BlendData.of("Orchard Blend", BOPBiomes.ORCHARD, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.FLOWERING_OAK_SAPLING, 1), BlendData.entry(BOPItems.CLOVER, 3)),
 //            BlendData.of("Origin Valley Blend", BOPBiomes.ORIGIN_VALLEY, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.ORIGIN_SAPLING, 1), BlendData.entry(Items.DIRT, 2)),
-//            BlendData.of("Overgrown Greens Blend", BOPBiomes.OVERGROWN_GREENS, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.HIGH_GRASS, 3), BlendData.entry(BOPItems.HUGE_CLOVER_PETAL, 1)),
-//            BlendData.of("Pasture Blend", BOPBiomes.PASTURE, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.BARLEY, 3)),
-//            BlendData.of("Prairie Blend", BOPBiomes.PRAIRIE, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.GOLDENROD, 2), BlendData.entry(BOPItems.BARLEY, 2)),
-//            BlendData.of("Pumpkin Patch Blend", BOPBiomes.PUMPKIN_PATCH, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.ORANGE_MAPLE_SAPLING, 1), BlendData.entry(Items.PUMPKIN, 3)),
-//            BlendData.of("Rainforest Blend", BOPBiomes.RAINFOREST, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.MAHOGANY_SAPLING, 1), BlendData.entry(Items.FERN, 2)),
-//            BlendData.of("Redwood Forest Blend", BOPBiomes.REDWOOD_FOREST, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.REDWOOD_SAPLING, 1), BlendData.entry(Items.FERN, 2)),
-//            BlendData.of("Rocky Rainforest Blend", BOPBiomes.ROCKY_RAINFOREST, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.MAHOGANY_SAPLING, 1), BlendData.entry(Items.TERRACOTTA, 2)),
+            BlendData.of("Overgrown Greens Blend", BOPBiomes.OVERGROWN_GREENS, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.HIGH_GRASS, 3), BlendData.entry(BOPItems.HUGE_CLOVER_PETAL, 1)),
+            BlendData.of("Pasture Blend", BOPBiomes.PASTURE, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.BARLEY, 3)),
+            BlendData.of("Prairie Blend", BOPBiomes.PRAIRIE, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.GOLDENROD, 2), BlendData.entry(BOPItems.BARLEY, 2)),
+            BlendData.of("Pumpkin Patch Blend", BOPBiomes.PUMPKIN_PATCH, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.ORANGE_MAPLE_SAPLING, 1), BlendData.entry(Items.PUMPKIN, 3)),
+            BlendData.of("Rainforest Blend", BOPBiomes.RAINFOREST, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.MAHOGANY_SAPLING, 1), BlendData.entry(Items.FERN, 2)),
+            BlendData.of("Redwood Forest Blend", BOPBiomes.REDWOOD_FOREST, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.REDWOOD_SAPLING, 1), BlendData.entry(Items.FERN, 2)),
+            BlendData.of("Rocky Rainforest Blend", BOPBiomes.ROCKY_RAINFOREST, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.MAHOGANY_SAPLING, 1), BlendData.entry(Items.TERRACOTTA, 2)),
 //            BlendData.of("Rocky Shrubland Blend", BOPBiomes.ROCKY_SHRUBLAND, ColorType.CALCULATED, "bumpy_blend", BlendData.entry(BOPItems.BUSH, 2), BlendData.entry(Items.COBBLESTONE, 2)),
 //            BlendData.of("Scrubland Blend", BOPBiomes.SCRUBLAND, ColorType.CALCULATED, "bumpy_blend", BlendData.entry(BOPItems.WILDFLOWER, 2), BlendData.entry(Items.SHORT_GRASS, 2)),
-//            BlendData.of("Seasonal Forest Blend", BOPBiomes.SEASONAL_FOREST, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.YELLOW_MAPLE_SAPLING, 1), BlendData.entry(BOPItems.ORANGE_MAPLE_SAPLING, 1), BlendData.entry(BOPItems.RED_MAPLE_SAPLING, 1)),
+            BlendData.of("Seasonal Forest Blend", BOPBiomes.SEASONAL_FOREST, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.YELLOW_MAPLE_SAPLING, 1), BlendData.entry(BOPItems.ORANGE_MAPLE_SAPLING, 1), BlendData.entry(BOPItems.RED_MAPLE_SAPLING, 1)),
 //            BlendData.of("Shrubland Blend", BOPBiomes.SHRUBLAND, ColorType.CALCULATED, "bumpy_blend", BlendData.entry(BOPItems.BUSH, 1), BlendData.entry(Items.LILAC, 2)),
-//            BlendData.of("Snowblossom Grove Blend", BOPBiomes.SNOWBLOSSOM_GROVE, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.SNOWBLOSSOM_SAPLING, 1), BlendData.entry(BOPItems.WHITE_PETALS, 2)),
-//            BlendData.of("Snowy Coniferous Forest Blend", BOPBiomes.SNOWY_CONIFEROUS_FOREST, 0x9FC6B8, "fluffy_blend", BlendData.entry(BOPItems.FIR_SAPLING, 1), BlendData.entry(Items.SNOWBALL, 2)),
-//            BlendData.of("Snowy Fir Clearing Blend", BOPBiomes.SNOWY_FIR_CLEARING, 0xA7D0C2, "bumpy_blend", BlendData.entry(BOPItems.FIR_SAPLING, 1), BlendData.entry(Items.FERN, 1), BlendData.entry(Items.SNOWBALL, 2)),
-//            BlendData.of("Snowy Maple Woods Blend", BOPBiomes.SNOWY_MAPLE_WOODS, 0xC97B56, "fluffy_blend", BlendData.entry(BOPItems.RED_MAPLE_SAPLING, 1), BlendData.entry(Items.SNOWBALL, 2)),
-//            BlendData.of("Spider Nest Blend", BOPBiomes.SPIDER_NEST, 0x5E3E46, "rocky_blend", BlendData.entry(BOPItems.WEBBING, 2), BlendData.entry(BOPItems.HANGING_COBWEB, 1)),
-//            BlendData.of("Tropics Blend", BOPBiomes.TROPICS, 0x3CC7B2, "fluffy_blend", BlendData.entry(BOPItems.PALM_SAPLING, 1), BlendData.entry(BOPItems.BLUE_HYDRANGEA, 2)),
-//            BlendData.of("Tundra Blend", BOPBiomes.TUNDRA, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.RED_MAPLE_SAPLING, 1), BlendData.entry(Items.FERN, 2)),
-//            BlendData.of("Undergrowth Blend", BOPBiomes.UNDERGROWTH, 0x2E5D35, "bumpy_blend", BlendData.entry(BOPItems.HELLBARK_SAPLING, 1), BlendData.entry(BOPItems.BRAMBLE, 2)),
-//            BlendData.of("Visceral Heap Blend", BOPBiomes.VISCERAL_HEAP, 0x8E2B2F, "bumpy_blend", BlendData.entry(BOPItems.FLESH, 3)),
-//            BlendData.of("Volcanic Plains Blend", BOPBiomes.VOLCANIC_PLAINS, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.BLACK_SAND, 2), BlendData.entry(Items.FERN, 2)),
-//            BlendData.of("Volcano Blend", BOPBiomes.VOLCANO, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.BLACK_SANDSTONE, 1), BlendData.entry(Items.BASALT, 2)),
-//            BlendData.of("Wasteland Blend", BOPBiomes.WASTELAND, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.DRIED_SALT, 2), BlendData.entry(BOPItems.DEAD_LOG, 2)),
-//            BlendData.of("Wasteland Steppe Blend", BOPBiomes.WASTELAND_STEPPE, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.DESERT_GRASS, 2), BlendData.entry(Items.SHORT_GRASS, 2)),
-//            BlendData.of("Wetland Blend", BOPBiomes.WETLAND, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.WILLOW_SAPLING, 1), BlendData.entry(BOPItems.CATTAIL, 2)),
+            BlendData.of("Snowblossom Grove Blend", BOPBiomes.SNOWBLOSSOM_GROVE, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.SNOWBLOSSOM_SAPLING, 1), BlendData.entry(BOPItems.WHITE_PETALS, 2)),
+            BlendData.of("Snowy Coniferous Forest Blend", BOPBiomes.SNOWY_CONIFEROUS_FOREST, 0x9FC6B8, "fluffy_blend", BlendData.entry(BOPItems.FIR_SAPLING, 1), BlendData.entry(Items.SNOWBALL, 2)),
+            BlendData.of("Snowy Fir Clearing Blend", BOPBiomes.SNOWY_FIR_CLEARING, 0xA7D0C2, "bumpy_blend", BlendData.entry(BOPItems.FIR_SAPLING, 1), BlendData.entry(Items.FERN, 1), BlendData.entry(Items.SNOWBALL, 2)),
+            BlendData.of("Snowy Maple Woods Blend", BOPBiomes.SNOWY_MAPLE_WOODS, 0xC97B56, "fluffy_blend", BlendData.entry(BOPItems.RED_MAPLE_SAPLING, 1), BlendData.entry(Items.SNOWBALL, 2)),
+            BlendData.of("Spider Nest Blend", BOPBiomes.SPIDER_NEST, 0x5E3E46, "rocky_blend", BlendData.entry(BOPItems.WEBBING, 2), BlendData.entry(BOPItems.HANGING_COBWEB, 1)),
+            BlendData.of("Tropics Blend", BOPBiomes.TROPICS, 0x3CC7B2, "fluffy_blend", BlendData.entry(BOPItems.PALM_SAPLING, 1), BlendData.entry(BOPItems.BLUE_HYDRANGEA, 2)),
+            BlendData.of("Tundra Blend", BOPBiomes.TUNDRA, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.RED_MAPLE_SAPLING, 1), BlendData.entry(Items.FERN, 2)),
+            BlendData.of("Undergrowth Blend", BOPBiomes.UNDERGROWTH, 0x2E5D35, "bumpy_blend", BlendData.entry(BOPItems.HELLBARK_SAPLING, 1), BlendData.entry(BOPItems.BRAMBLE, 2)),
+            BlendData.of("Visceral Heap Blend", BOPBiomes.VISCERAL_HEAP, 0x8E2B2F, "bumpy_blend", BlendData.entry(BOPItems.FLESH, 3)),
+            BlendData.of("Volcanic Plains Blend", BOPBiomes.VOLCANIC_PLAINS, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.BLACK_SAND, 2), BlendData.entry(Items.FERN, 2)),
+            BlendData.of("Volcano Blend", BOPBiomes.VOLCANO, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.BLACK_SANDSTONE, 1), BlendData.entry(Items.BASALT, 2)),
+            BlendData.of("Wasteland Blend", BOPBiomes.WASTELAND, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.DRIED_SALT, 2), BlendData.entry(BOPItems.DEAD_LOG, 2)),
+            BlendData.of("Wasteland Steppe Blend", BOPBiomes.WASTELAND_STEPPE, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.DESERT_GRASS, 2), BlendData.entry(Items.SHORT_GRASS, 2)),
+            BlendData.of("Wetland Blend", BOPBiomes.WETLAND, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.WILLOW_SAPLING, 1), BlendData.entry(BOPItems.CATTAIL, 2)),
 //            BlendData.of("Wintry Origin Valley Blend", BOPBiomes.WINTRY_ORIGIN_VALLEY, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.ORIGIN_SAPLING, 1), BlendData.entry(Items.SNOWBALL, 3)),
-//            BlendData.of("Withered Abyss Blend", BOPBiomes.WITHERED_ABYSS, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.BLACKSTONE_BULB, 1), BlendData.entry(Items.BLACKSTONE, 2)),
-//            BlendData.of("Woodland Blend", BOPBiomes.WOODLAND, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.TOADSTOOL, 1), BlendData.entry(Items.ROSE_BUSH, 2))
-//    );
+            BlendData.of("Withered Abyss Blend", BOPBiomes.WITHERED_ABYSS, ColorType.FOLIAGE_COLOR, "bumpy_blend", BlendData.entry(BOPItems.BLACKSTONE_BULB, 1), BlendData.entry(Items.BLACKSTONE, 2)),
+            BlendData.of("Woodland Blend", BOPBiomes.WOODLAND, ColorType.FOLIAGE_COLOR, "fluffy_blend", BlendData.entry(BOPItems.TOADSTOOL, 1), BlendData.entry(Items.ROSE_BUSH, 2))
+    );
 //
 //    public static List<BlendData> biomesWeveGoneBlends = List.of(
 //            BlendData.of("Allium Shrubland Blend", BWGBiomes.ALLIUM_SHRUBLAND, 0x9787B8, "bumpy_blend", BlendData.entry(Items.ALLIUM, 1), BlendData.entry(BWGBlocks.WHITE_ALLIUM.getItem(), 1), BlendData.entry(BWGBlocks.PINK_ALLIUM.getItem(), 1)),
@@ -274,9 +276,9 @@ public record BlendData(String name, ResourceKey<Biome> id, BlendType blendType,
             switch (colorType) {
                 case FOLIAGE_COLOR -> {
                     if (effects.has("foliage_color")) {
-                        int color = GsonHelper.getAsInt(effects, "foliage_color");
-                        System.out.println("Found foliage color for " + id.identifier() + ": " + Integer.toHexString(color));
-                        return color;
+                        String color = GsonHelper.getAsString(effects, "foliage_color");
+                        System.out.println("Found foliage color for " + id.identifier() + ": " + color);
+                        return Integer.parseInt(color.substring(1), 16);
                     }
                 }
                 case GRASS_COLOR -> {
@@ -309,10 +311,11 @@ public record BlendData(String name, ResourceKey<Biome> id, BlendType blendType,
         }
     }
 
-    private static BlendType defaultBlendType(ResourceKey<Biome> biomeId, int color) {
+    private static BlendType defaultBlendType(ResourceKey<Biome> biomeId, int color, Identifier model) {
         return new BlendType.BlendTypeBuilder()
                 .action(new SetBiomeAction(biomeId.identifier()))
                 .color(color)
+                .model(model)
                 .build();
     }
 

@@ -49,13 +49,8 @@ public class NeoForgeClient {
     @SubscribeEvent
     public static void modifyBakingResults(ModelEvent.ModifyBakingResult event) {
         event.getBakingResult().itemStackModels().computeIfPresent(
-//                ItemModelUtils.plainModel(Identifier.fromNamespaceAndPath(BiomeBlends.MOD_ID, "biome_blend")),
                 Identifier.fromNamespaceAndPath(BiomeBlends.MOD_ID, "biome_blend"),
-                (identifier, model) -> new BlendWrapper(model)
+                (identifier, model) -> new BiomeBlendsClient.BlendWrapper(model)
         );
-//        event.getTextureGetter().getModels().computeIfPresent(
-//                ModelIdentifier.inventory(Identifier.fromNamespaceAndPath("biomeblends", "biome_blend")),
-//                (location, model) -> new BlendWrapper(model)
-//        );
     }
 }

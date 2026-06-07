@@ -10,13 +10,9 @@ import net.minecraft.client.renderer.item.ClientItem;
 import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.Identifier;
-//import net.neoforged.neoforge.client.model.generators.ModelFile;
 import piotro15.biomeblends.BiomeBlends;
 import piotro15.biomeblends.BiomeBlendsClient;
 import piotro15.biomeblends.registry.BiomeBlendsItems;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ItemModelDatagen extends ModelProvider {
 
@@ -37,10 +33,10 @@ public class ItemModelDatagen extends ModelProvider {
     }
 
     private void registerBlendModel(ItemModelGenerators itemModels, String name) {
-        Identifier id = BiomeBlends.id("item/" + name);
+        Identifier itemId = BiomeBlends.id("item/" + name);
         itemModels.itemModelOutput.register(
-                id,
-                new ClientItem(ItemModelUtils.tintedModel(ModelTemplates.FLAT_ITEM.create(id, TextureMapping.layer0(new Material(id)), itemModels.modelOutput), new BiomeBlendsClient.BiomeBlend(0xFF0000FF)), ClientItem.Properties.DEFAULT)
+                BiomeBlends.id(name),
+                new ClientItem(ItemModelUtils.tintedModel(ModelTemplates.FLAT_ITEM.create(itemId, TextureMapping.layer0(new Material(itemId)), itemModels.modelOutput), new BiomeBlendsClient.BiomeBlend(0xFF0000FF)), ClientItem.Properties.DEFAULT)
         );
     }
 }

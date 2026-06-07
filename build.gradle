@@ -23,6 +23,10 @@ allprojects {
             name = "Architectury"
             url = "https://maven.architectury.dev/"
         }
+        maven {
+            name = "CurseMaven"
+            url "https://cursemaven.com"
+        }
     }
 }
 

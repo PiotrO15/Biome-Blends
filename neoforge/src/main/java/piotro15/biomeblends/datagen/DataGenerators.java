@@ -1,6 +1,6 @@
 package piotro15.biomeblends.datagen;
 
-//import biomesoplenty.core.BiomesOPlenty;
+import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.DetectedVersion;
 import net.minecraft.client.resources.LegacyStuffWrapper;
 import net.minecraft.core.HolderLookup;
@@ -39,12 +39,11 @@ public class DataGenerators {
 
     @SubscribeEvent
     public static void onGatherData(GatherDataEvent.Client event) {
-        System.out.println("[BiomeBlends] Gathering Data...");
         PackOutput packOutput = event.getGenerator().getPackOutput();
         initColors(event.getResourceManager(PackType.CLIENT_RESOURCES));
 
         event.createDatapackRegistryObjects(new RegistrySetBuilder()
-                        .add(BiomeBlendsRegistries.BLEND_TYPE, BlendTypeProvider::registerBlendTypes),
+                        .add(BiomeBlendsRegistries.BLEND_TYPE, context -> BlendTypeProvider.registerBlendTypes(context, BlendData.blends)),
                 Set.of(BiomeBlends.MOD_ID, "minecraft")
         );
 
@@ -54,13 +53,11 @@ public class DataGenerators {
 //        event.addProvider(namedProvider("Recipes " + BiomeBlends.MOD_ID, new RecipeDatagen.BlendRecipeProvider.Runner(packOutput, event.getLookupProvider())));
 
 
-//        addExtraDataPackProvider(BiomesOPlenty.MOD_ID, event, BlendData.biomesOPlentyBlends);
+        addExtraDataPackProvider(BiomesOPlenty.MOD_ID, event, BlendData.biomesOPlentyBlends);
 //        addExtraDataPackProvider(BiomesWeveGone.MOD_ID, event, BlendData.biomesWeveGoneBlends);
 
         event.addProvider(languageProvider);
         event.addProvider(new ItemModelDatagen(packOutput));
-
-        System.out.println("[BiomeBlends] Done!");
     }
 
     private static void addExtraDataPackProvider(String modId, GatherDataEvent event, List<BlendData> blends) {
@@ -79,7 +76,7 @@ public class DataGenerators {
                 });
 
 //        RecipeProvider inner = new RecipeDatagen.BlendRecipeProvider(dataOutput, event.getLookupProvider(), blends);
-        event.addProvider(namedProvider("Recipes " + modId, new RecipeDatagen.BlendRecipeProvider.Runner(dataOutput, event.getLookupProvider())));
+        event.addProvider(namedProvider("Recipes " + modId, new RecipeDatagen.BlendRecipeProvider.Runner(dataOutput, event.getLookupProvider(), blends)));
         languageProvider.addBlendTranslations(blends);
     }
 
