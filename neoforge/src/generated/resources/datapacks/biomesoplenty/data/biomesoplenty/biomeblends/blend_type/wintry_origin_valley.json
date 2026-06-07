@@ -1,0 +1,8 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomesoplenty:wintry_origin_valley"
+  },
+  "color": 3866368,
+  "model": "biomeblends:bumpy_blend"
+}

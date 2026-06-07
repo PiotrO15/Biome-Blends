@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "biomeblends:bland_blend",
+    "minecraft:bush",
+    "minecraft:lilac",
+    "minecraft:lilac"
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:shrubland"
+    },
+    "id": "biomeblends:biome_blend"
+  }
+}

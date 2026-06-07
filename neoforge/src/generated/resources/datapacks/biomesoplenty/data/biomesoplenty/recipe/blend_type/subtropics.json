@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "biomeblends:bland_blend",
+    "biomesoplenty:flowering_oak_sapling",
+    "minecraft:torchflower",
+    "minecraft:torchflower"
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:subtropics"
+    },
+    "id": "biomeblends:biome_blend"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomesoplenty:rocky_shrubland"
+  },
+  "color": -10247560,
+  "model": "biomeblends:bumpy_blend"
+}

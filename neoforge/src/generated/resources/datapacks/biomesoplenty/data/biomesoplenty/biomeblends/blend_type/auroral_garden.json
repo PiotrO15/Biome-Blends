@@ -1,0 +1,8 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomesoplenty:auroral_garden"
+  },
+  "color": 13762559,
+  "model": "biomeblends:fluffy_blend"
+}

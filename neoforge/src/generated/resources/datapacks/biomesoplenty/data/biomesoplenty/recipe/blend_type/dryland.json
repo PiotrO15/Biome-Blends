@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "biomeblends:bland_blend",
+    "minecraft:leaf_litter",
+    "minecraft:leaf_litter",
+    "minecraft:leaf_litter",
+    "biomesoplenty:tiny_cactus",
+    "biomesoplenty:tiny_cactus"
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:dryland"
+    },
+    "id": "biomeblends:biome_blend"
+  }
+}

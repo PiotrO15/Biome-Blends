@@ -1,0 +1,8 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomesoplenty:bog"
+  },
+  "color": 13008731,
+  "model": "biomeblends:bumpy_blend"
+}

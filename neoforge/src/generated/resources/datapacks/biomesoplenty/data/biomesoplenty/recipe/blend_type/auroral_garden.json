@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "biomeblends:bland_blend",
+    "biomesoplenty:icy_iris",
+    "biomesoplenty:icy_iris",
+    "minecraft:snowball",
+    "minecraft:snowball"
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:auroral_garden"
+    },
+    "id": "biomeblends:biome_blend"
+  }
+}

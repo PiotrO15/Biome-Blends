@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "biomeblends:bland_blend",
+    "biomesoplenty:origin_oak_sapling",
+    "minecraft:snowball",
+    "minecraft:snowball",
+    "minecraft:snowball"
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:wintry_origin_valley"
+    },
+    "id": "biomeblends:biome_blend"
+  }
+}

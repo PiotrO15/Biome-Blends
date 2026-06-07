@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "biomeblends:bland_blend",
+    "minecraft:sweet_berries",
+    "biomesoplenty:reed",
+    "biomesoplenty:reed"
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:bog"
+    },
+    "id": "biomeblends:biome_blend"
+  }
+}

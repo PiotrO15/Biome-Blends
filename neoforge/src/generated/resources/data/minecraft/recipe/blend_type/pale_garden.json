@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "biomeblends:bland_blend",
+    "minecraft:pale_oak_sapling",
+    "minecraft:pale_moss_block",
+    "minecraft:pale_moss_block",
+    "minecraft:pale_moss_block"
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "minecraft:pale_garden"
+    },
+    "id": "biomeblends:biome_blend"
+  }
+}

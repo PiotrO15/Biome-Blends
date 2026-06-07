@@ -1,0 +1,8 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:pale_garden"
+  },
+  "color": 7832178,
+  "model": "biomeblends:fluffy_blend"
+}

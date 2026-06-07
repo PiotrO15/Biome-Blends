@@ -1,9 +1,6 @@
 package piotro15.biomeblends.neoforge;
 
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
 import com.mojang.serialization.Codec;
-import net.minecraft.client.color.item.ItemTintSource;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
@@ -29,7 +26,6 @@ import java.util.function.Supplier;
 public class NeoForgePlatform extends Platform {
     public static final List<DataRegistryRegisterable<?>> dataRegistryRegisterables = new ArrayList<>();
     public static final Map<String, ModConfigSpec.BooleanValue> compatibilityDatapacks = new HashMap<>();
-    public static final BiMap<Supplier<Item>, ItemTintSource> itemColors = HashBiMap.create();
 
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(BiomeBlends.MOD_ID);
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, BiomeBlends.MOD_ID);
@@ -38,11 +34,6 @@ public class NeoForgePlatform extends Platform {
     @Override
     public <T> void registerDataRegistry(ResourceKey<Registry<T>> key, Codec<T> codec) {
         dataRegistryRegisterables.add(new DataRegistryRegisterable<>(key, codec, codec));
-    }
-
-    @Override
-    public void registerItemTint(ItemTintSource itemColor, Supplier<Item> itemSupplier) {
-        itemColors.put(itemSupplier, itemColor);
     }
 
     @Override

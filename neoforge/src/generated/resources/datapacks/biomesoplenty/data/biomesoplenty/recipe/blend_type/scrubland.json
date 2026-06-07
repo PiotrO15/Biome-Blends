@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "biomeblends:bland_blend",
+    "biomesoplenty:purple_wildflowers",
+    "biomesoplenty:purple_wildflowers",
+    "minecraft:short_dry_grass",
+    "minecraft:short_dry_grass"
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:scrubland"
+    },
+    "id": "biomeblends:biome_blend"
+  }
+}

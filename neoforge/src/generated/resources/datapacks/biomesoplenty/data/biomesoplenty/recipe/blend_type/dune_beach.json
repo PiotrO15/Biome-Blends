@@ -5,8 +5,8 @@
     "biomeblends:bland_blend",
     "biomesoplenty:sea_oats",
     "biomesoplenty:sea_oats",
-    "minecraft:sand",
-    "minecraft:sand"
+    "biomesoplenty:dune_grass",
+    "biomesoplenty:dune_grass"
   ],
   "result": {
     "components": {

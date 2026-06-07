@@ -85,7 +85,7 @@ public class GenerateBlendsCommand {
     }
 
     public static void save(Identifier resourceLocation, int blendColor) {
-        Path path = createAndValidatePath(resourceLocation, ".json");
+        Path path = createAndValidatePath(resourceLocation);
 
         BlendType.BlendTypeBuilder builder = new BlendType.BlendTypeBuilder().action(new SetBiomeAction(resourceLocation));
         if (blendColor != 0) {
@@ -111,14 +111,14 @@ public class GenerateBlendsCommand {
         }
     }
 
-    public static Path createAndValidatePath(Identifier resourceLocation, String string) {
+    public static Path createAndValidatePath(Identifier resourceLocation) {
         if (resourceLocation.getPath().contains("//")) {
             throw new IdentifierException("Invalid resource path: " + resourceLocation);
         } else {
             try {
                 Path path = generatedDir.resolve(resourceLocation.getNamespace());
                 Path path2 = path.resolve("blend_type");
-                Path path3 = FileUtil.resolvePath(path2, List.of(resourceLocation.getPath(), string));
+                Path path3 = FileUtil.resolvePath(path2, List.of(resourceLocation.getPath() + ".json"));
                 if (path3.startsWith(generatedDir) && FileUtil.isPathPortable(path3)) { //  && FileUtil.isPathNormalized(path3)
                     return path3;
                 } else {

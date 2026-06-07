@@ -4,9 +4,9 @@
   "ingredients": [
     "biomeblends:bland_blend",
     "minecraft:mossy_cobblestone",
-    "minecraft:short_grass",
-    "minecraft:short_grass",
-    "minecraft:short_grass"
+    "minecraft:bush",
+    "minecraft:bush",
+    "minecraft:bush"
   ],
   "result": {
     "components": {

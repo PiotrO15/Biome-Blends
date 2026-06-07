@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "biomeblends:bland_blend",
+    "minecraft:end_stone",
+    "minecraft:end_stone",
+    "minecraft:waxed_weathered_cut_copper",
+    "minecraft:waxed_weathered_cut_copper"
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "biomesoplenty:end_flats"
+    },
+    "id": "biomeblends:biome_blend"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomesoplenty:end_flats"
+  },
+  "color": 11652570,
+  "model": "biomeblends:bumpy_blend"
+}

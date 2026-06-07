@@ -4,8 +4,8 @@
   "ingredients": [
     "biomeblends:bland_blend",
     "biomesoplenty:wispjelly",
-    "minecraft:sand",
-    "minecraft:sand"
+    "biomesoplenty:white_sand",
+    "biomesoplenty:white_sand"
   ],
   "result": {
     "components": {

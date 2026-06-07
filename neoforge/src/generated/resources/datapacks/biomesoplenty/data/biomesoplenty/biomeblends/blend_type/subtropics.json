@@ -1,0 +1,8 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "biomesoplenty:subtropics"
+  },
+  "color": 6797676,
+  "model": "biomeblends:fluffy_blend"
+}

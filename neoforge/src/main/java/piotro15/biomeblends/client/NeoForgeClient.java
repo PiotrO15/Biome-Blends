@@ -30,9 +30,6 @@ public class NeoForgeClient {
 
     @SubscribeEvent
     public static void registerItemColors(RegisterColorHandlersEvent.ItemTintSources event) {
-//        NeoForgePlatform.itemColors.forEach(
-//                (item, color) -> event.register(color, item.get())
-//        );
         event.register(Identifier.fromNamespaceAndPath(BiomeBlends.MOD_ID, "biome_blend"), BiomeBlendsClient.BiomeBlend.MAP_CODEC);
     }
 

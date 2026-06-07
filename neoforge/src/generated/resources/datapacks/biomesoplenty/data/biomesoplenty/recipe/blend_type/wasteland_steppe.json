@@ -5,8 +5,8 @@
     "biomeblends:bland_blend",
     "biomesoplenty:desert_grass",
     "biomesoplenty:desert_grass",
-    "minecraft:short_grass",
-    "minecraft:short_grass"
+    "biomesoplenty:dead_grass",
+    "biomesoplenty:dead_grass"
   ],
   "result": {
     "components": {

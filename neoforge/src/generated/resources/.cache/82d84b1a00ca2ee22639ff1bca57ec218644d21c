@@ -1,4 +1,4 @@
-// 26.1.2	2026-06-06T22:15:07.7490256	Biome Blends Recipes
+// 26.1.2	2026-06-07T15:25:57.7173293	Biome Blends Recipes
 12c8a0958fabfc5ebc4b59437f88373facaae21f data/biomeblends/advancement/recipes/misc/bland_blend.json
 074c524ab1c255aa7d90f630c13e5d37ab8b191d data/biomeblends/recipe/bland_blend.json
 fd83b2a72c9e1854c019ccca236449210285aae9 data/minecraft/advancement/recipes/misc/blend_type/badlands.json
@@ -40,6 +40,7 @@ ee6b4bd437c754099642cfb30f8c6227576cd249 data/minecraft/advancement/recipes/misc
 2de4a1bbdbb6e02d879db270535f4fb8b0c8448f data/minecraft/advancement/recipes/misc/blend_type/old_growth_birch_forest.json
 e9507bb13f5b766414c6040f0d96e8b1bf7d6b6b data/minecraft/advancement/recipes/misc/blend_type/old_growth_pine_taiga.json
 b92d1acbd562dbbee98ae24f02be3b61a96d091b data/minecraft/advancement/recipes/misc/blend_type/old_growth_spruce_taiga.json
+1feffd50b78b494e34b781126db370768d10aaf4 data/minecraft/advancement/recipes/misc/blend_type/pale_garden.json
 9c48b344d8383082f21a840357f982560abf9aea data/minecraft/advancement/recipes/misc/blend_type/plains.json
 d9141bf21dba1cdc54d49e980fcdb4d0612e8d56 data/minecraft/advancement/recipes/misc/blend_type/river.json
 85fb30246be7ee8c8e22db0d237826f648aadc6a data/minecraft/advancement/recipes/misc/blend_type/savanna.json
@@ -104,6 +105,7 @@ a52fdd1536b4c1f85a3d9aeebe62b2d39cc25993 data/minecraft/recipe/blend_type/mushro
 9fa33e653e5dc60f2bd8847b02c24f3ae1d29b8b data/minecraft/recipe/blend_type/old_growth_birch_forest.json
 7075ec0d83c6728f2b446bd5fe440e964b2e2e67 data/minecraft/recipe/blend_type/old_growth_pine_taiga.json
 08ca920dd2fe7fa1eb112cdb038511adc211ded1 data/minecraft/recipe/blend_type/old_growth_spruce_taiga.json
+7bfbd8d1a833acb6dc965e5dd6b76192989d7e69 data/minecraft/recipe/blend_type/pale_garden.json
 784e45223aeb285da45ef8284d73648b6a27e402 data/minecraft/recipe/blend_type/plains.json
 48bb01ccaff1637ce266b618c5c8664661ee48c5 data/minecraft/recipe/blend_type/river.json
 54bf704b1fe4008c1853313465bff21030e8e6d5 data/minecraft/recipe/blend_type/savanna.json

@@ -12,8 +12,7 @@ public final class BiomeBlends {
     public static final String MOD_ID = "biomeblends";
 
     public static void init() {
-//        BiomeBlendsItems.ITEMS.register();
-//        BiomeBlendsDataComponents.REGISTRAR.register();
+        BiomeBlendsItems.load();
         BiomeBlendsDataComponents.load();
         BlendActionRegistry.registerActions();
         BiomeBlendsRegistries.init();
@@ -24,7 +23,7 @@ public final class BiomeBlends {
     }
 
     public static void initClient() {
-        Platform.getInstance().registerItemTint(new BiomeBlendsClient.BiomeBlend(0xFF0000FF), BiomeBlendsItems.BIOME_BLEND);
+
     }
 
     public static Identifier id(String path) {
