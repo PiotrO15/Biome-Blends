@@ -16,7 +16,7 @@ public class CommonConfig {
     public final ModConfigSpec.IntValue blendUseCooldown;
 
     public final ModConfigSpec.BooleanValue bopCompat;
-    public final ModConfigSpec.BooleanValue bwgCompat;
+//    public final ModConfigSpec.BooleanValue bwgCompat;
 
     private CommonConfig(ModConfigSpec.Builder builder) {
         horizontalScale = builder.defineInRange("horizontal_scale", 1.0D, 0, 10);
@@ -28,7 +28,7 @@ public class CommonConfig {
         blendUseCooldown = builder.defineInRange("blend_cooldown", 10, 0, 1000);
 
         bopCompat = builder.define("compatibility.biomesoplenty", true);
-        bwgCompat = builder.define("compatibility.biomeswevegone", true);
+//        bwgCompat = builder.define("compatibility.biomeswevegone", true);
     }
 
     static {
