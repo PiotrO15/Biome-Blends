@@ -97,7 +97,7 @@ public class RecipeDatagen extends RecipeProvider {
     protected void buildRecipes() {
         ShapelessRecipeBuilder.shapeless(registries.lookupOrThrow(Registries.ITEM), RecipeCategory.MISC, BiomeBlendsItems.BLAND_BLEND.get(), 4)
                 .requires(Items.CLAY_BALL, 3)
-                .requires(Items.WHITE_DYE, 2)
+                .requires(Items.DYE.white(), 2)
                 .requires(Items.PAPER)
                 .unlockedBy("has_clay_ball", has(Items.CLAY_BALL))
                 .save(output);
