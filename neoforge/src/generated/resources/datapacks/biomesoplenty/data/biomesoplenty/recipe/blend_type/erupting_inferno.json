@@ -1,10 +1,9 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "ingredients": [
     "biomeblends:bland_blend",
-    "biomesoplenty:brimstone",
-    "biomesoplenty:brimstone",
+    "biomesoplenty:orpiment",
+    "biomesoplenty:orpiment",
     "minecraft:netherrack",
     "minecraft:netherrack"
   ],

@@ -1,4 +1,4 @@
-// 26.1.2	2026-06-07T15:25:57.7158027	Registries
+// 26.2	2026-08-23T14:54:45.0356028	Registries
 c9a98394c971da6146cc10aa34ebff36113af4af data/minecraft/biomeblends/blend_type/badlands.json
 292570ff27bb781e789aeb570834b1a5d3e58e0a data/minecraft/biomeblends/blend_type/bamboo_jungle.json
 8a4922356065a68c590a5f7a693d66189f0d593c data/minecraft/biomeblends/blend_type/basalt_deltas.json
@@ -52,6 +52,7 @@ b0a0066ec06b2c7f4b5bb51a662a348176fb67b5 data/minecraft/biomeblends/blend_type/s
 4ce83a78de6f30a758223a0ce4c13d20c720a723 data/minecraft/biomeblends/blend_type/sparse_jungle.json
 ded5289140ca6418ae311d5f78ba7171915e2ce6 data/minecraft/biomeblends/blend_type/stony_peaks.json
 f35d80f8f6f39ab077bd605c522bde32026a39c1 data/minecraft/biomeblends/blend_type/stony_shore.json
+d66e73c43169d1bc52315c96cb6719d0839db432 data/minecraft/biomeblends/blend_type/sulfur_caves.json
 12b7e375ef74ed2c191c8c79ad5ce3880028c891 data/minecraft/biomeblends/blend_type/sunflower_plains.json
 eaa1193785c6ff30beedc3e5c03386ca8522aef5 data/minecraft/biomeblends/blend_type/swamp.json
 ccd8a03d0e90d23ec9eced398dbe877e54d2cdad data/minecraft/biomeblends/blend_type/taiga.json

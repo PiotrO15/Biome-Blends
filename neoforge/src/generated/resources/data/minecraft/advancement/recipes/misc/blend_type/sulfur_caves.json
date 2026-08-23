@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "biomesoplenty:sphalerite"
+            "items": "minecraft:sulfur"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/hot_springs"
+        "recipe": "minecraft:blend_type/sulfur_caves"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "biomesoplenty:blend_type/hot_springs"
+      "minecraft:blend_type/sulfur_caves"
     ]
   }
 }

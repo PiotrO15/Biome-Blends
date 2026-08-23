@@ -2,14 +2,13 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     "biomeblends:bland_blend",
-    "biomesoplenty:icy_iris",
-    "biomesoplenty:icy_iris",
-    "minecraft:snowball",
-    "minecraft:snowball"
+    "minecraft:sulfur",
+    "minecraft:sulfur",
+    "minecraft:sulfur"
   ],
   "result": {
     "components": {
-      "biomeblends:blend_type": "biomesoplenty:auroral_garden"
+      "biomeblends:blend_type": "minecraft:sulfur_caves"
     },
     "id": "biomeblends:biome_blend"
   }

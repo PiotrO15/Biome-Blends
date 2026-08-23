@@ -1,0 +1,8 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:sulfur_caves"
+  },
+  "color": 15920196,
+  "model": "biomeblends:rocky_blend"
+}

@@ -1,11 +1,11 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "ingredients": [
     "biomeblends:bland_blend",
-    "biomesoplenty:pine_sapling",
-    "biomesoplenty:thermal_calcite",
-    "biomesoplenty:thermal_calcite"
+    "biomesoplenty:sphalerite",
+    "minecraft:sulfur",
+    "biomesoplenty:orpiment",
+    "minecraft:cinnabar"
   ],
   "result": {
     "components": {

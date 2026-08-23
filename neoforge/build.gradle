@@ -66,8 +66,8 @@ dependencies {
 
     // BOP
     implementation "curse.maven:glitchcore-955399:8332871"
-    implementation "curse.maven:terrablender-neoforge-940057:8350732"
-    implementation "curse.maven:biomes-o-plenty-220318:8381737"
+    implementation "curse.maven:terrablender-neoforge-940057:8384516"
+    implementation "curse.maven:biomes-o-plenty-220318:8438921"
 
     // BYG
 ////    implementation "curse.maven:corgilib-693313:6808264"
