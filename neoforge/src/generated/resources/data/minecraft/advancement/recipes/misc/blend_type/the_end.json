@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/the_end"
+        "recipes": "minecraft:blend_type/the_end"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/old_growth_pine_taiga"
+        "recipes": "minecraft:blend_type/old_growth_pine_taiga"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

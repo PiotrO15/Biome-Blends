@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/jungle"
+        "recipes": "minecraft:blend_type/jungle"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

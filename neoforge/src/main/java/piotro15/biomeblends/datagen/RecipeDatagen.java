@@ -1,39 +1,44 @@
 package piotro15.biomeblends.datagen;
 
 import com.mojang.datafixers.util.Either;
+import net.minecraft.advancements.Advancement;
 import net.minecraft.core.HolderGetter;
-import net.minecraft.core.HolderLookup;
+import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponentPatch;
+import net.minecraft.core.registries.MultiRegistryBootstrap;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
+import org.jspecify.annotations.NonNull;
 import piotro15.biomeblends.registry.BiomeBlendsDataComponents;
 import piotro15.biomeblends.registry.BiomeBlendsItems;
 
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
+import java.util.Set;
 
 public class RecipeDatagen extends RecipeProvider {
 
-    public RecipeDatagen(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
-        super(provider, recipeOutput);
+    public RecipeDatagen(BootstrapContext<Recipe<?>> recipeOutput, BootstrapContext<Advancement> advancementOutput) {
+        super(recipeOutput, advancementOutput);
     }
 
     public static class BlendRecipeProvider extends RecipeProvider {
         private final List<BlendData> blends;
-        public BlendRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput, List<BlendData> blends) {
-            super(provider, recipeOutput);
+        public BlendRecipeProvider(BootstrapContext<Recipe<?>> recipeOutput, BootstrapContext<Advancement> advancementOutput, List<BlendData> blends) {
+            super(recipeOutput, advancementOutput);
             this.blends = blends;
         }
 
@@ -43,7 +48,7 @@ public class RecipeDatagen extends RecipeProvider {
                 Map<Either<Item, TagKey<Item>>, Integer> items = new LinkedHashMap<>();
                 items.put(Either.left(BiomeBlendsItems.BLAND_BLEND.get()), 1);
                 items.putAll(blend.ingredients());
-                shapelessBlendRecipe(registries.lookupOrThrow(Registries.ITEM), output, blend.getIdentifier(), items);
+                shapelessBlendRecipe(this.items, output, blend.getIdentifier(), items);
             });
         }
 
@@ -69,33 +74,24 @@ public class RecipeDatagen extends RecipeProvider {
             return blendLocation.getNamespace() + ":blend_type/" + blendLocation.getPath();
         }
 
-        public static final class Runner extends RecipeProvider.Runner
-        {
-            private final List<BlendData> blends;
+        public static MultiRegistryBootstrap create(List<BlendData> blends) {
+            return new MultiRegistryBootstrap() {
+                @Override
+                public @NonNull Set<ResourceKey<? extends Registry<?>>> requestedRegistries() {
+                    return Set.of(Registries.RECIPE, Registries.ADVANCEMENT);
+                }
 
-            public Runner(PackOutput output, CompletableFuture<HolderLookup.Provider> completableFuture, List<BlendData> blends)
-            {
-                this.blends = blends;
-                super(output, completableFuture);
-            }
-
-            @Override
-            protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput output)
-            {
-                return new BlendRecipeProvider(provider, output, blends);
-            }
-
-            @Override
-            public String getName()
-            {
-                return "Biome Blends Recipes";
-            }
+                @Override
+                public void run(MultiRegistryBootstrap.@NonNull BootstrapGetter registries) {
+                    new BlendRecipeProvider(registries.get(Registries.RECIPE), registries.get(Registries.ADVANCEMENT), blends).buildRecipes();
+                }
+            };
         }
     }
 
     @Override
     protected void buildRecipes() {
-        ShapelessRecipeBuilder.shapeless(registries.lookupOrThrow(Registries.ITEM), RecipeCategory.MISC, BiomeBlendsItems.BLAND_BLEND.get(), 4)
+        ShapelessRecipeBuilder.shapeless(this.items, RecipeCategory.MISC, BiomeBlendsItems.BLAND_BLEND.get(), 4)
                 .requires(Items.CLAY_BALL, 3)
                 .requires(Items.DYE.white(), 2)
                 .requires(Items.PAPER)
@@ -106,7 +102,7 @@ public class RecipeDatagen extends RecipeProvider {
             Map<Either<Item, TagKey<Item>>, Integer> items = new LinkedHashMap<>();
             items.put(Either.left(BiomeBlendsItems.BLAND_BLEND.get()), 1);
             items.putAll(blend.ingredients());
-            shapelessBlendRecipe(registries.lookupOrThrow(Registries.ITEM), output, blend.getIdentifier(), items);
+            shapelessBlendRecipe(this.items, output, blend.getIdentifier(), items);
         });
     }
 
@@ -132,23 +128,17 @@ public class RecipeDatagen extends RecipeProvider {
         return "blend_type/" + blendLocation.getPath();
     }
 
-    public static final class Runner extends RecipeProvider.Runner
-    {
-        public Runner(PackOutput output, CompletableFuture<HolderLookup.Provider> completableFuture)
-        {
-            super(output, completableFuture);
-        }
+    public static MultiRegistryBootstrap create() {
+        return new MultiRegistryBootstrap() {
+            @Override
+            public @NonNull Set<ResourceKey<? extends Registry<?>>> requestedRegistries() {
+                return Set.of(Registries.RECIPE, Registries.ADVANCEMENT);
+            }
 
-        @Override
-        protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput output)
-        {
-            return new RecipeDatagen(provider, output);
-        }
-
-        @Override
-        public String getName()
-        {
-            return "Biome Blends Recipes";
-        }
+            @Override
+            public void run(MultiRegistryBootstrap.@NonNull BootstrapGetter registries) {
+                new RecipeDatagen(registries.get(Registries.RECIPE), registries.get(Registries.ADVANCEMENT)).buildRecipes();
+            }
+        };
     }
 }

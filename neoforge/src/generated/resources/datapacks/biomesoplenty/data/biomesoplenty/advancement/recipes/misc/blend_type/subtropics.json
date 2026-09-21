@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/subtropics"
+        "recipes": "biomesoplenty:blend_type/subtropics"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

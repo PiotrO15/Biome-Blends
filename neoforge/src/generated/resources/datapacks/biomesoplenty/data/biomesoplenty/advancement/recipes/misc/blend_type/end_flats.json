@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/end_flats"
+        "recipes": "biomesoplenty:blend_type/end_flats"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

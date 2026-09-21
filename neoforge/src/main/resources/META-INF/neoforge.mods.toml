@@ -16,13 +16,12 @@ iconFile = "icon.png"
 [[dependencies.biomeblends]]
 modId = "neoforge"
 type = "required"
-#versionRange = "[26.2, 26.3)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.biomeblends]]
 modId = "minecraft"
 type = "required"
-versionRange = "[26.2, 26.3)"
+versionRange = "[26.3, 26.4)"
 ordering = "NONE"
 side = "BOTH"

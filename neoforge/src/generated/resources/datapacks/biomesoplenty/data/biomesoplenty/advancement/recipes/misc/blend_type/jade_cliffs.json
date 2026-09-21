@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/jade_cliffs"
+        "recipes": "biomesoplenty:blend_type/jade_cliffs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

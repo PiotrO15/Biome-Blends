@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/field"
+        "recipes": "biomesoplenty:blend_type/field"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

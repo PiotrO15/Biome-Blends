@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/frozen_peaks"
+        "recipes": "minecraft:blend_type/frozen_peaks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

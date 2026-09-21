@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/cold_desert"
+        "recipes": "biomesoplenty:blend_type/cold_desert"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

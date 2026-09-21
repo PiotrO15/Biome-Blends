@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/wintry_origin_valley"
+        "recipes": "biomesoplenty:blend_type/wintry_origin_valley"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

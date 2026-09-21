@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/crystalline_chasm"
+        "recipes": "biomesoplenty:blend_type/crystalline_chasm"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

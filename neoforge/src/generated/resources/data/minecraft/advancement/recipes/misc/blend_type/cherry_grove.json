@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/cherry_grove"
+        "recipes": "minecraft:blend_type/cherry_grove"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

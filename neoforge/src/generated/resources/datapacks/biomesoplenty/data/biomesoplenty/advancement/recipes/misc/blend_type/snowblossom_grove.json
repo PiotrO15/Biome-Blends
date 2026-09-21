@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/snowblossom_grove"
+        "recipes": "biomesoplenty:blend_type/snowblossom_grove"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

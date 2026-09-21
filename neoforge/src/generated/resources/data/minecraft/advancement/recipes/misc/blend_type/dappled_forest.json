@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:poppy"
+            "items": "minecraft:poplar_sapling"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipes": "biomesoplenty:blend_type/lush_savanna"
+        "recipes": "minecraft:blend_type/dappled_forest"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "biomesoplenty:blend_type/lush_savanna"
+      "minecraft:blend_type/dappled_forest"
     ]
   }
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/swamp"
+        "recipes": "minecraft:blend_type/swamp"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

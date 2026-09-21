@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/small_end_islands"
+        "recipes": "minecraft:blend_type/small_end_islands"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

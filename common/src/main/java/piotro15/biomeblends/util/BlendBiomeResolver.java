@@ -25,7 +25,7 @@ import java.util.function.Predicate;
 
 public class BlendBiomeResolver {
     public static BiomeResolver makeResolver(ChunkAccess chunk, BoundingBox boundingBox, ServerLevel level, Identifier targetBiome, Predicate<Holder<Biome>> predicate, ParticleOptions particleOptions) {
-        return (x, y, z, sampler) -> {
+        return (x, y, z) -> {
             int quartX = QuartPos.toBlock(x);
             int quartY = QuartPos.toBlock(y);
             int quartZ = QuartPos.toBlock(z);
@@ -48,7 +48,7 @@ public class BlendBiomeResolver {
     }
 
     public static BiomeResolver makeNamespaceResolver(ChunkAccess chunk, BoundingBox boundingBox, ServerLevel level, String targetNamespace, Optional<Identifier> fallbackBiome, Predicate<Holder<Biome>> predicate, ParticleOptions particleOptions) {
-        return (x, y, z, sampler) -> {
+        return (x, y, z) -> {
             int quartX = QuartPos.toBlock(x);
             int quartY = QuartPos.toBlock(y);
             int quartZ = QuartPos.toBlock(z);
@@ -104,7 +104,7 @@ public class BlendBiomeResolver {
 
         for (ChunkAccess chunk : chunks) {
             BiomeResolver resolver = resolverFactory.apply(chunk, boundingBox);
-            chunk.fillBiomesFromNoise(resolver, level.getChunkSource().randomState().sampler());
+            chunk.fillBiomesFromNoise(resolver);
             chunk.markUnsaved();
         }
 

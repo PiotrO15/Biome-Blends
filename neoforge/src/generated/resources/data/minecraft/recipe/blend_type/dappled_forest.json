@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "biomeblends:bland_blend",
+    "minecraft:poplar_sapling",
+    "minecraft:poplar_sapling",
+    "minecraft:shelf_mushroom",
+    "minecraft:shelf_mushroom"
+  ],
+  "result": {
+    "components": {
+      "biomeblends:blend_type": "minecraft:dappled_forest"
+    },
+    "id": "biomeblends:biome_blend"
+  }
+}

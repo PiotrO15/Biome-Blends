@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/ice_spikes"
+        "recipes": "minecraft:blend_type/ice_spikes"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

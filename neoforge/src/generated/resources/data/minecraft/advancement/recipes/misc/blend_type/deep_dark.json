@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/deep_dark"
+        "recipes": "minecraft:blend_type/deep_dark"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

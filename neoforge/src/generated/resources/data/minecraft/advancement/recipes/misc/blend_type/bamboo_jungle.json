@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/bamboo_jungle"
+        "recipes": "minecraft:blend_type/bamboo_jungle"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/soul_sand_valley"
+        "recipes": "minecraft:blend_type/soul_sand_valley"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

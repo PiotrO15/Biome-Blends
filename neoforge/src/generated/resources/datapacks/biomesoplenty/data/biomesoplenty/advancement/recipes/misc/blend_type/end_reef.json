@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/end_reef"
+        "recipes": "biomesoplenty:blend_type/end_reef"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

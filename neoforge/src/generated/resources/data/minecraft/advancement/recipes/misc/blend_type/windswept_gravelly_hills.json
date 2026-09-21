@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/windswept_gravelly_hills"
+        "recipes": "minecraft:blend_type/windswept_gravelly_hills"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

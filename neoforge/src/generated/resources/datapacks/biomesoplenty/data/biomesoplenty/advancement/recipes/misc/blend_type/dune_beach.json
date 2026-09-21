@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/dune_beach"
+        "recipes": "biomesoplenty:blend_type/dune_beach"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/spider_nest"
+        "recipes": "biomesoplenty:blend_type/spider_nest"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

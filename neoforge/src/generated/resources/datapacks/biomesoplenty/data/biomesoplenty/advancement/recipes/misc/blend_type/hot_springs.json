@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/hot_springs"
+        "recipes": "biomesoplenty:blend_type/hot_springs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/orchard"
+        "recipes": "biomesoplenty:blend_type/orchard"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

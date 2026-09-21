@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/fungal_jungle"
+        "recipes": "biomesoplenty:blend_type/fungal_jungle"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

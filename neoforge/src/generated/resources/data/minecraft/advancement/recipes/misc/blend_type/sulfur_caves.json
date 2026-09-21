@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/sulfur_caves"
+        "recipes": "minecraft:blend_type/sulfur_caves"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

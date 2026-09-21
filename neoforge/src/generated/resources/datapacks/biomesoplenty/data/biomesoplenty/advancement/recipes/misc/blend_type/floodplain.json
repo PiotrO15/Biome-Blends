@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/floodplain"
+        "recipes": "biomesoplenty:blend_type/floodplain"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

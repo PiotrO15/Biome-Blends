@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/forest"
+        "recipes": "minecraft:blend_type/forest"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

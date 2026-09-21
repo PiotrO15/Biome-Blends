@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/basalt_deltas"
+        "recipes": "minecraft:blend_type/basalt_deltas"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/mangrove_swamp"
+        "recipes": "minecraft:blend_type/mangrove_swamp"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

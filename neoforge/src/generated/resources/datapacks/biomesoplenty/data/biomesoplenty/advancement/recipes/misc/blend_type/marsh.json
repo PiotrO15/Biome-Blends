@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/marsh"
+        "recipes": "biomesoplenty:blend_type/marsh"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

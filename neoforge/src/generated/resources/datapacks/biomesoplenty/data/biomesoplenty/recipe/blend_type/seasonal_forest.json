@@ -2,9 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     "biomeblends:bland_blend",
-    "biomesoplenty:yellow_maple_sapling",
-    "biomesoplenty:orange_maple_sapling",
-    "biomesoplenty:red_maple_sapling"
+    "biomesoplenty:maple_sapling",
+    "biomesoplenty:maple_sapling",
+    "biomesoplenty:maple_sapling"
   ],
   "result": {
     "components": {

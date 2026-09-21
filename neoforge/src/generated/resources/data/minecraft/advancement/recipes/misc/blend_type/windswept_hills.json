@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/windswept_hills"
+        "recipes": "minecraft:blend_type/windswept_hills"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

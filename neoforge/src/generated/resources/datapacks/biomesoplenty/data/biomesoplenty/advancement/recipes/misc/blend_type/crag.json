@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/crag"
+        "recipes": "biomesoplenty:blend_type/crag"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

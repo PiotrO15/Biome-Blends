@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/fir_clearing"
+        "recipes": "biomesoplenty:blend_type/fir_clearing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

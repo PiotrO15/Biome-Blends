@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/old_growth_woodland"
+        "recipes": "biomesoplenty:blend_type/old_growth_woodland"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

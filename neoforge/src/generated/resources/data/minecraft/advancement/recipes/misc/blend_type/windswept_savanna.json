@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/windswept_savanna"
+        "recipes": "minecraft:blend_type/windswept_savanna"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

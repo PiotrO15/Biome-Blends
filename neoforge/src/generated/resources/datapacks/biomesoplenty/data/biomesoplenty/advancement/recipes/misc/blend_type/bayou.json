@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/bayou"
+        "recipes": "biomesoplenty:blend_type/bayou"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

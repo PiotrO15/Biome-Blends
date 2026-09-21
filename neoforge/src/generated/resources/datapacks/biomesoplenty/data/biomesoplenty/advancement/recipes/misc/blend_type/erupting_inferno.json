@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/erupting_inferno"
+        "recipes": "biomesoplenty:blend_type/erupting_inferno"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

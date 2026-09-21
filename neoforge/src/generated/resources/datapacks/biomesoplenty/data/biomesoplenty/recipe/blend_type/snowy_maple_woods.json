@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     "biomeblends:bland_blend",
-    "biomesoplenty:red_maple_sapling",
+    "biomesoplenty:maple_sapling",
     "minecraft:snowball",
     "minecraft:snowball"
   ],

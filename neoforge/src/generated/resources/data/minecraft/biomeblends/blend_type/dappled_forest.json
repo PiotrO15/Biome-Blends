@@ -1,0 +1,8 @@
+{
+  "action": {
+    "type": "biomeblends:set_biome",
+    "target_biome": "minecraft:dappled_forest"
+  },
+  "color": 14641191,
+  "model": "biomeblends:fluffy_blend"
+}

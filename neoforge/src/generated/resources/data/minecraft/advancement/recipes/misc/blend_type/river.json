@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/river"
+        "recipes": "minecraft:blend_type/river"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,4 +1,4 @@
-// 26.2	2026-08-23T14:54:45.0356028	Registries
+// 26.3	2026-09-21T17:19:54.3788513	Registries for world
 c9a98394c971da6146cc10aa34ebff36113af4af data/minecraft/biomeblends/blend_type/badlands.json
 292570ff27bb781e789aeb570834b1a5d3e58e0a data/minecraft/biomeblends/blend_type/bamboo_jungle.json
 8a4922356065a68c590a5f7a693d66189f0d593c data/minecraft/biomeblends/blend_type/basalt_deltas.json
@@ -7,6 +7,7 @@ c9a98394c971da6146cc10aa34ebff36113af4af data/minecraft/biomeblends/blend_type/b
 22b9f3cdb7eaab2070de6da8307a01ba43f98abc data/minecraft/biomeblends/blend_type/cherry_grove.json
 68921af8bb71e41ff9c706ca94e0b2f8636278cd data/minecraft/biomeblends/blend_type/cold_ocean.json
 9e3e58dc3be059e75866d476a549e345d778b05b data/minecraft/biomeblends/blend_type/crimson_forest.json
+2974d4413f60aed1d4379adb2ddceed2c6f35145 data/minecraft/biomeblends/blend_type/dappled_forest.json
 d1802ebffd78502d26756a07e01111308c066ee5 data/minecraft/biomeblends/blend_type/dark_forest.json
 602b5cfa3bc0b39d0bfdd5e2040dcfef51e74abe data/minecraft/biomeblends/blend_type/deep_cold_ocean.json
 d982b30e55b7cb095c89edcedbcd93ebfd40c1c9 data/minecraft/biomeblends/blend_type/deep_dark.json

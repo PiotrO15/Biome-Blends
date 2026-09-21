@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/eroded_badlands"
+        "recipes": "minecraft:blend_type/eroded_badlands"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

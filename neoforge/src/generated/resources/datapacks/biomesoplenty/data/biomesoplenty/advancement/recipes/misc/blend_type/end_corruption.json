@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/end_corruption"
+        "recipes": "biomesoplenty:blend_type/end_corruption"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

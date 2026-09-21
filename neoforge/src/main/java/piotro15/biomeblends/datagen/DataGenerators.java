@@ -3,18 +3,15 @@ package piotro15.biomeblends.datagen;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.DetectedVersion;
 import net.minecraft.client.resources.LegacyStuffWrapper;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.metadata.PackMetadataGenerator;
-import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.PackType;
-import net.minecraft.server.packs.metadata.pack.PackFormat;
 import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.util.InclusiveRange;
@@ -42,14 +39,14 @@ public class DataGenerators {
         PackOutput packOutput = event.getGenerator().getPackOutput();
         initColors(event.getResourceManager(PackType.CLIENT_RESOURCES));
 
-        event.createDatapackRegistryObjects(new RegistrySetBuilder()
+        event.createWorldRegistryObjects(new RegistrySetBuilder()
                         .add(BiomeBlendsRegistries.BLEND_TYPE, context -> BlendTypeProvider.registerBlendTypes(context, BlendData.blends)),
                 Set.of(BiomeBlends.MOD_ID, "minecraft")
         );
 
         languageProvider = new LanguageDatagen(packOutput, BiomeBlends.MOD_ID, "en_us");
 
-        event.createProvider(RecipeDatagen.Runner::new);
+        event.addProvider(DatapackBuiltinEntriesProvider.forReloadableLayer(packOutput, "BiomeBlends Recipes", event.getWorldLookupProvider(), event.getReloadableLookupProvider(), new RegistrySetBuilder().add(RecipeDatagen.create()), Set.of(BiomeBlends.MOD_ID, "minecraft")));
 //        event.addProvider(namedProvider("Recipes " + BiomeBlends.MOD_ID, new RecipeDatagen.BlendRecipeProvider.Runner(packOutput, event.getLookupProvider())));
 
 
@@ -67,15 +64,9 @@ public class DataGenerators {
         event.addProvider(namedProvider("Pack Metadata " + modId, new PackMetadataGenerator(dataOutput)
                 .add(PackMetadataSection.SERVER_TYPE, new PackMetadataSection(Component.translatable("biomeblends.datapacks." + modId), new InclusiveRange<>(DetectedVersion.BUILT_IN.packVersion(PackType.SERVER_DATA))))));
 
-        event.addProvider(
-                new DatapackBuiltinEntriesProvider(dataOutput, event.getLookupProvider(), new RegistrySetBuilder().add(BiomeBlendsRegistries.BLEND_TYPE, (context) -> BlendTypeProvider.registerBlendTypes(context, blends)), Set.of(modId)) {
-                    @Override
-                    public @NotNull String getName() {
-                        return "Registries " + modId;
-                    }
-                });
+        event.addProvider(DatapackBuiltinEntriesProvider.forWorldLayer(dataOutput, "Registries " + modId, event.getWorldLookupProvider(), new RegistrySetBuilder().add(BiomeBlendsRegistries.BLEND_TYPE, (context) -> BlendTypeProvider.registerBlendTypes(context, blends)), Set.of(modId)));
 
-        event.addProvider(namedProvider("Recipes " + modId, new RecipeDatagen.BlendRecipeProvider.Runner(dataOutput, event.getLookupProvider(), blends)));
+        event.addProvider(DatapackBuiltinEntriesProvider.forReloadableLayer(dataOutput, "Recipes " + modId, event.getWorldLookupProvider(), event.getReloadableLookupProvider(), new RegistrySetBuilder().add(RecipeDatagen.BlendRecipeProvider.create(blends)), Set.of(modId)));
         languageProvider.addBlendTranslations(blends);
     }
 

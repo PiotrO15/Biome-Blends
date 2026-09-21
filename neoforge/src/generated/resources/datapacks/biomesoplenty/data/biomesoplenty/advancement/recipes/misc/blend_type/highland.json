@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/highland"
+        "recipes": "biomesoplenty:blend_type/highland"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

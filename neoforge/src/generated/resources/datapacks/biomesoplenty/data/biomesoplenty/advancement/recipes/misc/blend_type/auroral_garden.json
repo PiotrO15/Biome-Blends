@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/auroral_garden"
+        "recipes": "biomesoplenty:blend_type/auroral_garden"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

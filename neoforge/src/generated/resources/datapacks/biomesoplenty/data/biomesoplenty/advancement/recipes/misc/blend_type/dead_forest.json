@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/dead_forest"
+        "recipes": "biomesoplenty:blend_type/dead_forest"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

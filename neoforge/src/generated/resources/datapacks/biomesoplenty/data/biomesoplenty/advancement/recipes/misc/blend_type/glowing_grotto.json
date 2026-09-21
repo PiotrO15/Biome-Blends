@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/glowing_grotto"
+        "recipes": "biomesoplenty:blend_type/glowing_grotto"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

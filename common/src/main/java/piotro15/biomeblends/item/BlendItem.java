@@ -6,6 +6,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Prediction;
 import net.minecraft.util.Util;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -75,7 +76,7 @@ public class BlendItem extends Item {
                         useOnContext.getItemInHand().shrink(1);
 
                         if (!player.getInventory().add(useRemainder.copy())) {
-                            player.drop(useRemainder.copy(), false);
+                            player.drop(useRemainder.copy(), false, Prediction.SERVER_ONLY);
                         }
                     }
                 } else if (!player.isCreative()) {

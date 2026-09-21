@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/snowy_plains"
+        "recipes": "minecraft:blend_type/snowy_plains"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

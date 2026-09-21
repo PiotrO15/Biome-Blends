@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomeblends:bland_blend"
+        "recipes": "biomeblends:bland_blend"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blend_type/beach"
+        "recipes": "minecraft:blend_type/beach"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

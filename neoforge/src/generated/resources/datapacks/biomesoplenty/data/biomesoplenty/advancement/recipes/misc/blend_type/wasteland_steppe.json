@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/wasteland_steppe"
+        "recipes": "biomesoplenty:blend_type/wasteland_steppe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

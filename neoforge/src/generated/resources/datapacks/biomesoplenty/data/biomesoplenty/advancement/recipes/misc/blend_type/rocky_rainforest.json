@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blend_type/rocky_rainforest"
+        "recipes": "biomesoplenty:blend_type/rocky_rainforest"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
