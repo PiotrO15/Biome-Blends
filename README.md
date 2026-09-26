@@ -6,7 +6,7 @@
 [![Modrinth Downloads](https://img.shields.io/modrinth/dt/q95zxc4j?style=for-the-badge&logo=modrinth&label=Modrinth&color=%2300AF5C)](https://modrinth.com/mod/biome-blends)
 
 [![Biome Blends Discord](https://img.shields.io/discord/1344936732759560236?style=for-the-badge&logo=discord&logoColor=ffffff&color=5865F2&label=Discord)](https://discord.gg/7Kc2NEFh8e)
-[![Support me on Ko-fi](https://img.shields.io/badge/Support%20Me-grey?style=for-the-badge&logo=ko-fi&logoColor=ffffff&labelColor=228B22)](https://ko-fi.com/piotro15)
+[![Support me on Ko-fi](https://img.shields.io/badge/Support%20Me-grey?style=for-the-badge&logo=ko-fi&logoColor=ffffff&labelColor=228B22)](https://ko-fi.com/meverdo)
 
 </div>
 
